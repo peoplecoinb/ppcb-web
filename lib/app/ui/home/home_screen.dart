@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/app_text_styles.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.text});
   final String text;
@@ -26,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         //   AppImages.png('logo'),
         //   scale: 1.5,
         // ),
-        child: Text(widget.text),
+        child: Text(widget.text, style: AppTextStyles.getHeadingStyle(AppTextStyles.bold),),
       ),
     );
   }

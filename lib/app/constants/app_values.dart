@@ -3,14 +3,13 @@ import 'package:get/get.dart';
 
 import '../blocs/language/language_select_state.dart';
 import '../extensions/extensions.dart';
-import '../routes/app_routes.dart';
 import 'app_images.dart';
 
 double get viewPaddingTop => Get.mediaQuery.viewPadding.top;
 double get viewPaddingBot => Get.mediaQuery.viewPadding.bottom;
 bool get isShowKeyboard => Get.mediaQuery.viewInsets.bottom > 0;
 
-const String APP_NAME = 'Quang Nguyen Porfolio';
+const String APP_NAME = 'PPCB';
 
 /// FLAVOR = dev => development
 /// FLAVOR = prod => product
@@ -46,16 +45,16 @@ final List<Color> availablePickerColors = <Color>[
 
 final List<LanguageSelectState> appLanguages = <LanguageSelectState>[
   LanguageSelectState(
-    imageUrl: AppImages.png('vietnam'),
-    languageName: 'Tiếng Việt',
-    languageCode: AppLocale.vi.value.languageCode,
-    countryCode: AppLocale.vi.value.countryCode,
-  ),
-  LanguageSelectState(
     imageUrl: AppImages.png('english'),
     languageName: 'English',
     languageCode: AppLocale.en.value.languageCode,
     countryCode: AppLocale.en.value.countryCode,
+  ),
+  LanguageSelectState(
+    imageUrl: AppImages.png('vietnam'),
+    languageName: 'Tiếng Việt',
+    languageCode: AppLocale.vi.value.languageCode,
+    countryCode: AppLocale.vi.value.countryCode,
   ),
 ];
 
@@ -63,6 +62,18 @@ const int INDEX_NOT_FOUND = -1;
 
 List<String> authorizedRoutes = <String>[
   // Routes.LOGIN,
-  Routes.home.route,
+  // Routes.home.route,
   // Routes.CHANGE_PIN,
 ];
+
+const List<String> NAVIGATION_MENU = <String>[
+  'about',
+  'skills',
+  'projects',
+  'experience',
+  'blog',
+];
+
+const double MOBILE_PAGE_MAX_WIDTH = 450;
+const double DESKTOP_PAGE_MAX_WIDTH = 1072;
+const double DESKTOP_PAGE_MAX_HEIGHT = 696;

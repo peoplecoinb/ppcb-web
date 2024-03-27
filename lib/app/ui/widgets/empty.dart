@@ -26,7 +26,7 @@ class LoadMoreEmpty extends StatelessWidget {
             Text(
               (title ?? 'no_data_found').tr,
               textAlign: TextAlign.center,
-              style: AppTextStyles.rubikRegular,
+              style: AppTextStyles.getLgStyle(AppTextStyles.regular),
             ),
             const SizedBox(height: 20),
             if(onRefresh != null)
@@ -42,10 +42,7 @@ class LoadMoreEmpty extends StatelessWidget {
                     Text(
                       'refresh'.tr,
                       textAlign: TextAlign.center,
-                      style: AppTextStyles.rubikRegular.copyWith(
-                        decoration: TextDecoration.underline,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      style: AppTextStyles.getLgStyle(AppTextStyles.regular),
                     ),
                   ],
                 ),

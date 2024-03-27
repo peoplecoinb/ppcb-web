@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/app_colors.dart';
-import '../../constants/app_text_styles.dart';
 import '../../extensions/hex_color.dart';
 
 class CustomDropdownController extends ChangeNotifier {
@@ -93,7 +92,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 28),
               decoration: BoxDecoration(
-                color: AppColors.getCardBackground,
+                color: AppColors.primary,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
@@ -102,10 +101,10 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
                     Expanded(
                       child: Text(
                         widget.hint,
-                        style: AppTextStyles.rubikMedium.copyWith(
-                          fontSize: 16,
-                          color: Theme.of(context).hintColor,
-                        ),
+                        // style: AppTextStyles.rubikMedium.copyWith(
+                        //   fontSize: 16,
+                        //   color: Theme.of(context).hintColor,
+                        // ),
                       ),
                     )
                   else
@@ -136,7 +135,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: AppColors.getWhiteAndBlack,
+        color: AppColors.white,
         boxShadow: <BoxShadow>[
           BoxShadow(
             blurRadius: 6,

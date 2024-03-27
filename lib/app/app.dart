@@ -78,9 +78,7 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
           builder: (BuildContext context, ThemeState state) {
             return getx.GetMaterialApp.router(
               debugShowCheckedModeBanner: false,
-              theme: (state.mode == ThemeMode.light ? state.lightTheme : state.darkTheme).copyWith(
-                scaffoldBackgroundColor: AppColors.getWhiteAndBlack,
-              ),
+              theme: (state.mode == ThemeMode.light ? state.lightTheme : state.darkTheme),
               title: APP_NAME,
               getPages: AppPages.pages,
               // initialRoute: Routes.SPLASH,

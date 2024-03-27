@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 import '../../constants/app_colors.dart';
 import '../../constants/app_images.dart';
@@ -57,30 +58,30 @@ class ImageNetwork extends StatelessWidget {
         );
       },
       placeholder: placeholderBuilder ??
-          (BuildContext context, String url) => Container(
-                width: width,
-                height: height,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(borderRadius),
-                  border: Border.all(color: AppColors.borderLight),
-                ),
-                child: const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
+              (BuildContext context, String url) => Container(
+            width: width,
+            height: height,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(borderRadius),
+              border: Border.all(color: AppColors.gray),
+            ),
+            child: const Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
       errorWidget: errorBuilder ??
-          (BuildContext context, String url, dynamic error) => Container(
-                width: width,
-                height: height,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(borderRadius),
-                  border: Border.all(color: AppColors.borderLight),
-                  image: DecorationImage(
-                    image: AssetImage(AppImages.png('error')),
-                    fit: BoxFit.fitHeight,
-                  ),
-                ),
+              (BuildContext context, String url, dynamic error) => Container(
+            width: width,
+            height: height,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(borderRadius),
+              border: Border.all(color: AppColors.gray),
+              image: DecorationImage(
+                image: AssetImage(AppImages.png('error')),
+                fit: BoxFit.fitHeight,
               ),
+            ),
+          ),
     );
   }
 }

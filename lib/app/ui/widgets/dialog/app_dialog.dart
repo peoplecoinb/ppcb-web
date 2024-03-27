@@ -42,7 +42,7 @@ class AppDialog extends StatelessWidget {
               height: 80,
               width: 80,
               alignment: Alignment.center,
-              decoration: BoxDecoration(color: isFailed ? AppColors.getRedColor : Theme.of(context).primaryColor, shape: BoxShape.circle),
+              decoration: BoxDecoration(color: isFailed ? AppColors.error : Theme.of(context).primaryColor, shape: BoxShape.circle),
               child: Transform.rotate(angle: rotateAngle, child: Icon(icon, size: 40, color: Colors.white)),
             ),
           ),
@@ -52,14 +52,14 @@ class AppDialog extends StatelessWidget {
             child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               Text(
                 title.tr,
-                style: AppTextStyles.rubikSemiBold,
+                style: AppTextStyles.getLgStyle(AppTextStyles.regular),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               Text(
                 description.tr,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.rubikMedium,
+                style: AppTextStyles.getLgStyle(AppTextStyles.regular),
               ),
               const SizedBox(height: 20),
               Visibility(
@@ -71,9 +71,7 @@ class AppDialog extends StatelessWidget {
                     action: Get.back,
                     backgroundColor: Colors.green,
                     borderColor: Colors.green,
-                    height: 38,
-                    width: 100,
-                    textStyle: AppTextStyles.rubikMedium.copyWith(fontSize: 14, color: Colors.white),
+                    textStyle: AppTextStyles.getLgStyle(AppTextStyles.regular),
                   ),
                 ),
               ),
@@ -84,11 +82,10 @@ class AppDialog extends StatelessWidget {
                     Expanded(
                       child: CustomOutlinedButton(
                         title: keyCancel ?? 'no',
-                        backgroundColor: AppColors.getRedColor,
-                        borderColor: AppColors.getRedColor,
+                        backgroundColor: AppColors.error,
+                        borderColor: AppColors.error,
                         action: () => Get.back(result: false),
-                        height: 38,
-                        textStyle: AppTextStyles.rubikMedium.copyWith(fontSize: 14, color: Colors.white),
+                        textStyle: AppTextStyles.getLgStyle(AppTextStyles.regular),
                       ),
                     ),
                     const SizedBox(
@@ -98,10 +95,9 @@ class AppDialog extends StatelessWidget {
                       child: CustomOutlinedButton(
                         title: keyConfirm ?? 'yes',
                         action: () => Get.back(result: true),
-                        backgroundColor: AppColors.getAcceptBtn,
-                        borderColor: AppColors.getAcceptBtn,
-                        height: 38,
-                        textStyle: AppTextStyles.rubikMedium.copyWith(fontSize: 14, color: Colors.white),
+                        backgroundColor: AppColors.primary,
+                        borderColor: AppColors.primary,
+                        textStyle: AppTextStyles.getLgStyle(AppTextStyles.regular),
                       ),
                     ),
                   ],

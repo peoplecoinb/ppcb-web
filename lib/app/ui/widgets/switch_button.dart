@@ -180,7 +180,7 @@ class _SwitchButtonState extends State<SwitchButton>
 
     if (widget.value) {
       toggleColor = widget.activeToggleColor ?? widget.toggleColor;
-      switchColor = widget.activeColor ?? AppColors.bluePrimary;
+      switchColor = widget.activeColor ?? AppColors.primary;
     } else {
       toggleColor = widget.inactiveToggleColor ?? widget.toggleColor;
       switchColor = widget.inactiveColor ?? HexColor.fromHex('8898A5');
@@ -234,7 +234,7 @@ class _SwitchButtonState extends State<SwitchButton>
                                       textAlign: TextAlign.center,
                                       style: AppTextStyles.medium.copyWith(
                                         fontSize: 14,
-                                        color: AppColors.bluePrimary,
+                                        color: AppColors.primary,
                                       ),
                                     ),
                               ),
