@@ -36,6 +36,12 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
     // getx.Get.put(LocalServerCubit()..firstCreateLocalServerAppClient(), permanent: true);
   }
 
+  Future<void> preloadAsset() async {
+    Future.wait(<Future>[
+      precacheImage(AssetImage(AppImages.png('demo_bg')), context),
+    ]);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -54,6 +60,7 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+    preloadAsset();
     Logger().d('ChangeAppLifecycleState: $state');
   }
 
