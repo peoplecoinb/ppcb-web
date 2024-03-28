@@ -60,7 +60,7 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    // preloadAsset();
+    preloadAsset();
     Logger().d('ChangeAppLifecycleState: $state');
   }
 
