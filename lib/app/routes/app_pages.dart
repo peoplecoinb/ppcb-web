@@ -12,6 +12,10 @@ class AppPages{
       page: () => const HomeScreen(),
     ),
     GetPage<dynamic>(
+      name: Routes.account.route,
+      page: () => const AccountScreen(),
+    ),
+    GetPage<dynamic>(
       name: Routes.unknown.route,
       page: () => const UnknownScreen(),
     ),

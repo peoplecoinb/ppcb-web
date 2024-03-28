@@ -1,12 +1,12 @@
 // ignore_for_file: avoid_dynamic_calls, always_specify_types, strict_raw_type, invalid_use_of_internal_member, deprecated_member_use
 
+import 'package:dio/browser.dart';
 import 'package:dio/dio.dart';
-import 'package:dio/io.dart';
 import 'package:logger/logger.dart';
 import '../constants/constants.dart';
 import 'utils.dart';
 
-class AppClients extends DioForNative {
+class AppClients extends DioForBrowser {
 
   AppClients({required String baseUrl, BaseOptions? options}) : super(options) {
     interceptors.add(InterceptorsWrapper(
@@ -27,13 +27,13 @@ class AppClients extends DioForNative {
   static const String DELETE = 'DELETE';
 
   static AppClients baseInstance = AppClients(baseUrl: AppEndpoint.BASE_URL);
-  static AppClients localServerInstance = AppClients(baseUrl: AppEndpoint.BASE_URL);
   static Logger logger = Logger();
 
   Future<void> _requestInterceptor(RequestOptions options, RequestInterceptorHandler handler) async {
     final String? accessToken = AppPrefs.accessToken;
     options.headers.addAll({
       'Authorization': 'Bearer $accessToken',
+      'Content-Type': 'application/json; charset=UTF-8'
     });
     if(flavor == 'dev' || (AppDeviceInfo.isPhysicalDevice ?? false)){
       this.options.headers.addAll({

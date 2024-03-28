@@ -1,5 +1,11 @@
 // ignore_for_file: avoid_dynamic_calls, deprecated_member_use
 
+import 'package:dio/dio.dart';
+
+import '../../constants/constants.dart';
+import '../../utils/app_clients.dart';
+import '../resources.dart';
+
 class AuthRepository {
   factory AuthRepository() {
     _instance ??= AuthRepository._();
@@ -9,6 +15,25 @@ class AuthRepository {
   AuthRepository._();
 
   static AuthRepository? _instance;
+
+  Future<NetworkState<dynamic>> test(Map<String, dynamic> data) async {
+    final bool isDisconnect = await WifiService.isDisconnect();
+    if (isDisconnect) {
+      return NetworkState<dynamic>.withDisconnect();
+    }
+    try {
+      final Response<dynamic> response = await AppClients.baseInstance.get(
+        '/json/1',
+        // data: data,
+      );
+      return NetworkState<dynamic>(
+        status: AppEndpoint.SUCCESS,
+        data: response.data,
+      );
+    } on DioError catch (e) {
+      return NetworkState<dynamic>.withError(e);
+    }
+  }
 
   // Future<NetworkState<String>> login(String diaCode, String phoneNumber, String password) async {
   //   final bool isDisconnect = await WifiService.isDisconnect();

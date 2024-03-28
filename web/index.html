@@ -56,10 +56,16 @@
         onEntrypointLoaded: function(engineInitializer) {
           engineInitializer.initializeEngine().then(function(appRunner) {
             appRunner.runApp();
+<!--            hideSplashScreen();-->
           });
         }
       });
     });
+
+<!--    function hideSplashScreen() {-->
+<!--      var splashScreen = document.querySelector('.splash-screen');-->
+<!--      splashScreen.style.display = 'none';-->
+<!--    }-->
   </script>
 </body>
 </html>
