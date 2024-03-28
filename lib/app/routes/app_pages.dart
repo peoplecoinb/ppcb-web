@@ -9,11 +9,7 @@ class AppPages{
   static List<GetPage<dynamic>> pages = <GetPage<dynamic>>[
     GetPage<dynamic>(
       name: Routes.home.route,
-      page: () => const HomeScreen(text: 'PPCB INCOMING'),
-    ),
-    GetPage<dynamic>(
-      name: Routes.account.route,
-      page: () => const HomeScreen(text: 'account'),
+      page: () => const HomeScreen(),
     ),
     GetPage<dynamic>(
       name: Routes.unknown.route,
