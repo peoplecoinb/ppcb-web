@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Image.asset(AppImages.png('demo_bg'), fit: BoxFit.fitWidth, width: double.infinity,),
+      body: Image.asset(AppImages.png('demo_bg'), fit: BoxFit.fill),
     );
   }
 }
