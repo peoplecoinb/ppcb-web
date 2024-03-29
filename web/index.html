@@ -14,7 +14,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="/PPCB/">
+  <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -23,14 +23,13 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="PPCB">
+  <meta name="apple-mobile-web-app-title" content="ppcb_web">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-  <link rel="stylesheet" href="style.css">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>PPCB</title>
+  <title>ppcb_web</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
@@ -41,15 +40,7 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
-  <div class="splash-screen">
-    <div class="logo-container">
-      <img src="img/splash_logo.png" alt="Splash Logo" class="logo">
-    </div>
-  </div>
   <script>
-     window.flutterConfiguration = {
-      canvasKitBaseUrl: "./canvaskit/"
-    };
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -58,18 +49,11 @@
         },
         onEntrypointLoaded: function(engineInitializer) {
           engineInitializer.initializeEngine().then(function(appRunner) {
-            console.log('Flutter app running at:', new Date());
             appRunner.runApp();
-            hideSplashScreen();
           });
         }
       });
     });
-
-  function hideSplashScreen() {
-    var splashScreen = document.querySelector('.splash-screen');
-    splashScreen.style.display = 'none';
-  }
   </script>
 </body>
 </html>

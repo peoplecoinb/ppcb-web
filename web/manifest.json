@@ -1,6 +1,6 @@
 {
-    "name": "web_bloc_boilerplate",
-    "short_name": "web_bloc_boilerplate",
+    "name": "ppcb_web",
+    "short_name": "ppcb_web",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
