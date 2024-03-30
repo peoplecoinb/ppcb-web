@@ -10,7 +10,7 @@ class ThemeCubit extends Cubit<ThemeState> {
   ThemeCubit()
       : super(
           ThemeState(
-            mode: ThemeMode.values.firstWhere((ThemeMode e) => e.name == AppPrefs.themeMode, orElse: () => ThemeMode.light),
+            mode: ThemeMode.values.firstWhere((ThemeMode e) => e.name == AppPrefs.themeMode, orElse: () => ThemeMode.dark),
             lightTheme: AppThemes.light,
             darkTheme: AppThemes.dark,
           ),

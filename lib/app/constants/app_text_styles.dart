@@ -20,6 +20,8 @@ class AppTextStyles {
         fontWeight: FontWeight.w700,
       );
 
+  static TextStyle get zendots => GoogleFonts.zenDots().copyWith();
+
   static TextStyle get2xlPlusStyle(TextStyle textStyle) {
     return textStyle.copyWith(
       fontSize: 28,
@@ -64,7 +66,7 @@ class AppTextStyles {
 
   static TextStyle getHeadingStyle(TextStyle textStyle) {
     return textStyle.copyWith(
-      fontSize: 48,
+      fontSize: 38,
     );
   }
 }

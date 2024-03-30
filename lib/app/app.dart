@@ -13,6 +13,7 @@ import 'routes/app_pages.dart';
 import 'routes/app_route_infomation_parser.dart';
 import 'routes/app_routes.dart';
 import 'translations/app_translations.dart';
+import 'ui/ui.dart';
 import 'ui/widgets/loading_full_screen.dart';
 
 class App extends StatefulWidget {
@@ -97,7 +98,9 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
               routerDelegate: getx.GetDelegate(),
               translationsKeys: AppTranslation.translations,
               builder: (BuildContext context, Widget? child) {
-                return LoadingFullScreen(child: child!);
+                return LoadingFullScreen(
+                  child: NavigationScreen(child: child!),
+                );
               },
             );
           },

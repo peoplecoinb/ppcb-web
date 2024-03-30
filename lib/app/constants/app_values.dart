@@ -9,7 +9,7 @@ double get viewPaddingTop => Get.mediaQuery.viewPadding.top;
 double get viewPaddingBot => Get.mediaQuery.viewPadding.bottom;
 bool get isShowKeyboard => Get.mediaQuery.viewInsets.bottom > 0;
 
-const String APP_NAME = 'PPCB';
+const String APP_NAME = 'PPCB - PEOPLE COIN';
 
 /// FLAVOR = dev => development
 /// FLAVOR = prod => product
@@ -67,13 +67,20 @@ List<String> authorizedRoutes = <String>[
 ];
 
 const List<String> NAVIGATION_MENU = <String>[
-  'about',
-  'skills',
-  'projects',
-  'experience',
-  'blog',
+    'navigation_white_paper',
+    'navigation_road_map',
+    'navigation_team',
+    'navigation_more',
+];
+
+const List<String> NAVIGATION_SOCIAL = <String>[
+    'youtube_logo',
+    'twitter_logo',
+    'telegram_logo',
+    'facebook_logo',
+    'discord_logo',
 ];
 
 const double MOBILE_PAGE_MAX_WIDTH = 450;
-const double DESKTOP_PAGE_MAX_WIDTH = 1072;
+const double DESKTOP_PAGE_MAX_WIDTH = 1495;
 const double DESKTOP_PAGE_MAX_HEIGHT = 696;
