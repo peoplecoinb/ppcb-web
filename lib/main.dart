@@ -26,4 +26,3 @@ Future<void> main() async {
   Logger().d('RUNNING IN $flavor ENVIRONMENT'.toUpperCase());
   runApp(const App());
 }
-

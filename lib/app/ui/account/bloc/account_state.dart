@@ -5,7 +5,7 @@ sealed class AccountState extends Equatable {
   final dynamic data;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => <Object>[];
 }
 
 class AccountInitial extends AccountState {

@@ -12,4 +12,8 @@ PPCB will represent you and me, as well as the global blockchain community, to j
 
 From there, PPCB will begin its mission with each PPCB coin having a starting value of $0.001. To represent a mine willing to help worth $50M.
 ''',
+  'home_download_apps': 'PPCB APP - MINT COIN',
+  'home_android': 'Android',
+  'home_ios': 'iOS',
+  'home_pre_sales': 'Pre-Sales',
 };

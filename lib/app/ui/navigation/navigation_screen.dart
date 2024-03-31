@@ -34,7 +34,8 @@ class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveS
         ],
       ),
       child: Center(
-        child: SizedBox(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           width: DESKTOP_PAGE_MAX_WIDTH,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,6 +64,13 @@ class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveS
           APP_NAME,
           style: AppTextStyles.getXlStyle(AppTextStyles.zendots.copyWith(
             color: AppColors.primary,
+            shadows: <Shadow>[
+              Shadow(
+                color: Colors.white.withOpacity(0.2),
+                blurRadius: 4,
+                offset: const Offset(0, 4),
+              ),
+            ],
           )),
         )
       ],
@@ -105,12 +113,13 @@ class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveS
           BoxShadow(
             color: Colors.white.withOpacity(0.1),
             blurRadius: 4,
-            offset: const Offset(0, 2),
+            offset: const Offset(0, -2),
           ),
         ],
       ),
       child: Center(
-        child: SizedBox(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           width: DESKTOP_PAGE_MAX_WIDTH,
           child: Center(
             child: Row(

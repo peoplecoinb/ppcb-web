@@ -14,7 +14,6 @@ import 'routes/app_route_infomation_parser.dart';
 import 'routes/app_routes.dart';
 import 'translations/app_translations.dart';
 import 'ui/ui.dart';
-import 'ui/widgets/loading_full_screen.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
