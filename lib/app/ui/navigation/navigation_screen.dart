@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/constants.dart';
+import '../../routes/app_route_delegate.dart';
+import '../../routes/app_routes.dart';
 import '../ui.dart';
 
 class NavigationScreen extends StatefulWidget {
@@ -50,56 +52,80 @@ class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveS
   }
 
   Widget buildLogoAppName() {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Image.asset(
-          AppImages.png('logo'),
-          width: 37,
-        ),
-        const SizedBox(
-          width: 20,
-        ),
-        Text(
-          APP_NAME,
-          style: AppTextStyles.getXlStyle(AppTextStyles.zendots.copyWith(
-            color: AppColors.primary,
-            shadows: <Shadow>[
-              Shadow(
-                color: Colors.white.withOpacity(0.2),
-                blurRadius: 4,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          )),
-        )
-      ],
+    return GestureDetector(
+      onTap: () {
+        AppRouteDelegate().toNamed(Routes.home.route);
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Image.asset(
+            AppImages.png('logo'),
+            width: 37,
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          Text(
+            APP_NAME,
+            style: AppTextStyles.getXlStyle(AppTextStyles.zendots.copyWith(
+              color: AppColors.primary,
+              shadows: <Shadow>[
+                Shadow(
+                  color: Colors.white.withOpacity(0.2),
+                  blurRadius: 4,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            )),
+          )
+        ],
+      ),
     );
   }
 
   Widget buildMenu() {
+    Widget buildItem(String menu, {VoidCallback? onTap}) {
+      return InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: EdgeInsets.only(right: menu == 'navigation_more' ? 0 : 32),
+          child: Row(
+            children: <Widget>[
+              Text(
+                menu.tr.toUpperCase(),
+                style: AppTextStyles.getBaseStyle(AppTextStyles.zendots.copyWith(
+                  color: AppColors.gray,
+                )),
+              ),
+              if (menu == 'navigation_more')
+                Icon(
+                  Icons.arrow_drop_down,
+                  color: AppColors.gray,
+                  size: 40,
+                ),
+            ],
+          ),
+        ),
+      );
+    }
+
     return Row(
       children: <Widget>[
-        for (final String menu in NAVIGATION_MENU)
-          Padding(
-            padding: EdgeInsets.only(right: menu == 'navigation_more' ? 0 : 32),
-            child: Row(
-              children: <Widget>[
-                Text(
-                  menu.tr.toUpperCase(),
-                  style: AppTextStyles.getBaseStyle(AppTextStyles.zendots.copyWith(
-                    color: AppColors.gray,
-                  )),
-                ),
-                if (menu == 'navigation_more')
-                  Icon(
-                    Icons.arrow_drop_down,
-                    color: AppColors.gray,
-                    size: 40,
-                  ),
-              ],
-            ),
-          ),
+        buildItem(
+          NAVIGATION_MENU[0],
+          onTap: () {
+            AppRouteDelegate().toNamed(Routes.whitePaper.route);
+          },
+        ),
+        buildItem(
+          NAVIGATION_MENU[1],
+          onTap: () {
+            AppRouteDelegate().toNamed(Routes.roadMap.route);
+          },
+        ),
+        buildItem(NAVIGATION_MENU[2]),
+        buildItem(NAVIGATION_MENU[3]),
       ],
     );
   }

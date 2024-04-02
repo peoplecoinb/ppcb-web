@@ -46,8 +46,14 @@
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
   <script src="https://www.gstatic.com/flutter-canvaskit/b16c0f136cdd76a97854b7ba3550d199fbd694ff/skwasm.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="splash-screen">
+    <div class="logo-container">
+      <img src="icons/ms-icon-150x150.png" alt="Splash Logo" class="logo">
+    </div>
+  </div>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
@@ -58,10 +64,16 @@
         onEntrypointLoaded: function(engineInitializer) {
           engineInitializer.initializeEngine().then(function(appRunner) {
             appRunner.runApp();
+            hideSplashScreen();
           });
         }
       });
     });
+
+    function hideSplashScreen() {
+      var splashScreen = document.querySelector('.splash-screen');
+      splashScreen.style.display = 'none';
+    }
   </script>
 </body>
 </html>

@@ -10,6 +10,7 @@ import 'blocs/language/language_select_state.dart';
 import 'blocs/theme/theme_cubit.dart';
 import 'constants/constants.dart';
 import 'routes/app_pages.dart';
+import 'routes/app_route_delegate.dart';
 import 'routes/app_route_infomation_parser.dart';
 import 'routes/app_routes.dart';
 import 'translations/app_translations.dart';
@@ -38,7 +39,9 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
 
   Future<void> preloadAsset() async {
     Future.wait(<Future>[
-      precacheImage(AssetImage(AppImages.png('demo_bg')), context),
+      precacheImage(AssetImage(AppImages.png('home_bg')), context),
+      precacheImage(AssetImage(AppImages.png('white_paper')), context),
+      precacheImage(AssetImage(AppImages.png('road_map')), context),
     ]);
   }
 
@@ -94,7 +97,7 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
               routeInformationParser: AppRouteInformationParser(
                 initialRoute: Routes.home.route,
               ),
-              routerDelegate: getx.GetDelegate(),
+              routerDelegate: AppRouteDelegate(),
               translationsKeys: AppTranslation.translations,
               builder: (BuildContext context, Widget? child) {
                 return LoadingFullScreen(

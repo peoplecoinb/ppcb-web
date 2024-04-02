@@ -12,8 +12,12 @@ class AppPages{
       page: () => const HomeScreen(),
     ),
     GetPage<dynamic>(
-      name: Routes.account.route,
-      page: () => const AccountScreen(),
+      name: Routes.whitePaper.route,
+      page: () => const WhitePaperScreen(),
+    ),
+    GetPage<dynamic>(
+      name: Routes.roadMap.route,
+      page: () => const RoadMapScreen(),
     ),
     GetPage<dynamic>(
       name: Routes.unknown.route,
