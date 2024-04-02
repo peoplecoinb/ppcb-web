@@ -1,15 +1,15 @@
 version: '3'
 services:
   #Flutter Web Boilerplate
-  ppcp_web:
-    container_name: ppcp_web
+  ppcb_web:
+    container_name: ppcb_web
     build:
       context: .
       dockerfile: ./DockerFile
     ports:
       - 80:80
     volumes: 
-      - ./:/ppcp_web
+      - ./:/ppcb_web
     tty: true
     environment: 
       - TZ=Asia/HoChiMinh

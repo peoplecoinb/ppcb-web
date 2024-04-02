@@ -32,7 +32,7 @@ COPY . $APP
 # Run build: 1 - clean, 2 - pub get, 3 - build web
 RUN flutter clean
 RUN flutter pub get
-RUN flutter build web --web-renderer html --profile
+RUN flutter build web --web-renderer html --release
 
 # once heare the app will be compiled and ready to deploy
 
@@ -42,7 +42,7 @@ FROM nginx:1.25.2-alpine
 ARG APP
 
 # copy the nginx config file
-COPY --from=build-env "${APP}/nginx.conf" /etc/nginx/conf.d/default.conf
+# COPY --from=build-env "${APP}/nginx.conf" /etc/nginx/conf.d/default.conf
 
 
 # copy the info of the builded web app to nginx
