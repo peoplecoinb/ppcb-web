@@ -23,12 +23,9 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
 
   @override
   void initState() {
-    // Future<void>.delayed(const Duration(seconds: 2), () {
-    //   Get.toNamed(Routes.HOME);
-    // });
     super.initState();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return buildResponsiveScreen(context);
@@ -59,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
         const SizedBox(height: 30),
         Text(
           'home_mindset'.tr,
-          textAlign: TextAlign.justify,
+          textAlign: TextAlign.start,
           style: AppTextStyles.get2xlStyle(
             AppTextStyles.zendots.copyWith(
               color: AppColors.white,
