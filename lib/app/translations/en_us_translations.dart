@@ -2,6 +2,7 @@ final Map<String, String> enUs = <String, String>{
   'home': 'Home',
   'navigation_white_paper': 'White Paper',
   'navigation_road_map': 'Road Map',
+  'navigation_fund': 'Fund',
   'navigation_team': 'Team',
   'navigation_more': 'More',
   'home_slogan': 'Help those in need',

@@ -124,8 +124,21 @@ class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveS
             AppRouteDelegate().toNamed(Routes.roadMap.route);
           },
         ),
-        buildItem(NAVIGATION_MENU[2]),
-        buildItem(NAVIGATION_MENU[3]),
+        buildItem(
+          NAVIGATION_MENU[2],
+          onTap: () {
+            AppRouteDelegate().toNamed(Routes.fund.route);
+          },
+        ),
+        buildItem(
+          NAVIGATION_MENU[3],
+          onTap: () {
+            AppRouteDelegate().toNamed(Routes.team.route);
+          },
+        ),
+        buildItem(
+          NAVIGATION_MENU[4],
+        ),
       ],
     );
   }

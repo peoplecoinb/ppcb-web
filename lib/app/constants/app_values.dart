@@ -69,6 +69,7 @@ List<String> authorizedRoutes = <String>[
 const List<String> NAVIGATION_MENU = <String>[
     'navigation_white_paper',
     'navigation_road_map',
+    'navigation_fund',
     'navigation_team',
     'navigation_more',
 ];

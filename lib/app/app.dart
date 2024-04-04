@@ -38,7 +38,7 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
   }
 
   Future<void> preloadAsset() async {
-    Future.wait(<Future>[
+    await Future.wait(<Future>[
       precacheImage(AssetImage(AppImages.png('home_bg')), context),
       precacheImage(AssetImage(AppImages.png('white_paper')), context),
       precacheImage(AssetImage(AppImages.png('road_map')), context),
@@ -62,8 +62,13 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    preloadAsset();
+  Future<void> didChangeDependencies() async {
+      await preloadAsset();
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state){
     Logger().d('ChangeAppLifecycleState: $state');
   }
 

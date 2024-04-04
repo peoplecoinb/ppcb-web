@@ -20,6 +20,14 @@ class AppPages{
       page: () => const RoadMapScreen(),
     ),
     GetPage<dynamic>(
+      name: Routes.fund.route,
+      page: () => const FundScreen(),
+    ),
+    GetPage<dynamic>(
+      name: Routes.team.route,
+      page: () => const TeamScreen(),
+    ),
+    GetPage<dynamic>(
       name: Routes.unknown.route,
       page: () => const UnknownScreen(),
     ),
