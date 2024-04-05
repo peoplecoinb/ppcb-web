@@ -95,7 +95,7 @@ class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveS
               Text(
                 menu.tr.toUpperCase(),
                 style: AppTextStyles.getBaseStyle(AppTextStyles.zendots.copyWith(
-                  color: AppColors.gray,
+                  color: AppColors.gray.shade300,
                 )),
               ),
               if (menu == 'navigation_more')
