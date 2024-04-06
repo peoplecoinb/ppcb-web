@@ -4,11 +4,11 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+// import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
+// import 'package:permission_handler/permission_handler.dart';
 import '../blocs/language/language_cubit.dart';
 import '../constants/app_enums.dart';
 import 'package:flutter/material.dart';
@@ -97,9 +97,9 @@ class AppUtils {
     return v < (130 + bias);
   }
 
-  static Future<Map<Permission, PermissionStatus>> requestPermission(List<Permission> permissions) async {
-    return permissions.request();
-  }
+  // static Future<Map<Permission, PermissionStatus>> requestPermission(List<Permission> permissions) async {
+  //   return permissions.request();
+  // }
 
   static Future<double> getFileSize(String filepath, int decimals, [SizeUnit unit = SizeUnit.MB]) async {
     final File file = File(filepath);
@@ -123,10 +123,10 @@ class AppUtils {
   // }
   // }
 
-  static Future<FileInfo?> getFileFromNetworkCache(String url) async {
-    final FileInfo? fileInfo = await DefaultCacheManager().getFileFromCache(url);
-    return fileInfo;
-  }
+  // static Future<FileInfo?> getFileFromNetworkCache(String url) async {
+  //   final FileInfo? fileInfo = await DefaultCacheManager().getFileFromCache(url);
+  //   return fileInfo;
+  // }
 
   static String removeLeadingZero(String phoneNumber) {
     if (phoneNumber.length == 10 && phoneNumber.startsWith('0')) {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_earth_globe/flutter_earth_globe.dart';
+import 'package:flutter_earth_globe/flutter_earth_globe_controller.dart';
 import 'package:get/get.dart';
 import 'package:gif_view/gif_view.dart';
 // import 'package:pretty_qr_code/pretty_qr_code.dart';
@@ -15,6 +17,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
+  final FlutterEarthGlobeController _controller = FlutterEarthGlobeController(
+    isRotating: true,
+    rotationSpeed: 0.1,
+    background: Image.asset(AppImages.jpg('2k_stars')).image,
+    surface: Image.asset(AppImages.jpg('2k_earth-day')).image,
+    isBackgroundFollowingSphereRotation: true,  
+  );
+
   final Shadow textShadow = Shadow(
     color: Colors.black.withOpacity(0.8),
     offset: const Offset(0, 4),
@@ -28,108 +38,13 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.black,
-      child: buildResponsiveScreen(context),
+    return RepaintBoundary(
+      child: Container(
+        color: AppColors.black,
+        child: buildResponsiveScreen(context),
+      ),
     );
   }
-
-  // Widget buildMindSet() {
-  //   return Row(
-  //     mainAxisSize: MainAxisSize.min,
-  //     crossAxisAlignment: CrossAxisAlignment.end,
-  //     children: <Widget>[
-  //       Text(
-  //         'home_slogan'.tr.toUpperCase(),
-  //         style: AppTextStyles.getHeadingStyle(
-  //           AppTextStyles.zendots.copyWith(
-  //             color: AppColors.white,
-  //             shadows: <Shadow>[textShadow],
-  //           ),
-  //         ),
-  //       ),
-  // GifView.asset(
-  //   AppImages.gif('dove'),
-  // )
-  //     ],
-  //   );
-  // }
-
-  // Widget buildDownloadApps() {
-  //   Widget buildDownloadButton(String qrdata, String title) {
-  //     return Column(
-  //       mainAxisSize: MainAxisSize.min,
-  //       children: <Widget>[
-  //         Container(
-  //           padding: const EdgeInsets.all(16),
-  //           width: 200,
-  //           height: 200,
-  //           decoration: BoxDecoration(
-  //             color: AppColors.white,
-  //             borderRadius: BorderRadius.circular(10),
-  //           ),
-  //           child: PrettyQrView.data(
-  //             data: qrdata,
-  //             decoration: PrettyQrDecoration(
-  //               background: AppColors.white,
-  //               image: PrettyQrDecorationImage(
-  //                 padding: const EdgeInsets.all(10),
-  //                 scale: 0.3,
-  //                 image: AssetImage(AppImages.png('logo')),
-  //               ),
-  //             ),
-  //           ),
-  //         ),
-  //         const SizedBox(height: 16),
-  //         Text(
-  //           title.tr,
-  //           style: AppTextStyles.getLgStyle(
-  //             AppTextStyles.zendots.copyWith(
-  //               color: AppColors.white,
-  //               shadows: <Shadow>[textShadow],
-  //             ),
-  //           ),
-  //         ),
-  //       ],
-  //     );
-  //   }
-  //
-  //   return Column(
-  //     mainAxisSize: MainAxisSize.min,
-  //     children: <Widget>[
-  //       Text(
-  //         'home_download_apps'.tr,
-  //         style: AppTextStyles.get2xlStyle(
-  //           AppTextStyles.zendots.copyWith(
-  //             color: AppColors.white,
-  //             shadows: <Shadow>[textShadow],
-  //           ),
-  //         ),
-  //       ),
-  //       const SizedBox(
-  //         height: 30,
-  //       ),
-  //       Row(
-  //         mainAxisSize: MainAxisSize.min,
-  //         children: <Widget>[
-  //           buildDownloadButton(
-  //             'https://play.google.com/store/apps/details?id=com.ppcb.app',
-  //             'home_android',
-  //           ),
-  //           const SizedBox(width: 20),
-  //           buildDownloadButton(
-  //             'https://play.google.com/store/apps/details?id=com.ppcb.app',
-  //             'home_ios',
-  //           ),
-  //         ],
-  //       ),
-  //       const SizedBox(
-  //         height: 30,
-  //       ),
-  //       buildButtonPreSales(),
-  //     ],
-  //   );
-  // }
 
   Widget buildButtonPreSales() {
     return Container(
@@ -162,12 +77,16 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
     return Stack(
       children: <Widget>[
         Center(
-          child: GifView.asset(
-            width: 500,
-            height: 500,
-            fit: BoxFit.contain,
-            AppImages.gif('globe'),
-          ),
+          // child: GifView.asset(
+          //   width: 500,
+          //   height: 500,
+          //   fit: BoxFit.contain,
+          //   AppImages.gif('globe'),
+          // ),
+          child: FlutterEarthGlobe(
+              controller: _controller,
+              radius: 120,
+            ),
         ),
         Center(
           child: Column(
@@ -184,9 +103,9 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
                   fontSize: 60,
                 ),
               ),
-              GifView.asset(
-                AppImages.gif('dove'),
-              ),
+              // GifView.asset(
+              //   AppImages.gif('dove'),
+              // ),
               const SizedBox(
                 height: 50,
               ),

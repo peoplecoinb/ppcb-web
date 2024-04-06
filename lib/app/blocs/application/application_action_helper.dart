@@ -23,20 +23,20 @@ class _ApplicationActionHelper {
     ));
   }
 
-  Future<T?> showBottomSheet<T>(
-    BuildContext context,
-    WidgetBuilder builder, {
-    bool isDismissible = true,
-  }) {
-    return showMaterialModalBottomSheet<T>(
-      context: context,
-      builder: builder,
-      barrierColor: Colors.black12,
-      backgroundColor: Colors.transparent,
-      isDismissible: isDismissible,
-      useRootNavigator: true,
-    );
-  }
+  // Future<T?> showBottomSheet<T>(
+  //   BuildContext context,
+  //   WidgetBuilder builder, {
+  //   bool isDismissible = true,
+  // }) {
+  //   return showMaterialModalBottomSheet<T>(
+  //     context: context,
+  //     builder: builder,
+  //     barrierColor: Colors.black12,
+  //     backgroundColor: Colors.transparent,
+  //     isDismissible: isDismissible,
+  //     useRootNavigator: true,
+  //   );
+  // }
 
   void showSnackbar(String message, {bool isError = false, bool isIcon = false}) {
     Get
