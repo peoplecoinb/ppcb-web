@@ -44,6 +44,8 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
       precacheImage(AssetImage(AppImages.png('road_map')), context),
       precacheImage(AssetImage(AppImages.png('fund')), context),
       precacheImage(AssetImage(AppImages.png('team')), context),
+      precacheImage(AssetImage(AppImages.jpg('2k_venus_surface')), context),
+      precacheImage(AssetImage(AppImages.jpg('2k_stars_milky_way')), context),
     ]);
   }
 
