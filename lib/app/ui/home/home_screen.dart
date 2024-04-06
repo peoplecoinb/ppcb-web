@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gif_view/gif_view.dart';
-import 'package:pretty_qr_code/pretty_qr_code.dart';
+// import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/constants.dart';
@@ -163,9 +163,9 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
       children: <Widget>[
         Center(
           child: GifView.asset(
-            width: 598,
-            height: 598,
-            fit: BoxFit.fill,
+            width: 500,
+            height: 500,
+            fit: BoxFit.contain,
             AppImages.gif('globe'),
           ),
         ),
