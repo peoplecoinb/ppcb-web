@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_earth_globe/flutter_earth_globe.dart';
 import 'package:flutter_earth_globe/flutter_earth_globe_controller.dart';
+import 'package:flutter_earth_globe/sphere_style.dart';
 import 'package:get/get.dart';
-import 'package:gif_view/gif_view.dart';
 // import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -20,9 +20,14 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
   final FlutterEarthGlobeController _controller = FlutterEarthGlobeController(
     isRotating: true,
     rotationSpeed: 0.1,
-    background: Image.asset(AppImages.jpg('2k_stars')).image,
-    surface: Image.asset(AppImages.jpg('2k_earth-day')).image,
+    zoom: 1.3,
+    background: Image.asset(AppImages.jpg('2k_stars_milky_way')).image,
+    surface: Image.asset(AppImages.jpg('2k_venus_surface')).image,
     isBackgroundFollowingSphereRotation: true,  
+    sphereStyle: SphereStyle(
+      shadowColor: AppColors.warring,
+      shadowBlurSigma: 200
+    )
   );
 
   final Shadow textShadow = Shadow(
@@ -103,9 +108,6 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
                   fontSize: 60,
                 ),
               ),
-              // GifView.asset(
-              //   AppImages.gif('dove'),
-              // ),
               const SizedBox(
                 height: 50,
               ),
