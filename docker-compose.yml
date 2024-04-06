@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: ./DockerFile
     ports:
-      - 80:80
+      - 8080:80
     volumes: 
       - ./:/ppcb_web
     tty: true
