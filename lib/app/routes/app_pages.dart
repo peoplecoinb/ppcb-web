@@ -28,6 +28,14 @@ class AppPages{
       page: () => const TeamScreen(),
     ),
     GetPage<dynamic>(
+      name: Routes.team.route,
+      page: () => const TeamScreen(),
+    ),
+    GetPage<dynamic>(
+      name: Routes.preSale.route,
+      page: () => const PreSaleScreen(),
+    ),
+    GetPage<dynamic>(
       name: Routes.unknown.route,
       page: () => const UnknownScreen(),
     ),

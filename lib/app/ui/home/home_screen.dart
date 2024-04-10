@@ -4,9 +4,11 @@ import 'package:flutter_earth_globe/flutter_earth_globe_controller.dart';
 import 'package:flutter_earth_globe/sphere_style.dart';
 import 'package:get/get.dart';
 // import 'package:pretty_qr_code/pretty_qr_code.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/constants.dart';
+import '../../routes/app_route_delegate.dart';
+import '../../routes/app_routes.dart';
 import '../ui.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -62,10 +64,11 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
       child: CustomOutlinedButton(
         title: 'home_pre_sales'.tr,
         action: () {
-          launchUrl(
-            Uri.parse('https://pancakeswap.finance/swap?outputCurrency=0xa5aFeBa0018a6fDa96712126ce346C007F000B26'),
-            mode: LaunchMode.externalNonBrowserApplication,
-          );
+          // launchUrl(
+          //   Uri.parse('https://pancakeswap.finance/swap?outputCurrency=0xa5aFeBa0018a6fDa96712126ce346C007F000B26'),
+          //   mode: LaunchMode.externalNonBrowserApplication,
+          // );
+          AppRouteDelegate().toNamed(Routes.preSale.route);
         },
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
         radius: 20,
@@ -82,16 +85,10 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
     return Stack(
       children: <Widget>[
         Center(
-          // child: GifView.asset(
-          //   width: 500,
-          //   height: 500,
-          //   fit: BoxFit.contain,
-          //   AppImages.gif('globe'),
-          // ),
           child: FlutterEarthGlobe(
-              controller: _controller,
-              radius: 120,
-            ),
+            controller: _controller,
+            radius: 120,
+          ),
         ),
         Center(
           child: Column(

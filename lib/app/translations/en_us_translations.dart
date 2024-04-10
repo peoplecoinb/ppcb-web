@@ -17,4 +17,5 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
   'home_android': 'Android',
   'home_ios': 'iOS',
   'home_pre_sales': 'Pre-Sales',
+  'presale_title': 'The presale will start later:'
 };
