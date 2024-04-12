@@ -51,7 +51,7 @@ dependencies:
 #  ^0.18.0
   #qrcode scane
 #  qr_code_scanner: ^1.0.1
-  intl: ^0.18.1
+  intl: ^0.17.0
 #  flutter_colorpicker: ^1.0.3
 #  flutter_slidable: ^3.0.0
 #  image_picker: ^0.8.7+5
@@ -83,6 +83,7 @@ dependencies:
   pretty_qr_code: ^3.3.0
   flutter_earth_globe: ^1.0.3
   flutter_timer_countdown: ^1.0.7
+  input_formatter: ^1.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.1

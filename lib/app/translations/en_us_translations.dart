@@ -17,5 +17,13 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
   'home_android': 'Android',
   'home_ios': 'iOS',
   'home_pre_sales': 'Pre-Sales',
-  'presale_title': 'The presale will start later:'
+  'presale_title': 'The presale will start later:',
+  'presale_component_title': 'PPCB Presale',
+  'presale_component_connenct': 'Connect wallet',
+  'presale_you_pay': 'you pay',
+  'presale_you_receive': 'you receive',
+  'presale_description': '''
+- After the countdown timer disappears. You can participate in the presale immediately through the interactive panel next to it.
+
+- Currently the meta-mask wallet link section is temporarily locked for thorough preparation.'''
 };
