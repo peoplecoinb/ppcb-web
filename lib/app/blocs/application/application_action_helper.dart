@@ -1,12 +1,18 @@
 part of 'application_cubit.dart';
 
 class _ApplicationActionHelper {
-  Future<bool?> confirm({String title = 'alert', String? des, IconData? icon, String? keyCancel, String? keyConfirm}) async {
+  Future<bool?> confirm(
+      {String title = 'alert',
+      String? des,
+      IconData? icon,
+      String? keyCancel,
+      String? keyConfirm,
+      bool isFailed = true}) async {
     final bool? _ = await Get.dialog(AppDialog(
       title: title,
       icon: icon ?? Icons.notification_important_outlined,
       description: des ?? '',
-      isFailed: true,
+      isFailed: isFailed,
       showTwoBtn: true,
       keyCancel: keyCancel,
       keyConfirm: keyConfirm,
@@ -14,12 +20,17 @@ class _ApplicationActionHelper {
     return _;
   }
 
-  Future<void> notification({String title = 'notification', String? des, IconData? icon}) async {
+  Future<void> notification({
+    String title = 'notification',
+    String? des,
+    IconData? icon,
+    bool isFailed = true,
+  }) async {
     return Get.dialog(AppDialog(
       title: title,
       icon: icon ?? Icons.notification_important_outlined,
       description: des ?? '',
-      isFailed: true,
+      isFailed: isFailed,
     ));
   }
 

@@ -16,9 +16,9 @@ class ApplicationCubit extends Cubit<ApplicationState> {
 
   final _ApplicationActionHelper _helper = _ApplicationActionHelper();
 
-  Future<bool?> Function({String title, String? des, IconData? icon, String? keyCancel, String? keyConfirm}) get confirm => _helper.confirm;
+  Future<bool?> Function({String title, String? des, IconData? icon, String? keyCancel, String? keyConfirm, bool isFailed}) get confirm => _helper.confirm;
 
-  Future<void> Function({String title, String? des, IconData? icon}) get notification => _helper.notification;
+  Future<void> Function({String title, String? des, IconData? icon, bool isFailed}) get notification => _helper.notification;
 
   // Future<T?> Function<T>(BuildContext context, WidgetBuilder builder, {bool isDismissible}) get showBottomSheet => _helper.showBottomSheet;
 

@@ -30,8 +30,10 @@ class AppDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       insetPadding: const EdgeInsets.symmetric(horizontal: 20),
+      backgroundColor: AppColors.gray.withOpacity(0.9),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      child: Padding(
+      child: Container(
+        width: 500,
         padding: const EdgeInsets.all(20),
         child: Stack(clipBehavior: Clip.none, children: <Widget>[
           Positioned(
@@ -52,26 +54,26 @@ class AppDialog extends StatelessWidget {
             child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               Text(
                 title.tr,
-                style: AppTextStyles.getLgStyle(AppTextStyles.regular),
+                style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               Text(
                 description.tr,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.getLgStyle(AppTextStyles.regular),
+                style: AppTextStyles.getLgStyle(AppTextStyles.zendots),
               ),
               const SizedBox(height: 20),
               Visibility(
                 visible: !showTwoBtn,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: CustomOutlinedButton(
                     title: 'OK'.tr,
                     action: Get.back,
                     backgroundColor: Colors.green,
                     borderColor: Colors.green,
-                    textStyle: AppTextStyles.getLgStyle(AppTextStyles.regular),
+                    textStyle: AppTextStyles.getLgStyle(AppTextStyles.zendots),
                   ),
                 ),
               ),
@@ -85,7 +87,7 @@ class AppDialog extends StatelessWidget {
                         backgroundColor: AppColors.error,
                         borderColor: AppColors.error,
                         action: () => Get.back(result: false),
-                        textStyle: AppTextStyles.getLgStyle(AppTextStyles.regular),
+                        textStyle: AppTextStyles.getLgStyle(AppTextStyles.zendots),
                       ),
                     ),
                     const SizedBox(
@@ -97,7 +99,7 @@ class AppDialog extends StatelessWidget {
                         action: () => Get.back(result: true),
                         backgroundColor: AppColors.primary,
                         borderColor: AppColors.primary,
-                        textStyle: AppTextStyles.getLgStyle(AppTextStyles.regular),
+                        textStyle: AppTextStyles.getLgStyle(AppTextStyles.zendots),
                       ),
                     ),
                   ],

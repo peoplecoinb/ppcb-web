@@ -195,13 +195,11 @@ class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveS
 
   @override
   Widget buildMobile(BuildContext context) {
-    // TODO: implement buildMobile
     return buildDesktop(context);
   }
 
   @override
   Widget buildTablet(BuildContext context) {
-    // TODO: implement buildTablet
     return buildDesktop(context);
   }
 }

@@ -28,5 +28,6 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
 - Currently the meta-mask wallet link section is temporarily locked for thorough preparation.''',
   'presale_buy': 'Buy',
   'meta_mask_connect_error': 'Please install Metamask wallet',
-  'presale_later': 'Cannot buy now',
+  'presale_later': 'Please wait until the pre-sale begins',
+  'notification': 'Notification',
 };

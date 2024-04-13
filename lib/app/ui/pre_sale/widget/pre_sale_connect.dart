@@ -248,7 +248,11 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
                   if(state == null)
                     Get.find<MetamaskCubit>().connect();
                   else
-                    Get.find<ApplicationCubit>().showSnackbar('presale_later', isError: true, isIcon: true);
+                    Get.find<ApplicationCubit>().notification(
+                      title: 'notification'.tr,
+                      des: 'presale_later'.tr,
+                      isFailed: false,
+                    );
                 },
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
                 radius: 10,

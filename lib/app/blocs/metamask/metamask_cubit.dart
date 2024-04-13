@@ -54,7 +54,7 @@ class MetamaskCubit extends Cubit<MetamaskState> {
       getAccount();
     }
     else {
-      Get.find<ApplicationCubit>().showSnackbar('meta_mask_connect_error', isError: true, isIcon: true);
+      Get.find<ApplicationCubit>().notification(title:'notification'.tr, des: 'meta_mask_connect_error',);
     }
   }
 
