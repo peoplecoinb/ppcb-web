@@ -7,6 +7,7 @@ import 'package:logger/logger.dart';
 import 'blocs/application/application_cubit.dart';
 import 'blocs/language/language_cubit.dart';
 import 'blocs/language/language_select_state.dart';
+import 'blocs/metamask/metamask_cubit.dart';
 import 'blocs/theme/theme_cubit.dart';
 import 'constants/constants.dart';
 import 'routes/app_pages.dart';
@@ -32,6 +33,7 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
     getx.Get.put(ApplicationCubit(), permanent: true);
     getx.Get.put(ThemeCubit(), permanent: true);
     getx.Get.put(LanguageCubit(), permanent: true);
+    getx.Get.put(MetamaskCubit(), permanent: true);
     // getx.Get.put(ProfileCubit(), permanent: true);
     // getx.Get.put(AuthenticationCubit(), permanent: true);
     // getx.Get.put(LocalServerCubit()..firstCreateLocalServerAppClient(), permanent: true);

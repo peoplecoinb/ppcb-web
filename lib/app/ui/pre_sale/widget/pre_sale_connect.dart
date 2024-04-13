@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:input_formatter/input_formatter.dart';
 
+import '../../../blocs/metamask/metamask_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../extensions/hex_color.dart';
 import '../../widgets/custom_outline_button.dart';
@@ -17,27 +18,6 @@ class PreSaleConnect extends StatefulWidget {
 class _PreSaleConnectState extends State<PreSaleConnect> {
   final TextEditingController _usdtController = TextEditingController();
   final TextEditingController _ppcbController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-
-    // _usdtController.addListener(() {
-    //   if (_usdtController.text.isNotEmpty) {
-    //     final String usdtText = _usdtController.text.replaceAll(',', '');
-    //     final double usdt = double.parse(usdtText);
-    //     _ppcbController.text = (usdt / 0.0002).toString();
-    //   }
-    // });
-
-    // _ppcbController.addListener(() {
-    // if (_ppcbController.text.isNotEmpty) {
-    //   final String ppcbText = _usdtController.text.replaceAll(',', '');
-    //   final double ppcb = double.parse(ppcbText);
-    //   _usdtController.text = (ppcb * 0.0002).toString();
-    // }
-    // });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -249,7 +229,9 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
       ),
       child: CustomOutlinedButton(
         title: 'presale_component_connenct'.tr,
-        action: () {},
+        action: () {
+          Get.find<MetamaskCubit>().connect();
+        },
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
         radius: 10,
         textColor: AppColors.white,
