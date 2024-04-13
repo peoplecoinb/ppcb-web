@@ -25,5 +25,8 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
   'presale_description': '''
 - After the countdown timer disappears. You can participate in the presale immediately through the interactive panel next to it.
 
-- Currently the meta-mask wallet link section is temporarily locked for thorough preparation.'''
+- Currently the meta-mask wallet link section is temporarily locked for thorough preparation.''',
+  'presale_buy': 'Buy',
+  'meta_mask_connect_error': 'Please install Metamask wallet',
+  'presale_later': 'Cannot buy now',
 };

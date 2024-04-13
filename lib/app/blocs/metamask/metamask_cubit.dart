@@ -1,14 +1,16 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wallet_sdk_metamask/wallet_sdk_metamask.dart';
+import 'package:flutter_web3/flutter_web3.dart';
+import 'package:get/get.dart';
 
 import '../../constants/constants.dart';
+import '../application/application_cubit.dart';
 
 part 'metamask_state.dart';
 part 'metamask_endpoint.dart';
 
 class MetamaskCubit extends Cubit<MetamaskState> {
-  MetamaskCubit() : super(MetamaskInitial());
+  MetamaskCubit() : super(const MetamaskInitial());
 
   Token get usdt {
     if (flavor == 'dev') {
@@ -36,15 +38,30 @@ class MetamaskCubit extends Cubit<MetamaskState> {
   }
 
   Future<void> connect() async {
-    final WalletConnect connector = WalletConnect(
-      uri: endpoint.rpcUrl
-    );
-    final EthereumWalletConnectProvider walletConnectProvider = EthereumWalletConnectProvider(connector);
-    walletConnectProvider.addChain(
+    if (ethereum?.isConnected() ?? false) {
+      await ethereum!.walletAddChain(
         chainId: endpoint.chainId,
         chainName: endpoint.chainName,
-        nativeCurrency: bnb.toJson(),
-        rpc: <String>[endpoint.rpcUrl],
-        explorers: <String>[endpoint.explorers]);
+        nativeCurrency: CurrencyParams(
+          name: bnb.name,
+          symbol: bnb.symbol,
+          decimals: bnb.decimals,
+        ),
+        rpcUrls: <String>[
+          endpoint.rpcUrl,
+        ],
+      );
+      getAccount();
+    }
+    else {
+      Get.find<ApplicationCubit>().showSnackbar('meta_mask_connect_error', isError: true, isIcon: true);
+    }
+  }
+
+  Future<void> getAccount() async {
+    final String account = (await ethereum!.requestAccount()).first;
+    if (account != null) {
+      emit(MetamaskConnected(account: account));
+    }
   }
 }

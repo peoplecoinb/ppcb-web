@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:input_formatter/input_formatter.dart';
 
+import '../../../blocs/application/application_cubit.dart';
 import '../../../blocs/metamask/metamask_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../extensions/hex_color.dart';
@@ -220,25 +222,78 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
   }
 
   Widget buildButton() {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        gradient: LinearGradient(
-          colors: <Color>[Colors.deepPurple, AppColors.primary.shade600],
+    return BlocSelector<MetamaskCubit, MetamaskState, String?>(
+      bloc: Get.find<MetamaskCubit>(),
+      selector: (MetamaskState state) {
+        return state.account;
+      },
+      builder: (BuildContext context, String? state) {
+        return Column(
+          children: <Widget>[
+            buildAccount(state),
+            const SizedBox(
+              height: 32,
+            ),
+            Container(
+              width: 300,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                gradient: LinearGradient(
+                  colors: <Color>[Colors.deepPurple, AppColors.primary.shade600],
+                ),
+              ),
+              child: CustomOutlinedButton(
+                title: (state != null) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
+                action: () {
+                  if(state == null)
+                    Get.find<MetamaskCubit>().connect();
+                  else
+                    Get.find<ApplicationCubit>().showSnackbar('presale_later', isError: true, isIcon: true);
+                },
+                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
+                radius: 10,
+                textColor: AppColors.white,
+                backgroundColor: Colors.transparent,
+                borderColor: Colors.transparent,
+                textStyle: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget buildAccount(String? account) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Text(
+            account ?? '',
+            style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
+          ),
         ),
-      ),
-      child: CustomOutlinedButton(
-        title: 'presale_component_connenct'.tr,
-        action: () {
-          Get.find<MetamaskCubit>().connect();
-        },
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
-        radius: 10,
-        textColor: AppColors.white,
-        backgroundColor: Colors.transparent,
-        borderColor: Colors.transparent,
-        textStyle: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
-      ),
+        const SizedBox(
+          width: 32,
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            CircleAvatar(
+              radius: 8,
+              backgroundColor: account != null ? AppColors.success : AppColors.error,
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            Text(
+              (account != null) ? 'Connected' : 'Disconnected',
+              style: AppTextStyles.getSmStyle(AppTextStyles.zendots)
+                  .copyWith(color: account != null ? AppColors.success : AppColors.error),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
