@@ -1,5 +1,4 @@
-import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
 
@@ -11,12 +10,27 @@ class FundScreen extends StatefulWidget {
 }
 
 class _FundScreenState extends State<FundScreen> {
+
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      AppImages.png('fund'),
-      width: Get.width,
-      fit: BoxFit.fill,
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Image.asset(
+            AppImages.png('fund'),
+            width: DESKTOP_PAGE_MAX_WIDTH,
+            height: DESKTOP_PAGE_MAX_HEIGHT,
+            fit: BoxFit.fill,
+          ),
+          const Divider(),
+          Image.asset(
+            AppImages.png('token_allocation'),
+            width: DESKTOP_PAGE_MAX_WIDTH,
+            height: DESKTOP_PAGE_MAX_HEIGHT,
+            fit: BoxFit.fill,
+          ),
+        ],
+      ),
     );
   }
 }
