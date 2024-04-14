@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/app_colors.dart';
+import '../../constants/constants.dart';
 import '../../extensions/hex_color.dart';
 
 class CustomDropdownController extends ChangeNotifier {
@@ -32,11 +33,17 @@ class CustomDropdown<T> extends StatefulWidget {
     this.value,
     this.valueBuilder,
     this.isEnabled = true,
+    this.hintStyle,
+    this.decoration,
+    this.padding,
   });
   final String hint;
+  final TextStyle? hintStyle;
   final CustomDropdownController? controller;
+  final EdgeInsets? padding;
   final Widget Function(BuildContext context) menuBuilder;
   final T? value;
+  final BoxDecoration? decoration;
   final Widget Function(BuildContext context, T? value)? valueBuilder;
   final bool isEnabled;
 
@@ -90,22 +97,18 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
           alignment: Alignment.centerRight,
           children: <Widget>[
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 28),
-              decoration: BoxDecoration(
-                color: AppColors.primary,
-                borderRadius: BorderRadius.circular(10),
-              ),
+              padding: widget.padding ?? const EdgeInsets.symmetric(vertical: 16, horizontal: 28),
+              decoration: widget.decoration ??
+                  BoxDecoration(
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
               child: Row(
                 children: <Widget>[
                   if (widget.value == null)
                     Expanded(
-                      child: Text(
-                        widget.hint,
-                        // style: AppTextStyles.rubikMedium.copyWith(
-                        //   fontSize: 16,
-                        //   color: Theme.of(context).hintColor,
-                        // ),
-                      ),
+                      child:
+                          Text(widget.hint, style: widget.hintStyle ?? AppTextStyles.getXlStyle(AppTextStyles.zendots)),
                     )
                   else
                     Expanded(

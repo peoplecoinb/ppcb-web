@@ -6,4 +6,5 @@ export 'road_map/road_map.dart';
 export 'fund/fund_screen.dart';
 export 'team/team_screen.dart';
 export 'pre_sale/pre_sale_screen.dart';
+export 'more/more_screen.dart';
 export 'widgets/widgets.dart';

@@ -35,6 +35,10 @@ class AppPages{
       name: Routes.preSale.route,
       page: () => const PreSaleScreen(),
     ),
+        GetPage<dynamic>(
+      name: Routes.more.route,
+      page: () => const MoreScreen(),
+    ),
     GetPage<dynamic>(
       name: Routes.unknown.route,
       page: () => const UnknownScreen(),

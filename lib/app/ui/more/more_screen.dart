@@ -2,35 +2,28 @@ import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
 
-class WhitePaperScreen extends StatefulWidget {
-  const WhitePaperScreen({super.key});
+class MoreScreen extends StatefulWidget {
+  const MoreScreen({super.key});
 
   @override
-  State<WhitePaperScreen> createState() => _WhitePaperScreenState();
+  State<MoreScreen> createState() => _MoreScreenState();
 }
 
-class _WhitePaperScreenState extends State<WhitePaperScreen> {
+class _MoreScreenState extends State<MoreScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
           Image.asset(
-            AppImages.png('white_paper'),
+            AppImages.png('app'),
             width: DESKTOP_PAGE_MAX_WIDTH,
             height: DESKTOP_PAGE_MAX_HEIGHT,
             fit: BoxFit.fill,
           ),
           const Divider(),
           Image.asset(
-            AppImages.png('mission'),
-            width: DESKTOP_PAGE_MAX_WIDTH,
-            height: DESKTOP_PAGE_MAX_HEIGHT,
-            fit: BoxFit.fill,
-          ),
-          const Divider(),
-          Image.asset(
-            AppImages.png('partner'),
+            AppImages.png('member'),
             width: DESKTOP_PAGE_MAX_WIDTH,
             height: DESKTOP_PAGE_MAX_HEIGHT,
             fit: BoxFit.fill,

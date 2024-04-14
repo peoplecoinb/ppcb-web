@@ -136,8 +136,48 @@ class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveS
             AppRouteDelegate().toNamed(Routes.team.route);
           },
         ),
+        // SizedBox(
+        //   width: 100,
+        //   child: CustomDropdown<dynamic>(
+        //     decoration: const BoxDecoration(),
+        //     controller: CustomDropdownController(),
+        //     padding: EdgeInsets.zero,
+        //     hint: NAVIGATION_MENU[4].tr.toUpperCase(),
+        //     hintStyle: AppTextStyles.getBaseStyle(
+        //       AppTextStyles.zendots.copyWith(
+        //         color: AppColors.gray.shade300,
+        //       ),
+        //     ),
+        //     menuBuilder: (BuildContext context) {
+        //       return Container(
+        //         child: Column(
+        //           children: <Widget>[
+        //             buildItem(
+        //               NAVIGATION_MENU[3],
+        //               onTap: () {
+        //                 AppRouteDelegate().toNamed(Routes.team.route);
+        //               },
+        //             ),
+        //             buildItem(
+        //               NAVIGATION_MENU[3],
+        //               onTap: () {
+        //                 AppRouteDelegate().toNamed(Routes.team.route);
+        //               },
+        //             )
+        //           ],
+        //         ),
+        //       );
+        //     },
+        //     valueBuilder: (BuildContext context, value) {
+        //       return SizedBox();
+        //     },
+        //   ),
+        // ),
         buildItem(
           NAVIGATION_MENU[4],
+          onTap: (){
+            AppRouteDelegate().toNamed(Routes.more.route);
+          }
         ),
       ],
     );

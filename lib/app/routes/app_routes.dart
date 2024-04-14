@@ -5,6 +5,7 @@ enum Routes {
   fund('/fund'),
   team('/team'),
   preSale('/pre-sale'),
+  more('/more'),
   unknown('/unknown');
 
   const Routes(this.route);
