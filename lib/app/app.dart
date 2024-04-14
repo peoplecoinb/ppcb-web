@@ -48,6 +48,12 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
       precacheImage(AssetImage(AppImages.png('road_map')), context),
       precacheImage(AssetImage(AppImages.png('fund')), context),
       precacheImage(AssetImage(AppImages.png('team')), context),
+      precacheImage(AssetImage(AppImages.png('presale_campaign')), context),
+      precacheImage(AssetImage(AppImages.png('partner')), context),
+      precacheImage(AssetImage(AppImages.png('mission')), context),
+      precacheImage(AssetImage(AppImages.png('app')), context),
+      precacheImage(AssetImage(AppImages.png('member')), context),
+      precacheImage(AssetImage(AppImages.png('token_allocation')), context),
     ]);
   }
 
@@ -69,12 +75,12 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
 
   @override
   Future<void> didChangeDependencies() async {
-      await preloadAsset();
+    await preloadAsset();
     super.didChangeDependencies();
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state){
+  void didChangeAppLifecycleState(AppLifecycleState state) {
     Logger().d('ChangeAppLifecycleState: $state');
   }
 

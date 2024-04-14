@@ -7,8 +7,6 @@ import 'package:get/get.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/constants.dart';
-import '../../routes/app_route_delegate.dart';
-import '../../routes/app_routes.dart';
 import '../ui.dart';
 import 'home_presale_button.dart';
 
