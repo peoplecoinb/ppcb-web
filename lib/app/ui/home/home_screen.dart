@@ -10,6 +10,7 @@ import '../../constants/constants.dart';
 import '../../routes/app_route_delegate.dart';
 import '../../routes/app_routes.dart';
 import '../ui.dart';
+import 'home_presale_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
   final FlutterEarthGlobeController _controller = FlutterEarthGlobeController(
     isRotating: true,
     rotationSpeed: 0.1,
-    zoom: 1.3,
     background: Image.asset(AppImages.jpg('2k_stars_milky_way')).image,
     surface: Image.asset(AppImages.jpg('2k_venus_surface')).image,
     isBackgroundFollowingSphereRotation: true,  
@@ -49,33 +49,6 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
       child: Container(
         color: AppColors.black,
         child: buildResponsiveScreen(context),
-      ),
-    );
-  }
-
-  Widget buildButtonPreSales() {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        gradient: LinearGradient(
-          colors: <Color>[Colors.deepPurple, AppColors.primary.shade600],
-        ),
-      ),
-      child: CustomOutlinedButton(
-        title: 'home_pre_sales'.tr,
-        action: () {
-          // launchUrl(
-          //   Uri.parse('https://pancakeswap.finance/swap?outputCurrency=0xa5aFeBa0018a6fDa96712126ce346C007F000B26'),
-          //   mode: LaunchMode.externalNonBrowserApplication,
-          // );
-          AppRouteDelegate().toNamed(Routes.preSale.route);
-        },
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
-        radius: 20,
-        textColor: AppColors.white,
-        backgroundColor: Colors.transparent,
-        borderColor: Colors.transparent,
-        textStyle: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
       ),
     );
   }
@@ -108,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
               const SizedBox(
                 height: 50,
               ),
-              buildButtonPreSales()
+              const HomePresaleButton()
             ],
           ),
         )
