@@ -291,7 +291,7 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
               width: 8,
             ),
             Text(
-              (account != null) ? 'Connected' : 'Disconnected',
+              (account != null) ? 'Wallet connected' : 'Wallet disconnected',
               style: AppTextStyles.getSmStyle(AppTextStyles.zendots)
                   .copyWith(color: account != null ? AppColors.success : AppColors.error),
             ),
