@@ -1,4 +1,4 @@
-part of 'metamask_cubit.dart';
+part of 'web3_cubit.dart';
 
 sealed class MetamaskState extends Equatable {
   const MetamaskState({this.account});

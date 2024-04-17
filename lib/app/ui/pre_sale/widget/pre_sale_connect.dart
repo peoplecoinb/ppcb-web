@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:input_formatter/input_formatter.dart';
 
 import '../../../blocs/application/application_cubit.dart';
-import '../../../blocs/metamask/metamask_cubit.dart';
+import '../../../blocs/web3/web3_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../extensions/hex_color.dart';
 import '../../widgets/custom_outline_button.dart';

@@ -1,28 +1,46 @@
-part of 'metamask_cubit.dart';
+part of 'web3_cubit.dart';
 
 class MetamaskEndpoint {
 
   MetamaskEndpoint.testnet():
     chainName = 'Binance Smart Chain Testnet',
     chainId = 97,
-    rpcUrl = 'https://data-seed-prebsc-1-s1.bnbchain.org:8545/',
-    explorers = 'https://testnet.bscscan.com';
+    rpcUrls = <String>[
+      'https://data-seed-prebsc-2-s1.bnbchain.org:8545/',
+      'https://data-seed-prebsc-1-s2.bnbchain.org:8545/'
+    ],
+    explorers = <String>[
+      'https://testnet.bscscan.com'
+    ],
+    nativeToken = Token.bnbTest();
 
   MetamaskEndpoint.mainnet():
     chainName = 'Binance Smart Chain',
     chainId = 56,
-    rpcUrl = 'https://bsc-dataseed.bnbchain.org/',
-    explorers = 'https://bscscan.com';
+    rpcUrls = <String>[
+      'https://bsc-dataseed.bnbchain.org/'
+    ],
+    explorers = <String>[
+      'https://bscscan.com'
+    ],
+    nativeToken = Token.bnb();
 
   final String chainName;
   final int chainId;
-  final String rpcUrl;
-  final String explorers;
+  final List<String> rpcUrls;
+  final List<String> explorers;
+  final Token nativeToken;
 }
 
 class Token{
 
   Token.bnb():
+    name = 'Binance Coin',
+    symbol = 'BNB',
+    decimals = 18,
+    address = null;
+  
+  Token.bnbTest():
     name = 'Binance Coin',
     symbol = 'BNB',
     decimals = 18,

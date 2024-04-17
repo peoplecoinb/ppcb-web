@@ -46,10 +46,13 @@
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
   <script src="https://www.gstatic.com/flutter-canvaskit/b16c0f136cdd76a97854b7ba3550d199fbd694ff/skwasm.js"></script>
-  <!--Ethers-->
+  <!-- Ethers
   <script src="https://cdn.ethers.io/lib/ethers-5.4.umd.min.js" type="application/javascript"></script>
-  <!--Wallet Connect-->
-  <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.6.5/dist/umd/index.min.js" type="application/javascript"></script>
+  Wallet Connect
+  <script src="https://cdn.jsdelivr.net/npm/walletconnect-web3-provider@0.7.28/dist/walletconnect-web3-provider.min.js"  type="application/javascript"></script> -->
+  <!-- Web3 -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@4.7.0/dist/web3.min.js"></script>
+  <script src="js/web3.js" type="application/javascript"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -57,10 +60,9 @@
     <div class="logo-container">
       <img src="icons/ms-icon-150x150.png" alt="Splash Logo" class="logo">
     </div>
-  </div>
+  </div>  
   <script>
     window.addEventListener('load', function(ev) {
-      // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
@@ -73,7 +75,6 @@
         }
       });
     });
-
     function hideSplashScreen() {
       var splashScreen = document.querySelector('.splash-screen');
       splashScreen.style.display = 'none';
@@ -81,3 +82,4 @@
   </script>
 </body>
 </html>
+

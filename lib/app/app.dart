@@ -7,7 +7,7 @@ import 'package:logger/logger.dart';
 import 'blocs/application/application_cubit.dart';
 import 'blocs/language/language_cubit.dart';
 import 'blocs/language/language_select_state.dart';
-import 'blocs/metamask/metamask_cubit.dart';
+import 'blocs/web3/web3_cubit.dart';
 import 'blocs/theme/theme_cubit.dart';
 import 'constants/constants.dart';
 import 'routes/app_pages.dart';

@@ -10,7 +10,7 @@
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--dart-define FLAVOR=dev",
+                "--dart-define FLAVOR=prod",
             ]
         },
         {
