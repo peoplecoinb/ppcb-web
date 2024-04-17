@@ -6,7 +6,7 @@ function FlutterWeb3() {
         return this.web3.eth.getAccounts();
     }
 
-    this.swithChain = async function ({
+    this.switchChain = async function ({
         chainId,
         chainName,
         rpcUrls,

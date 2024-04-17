@@ -10,20 +10,15 @@
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--dart-define FLAVOR=prod",
+                "--dart-define FLAVOR=dev",
             ]
         },
         {
-            "name": "web_bloc_boilerplate (dev mode)",
-            "request": "launch",
+            "name": "web-server (debug mode)",
             "type": "dart",
-            "flutterMode": "release"
-        },
-        {
-            "name": "web_bloc_boilerplate (prod mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
+            "args": [
+                "run -d web-server --web-port=8080 --dart-define FLAVOR=dev"
+            ]
         }
     ]
 }

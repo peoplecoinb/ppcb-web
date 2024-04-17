@@ -1,45 +1,49 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../constants/constants.dart';
-import 'web3js.dart';
+import 'package:get/get.dart';
+import '/web3js/web3js.dart';
 import 'package:js/js_util.dart';
+import '../application/application_cubit.dart';
+import '../../constants/constants.dart';
 
 part 'web3_state.dart';
-part 'web3_endpoint.dart';
 
 class MetamaskCubit extends Cubit<MetamaskState> {
   MetamaskCubit() : super(const MetamaskInitial());
 
-  Token get usdt {
+  NativeCurrency get usdt {
     if (flavor == 'dev') {
-      return Token.usdtTestNet();
+      return NativeCurrency.usdtTestNet();
     }
-    return Token.usdtMainNet();
+    return NativeCurrency.usdtMainNet();
   }
 
-  Token get ppcb {
+  NativeCurrency get ppcb {
     if (flavor == 'dev') {
-      return Token.ppcbTestNet();
+      return NativeCurrency.ppcbTestNet();
     }
-    return Token.ppcbMainNet();
-  }
-
-  MetamaskEndpoint get endpoint {
-    if (flavor == 'dev') {
-      return MetamaskEndpoint.testnet();
-    }
-    return MetamaskEndpoint.mainnet();
+    return NativeCurrency.ppcbMainNet();
   }
 
   Future<void> connect() async {
-    FlutterWeb3().swithChain(
-      endpoint.chainId,
-      endpoint.chainName,
-      endpoint.rpcUrls,
-      endpoint.explorers,
-      endpoint.nativeToken.toJson(),
-    );
+    connectOnPC();
   }
 
-  Future<void> getAccount() async {}
+  Future<void> connectOnPC() async {
+    if(FlutterWeb3.checkWeb3Available()){
+      await FlutterWeb3().switchChain(ChainNetwork.bnbTestNet());
+      getAccount();
+    }else{
+      Get.find<ApplicationCubit>().notification(title:'notification'.tr, des: 'meta_mask_connect_error',);
+    }
+  }
+
+  Future<void> getAccount() async {
+    final List<dynamic> accounts = await promiseToFuture(FlutterWeb3().getAccounts());
+    if (accounts.isNotEmpty) {
+      emit(MetamaskConnected(account: accounts.first as String));
+    } else {
+      emit(const MetamaskInitial());
+    }
+  }
 }
