@@ -46,10 +46,10 @@
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
   <script src="https://www.gstatic.com/flutter-canvaskit/b16c0f136cdd76a97854b7ba3550d199fbd694ff/skwasm.js"></script>
-  <!--Ethers-->
-  <script src="https://cdn.ethers.io/lib/ethers-5.4.umd.min.js" type="application/javascript"></script>
-  <!--Wallet Connect-->
-  <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.6.5/dist/umd/index.min.js" type="application/javascript"></script>
+  <script src="dist/430.bundle.js"></script>
+  <script src="dist/737.bundle.js"></script>
+  <script src="dist/940.bundle.js"></script>
+  <script src="dist/flutter_wallet_connect.bundle.js" type="application/javascript"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -59,7 +59,24 @@
     </div>
   </div>
   <script>
-    window.addEventListener('load', function(ev) {
+    const connect = new FlutterWalletConnect({
+      projectId: 'c36bf582b97350dd8130834ceb358c39',
+      chains: [
+        {
+          chainId : 56,
+          name : 'Binance Smart Chain',
+          currency: 'BNB',
+          rpcUrl : 'https://bsc-dataseed.bnbchain.org/',
+          explorerUrl : 'https://bscscan.com',
+        }
+      ],
+      matadata: {
+        name: 'PPCB - PEOPLE COIN',
+        description: 'PPCB - PEOPLE COIN',
+        url: 'localhost:8080',
+      }
+    });
+    /* window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
@@ -73,11 +90,13 @@
         }
       });
     });
+    */
 
     function hideSplashScreen() {
       var splashScreen = document.querySelector('.splash-screen');
       splashScreen.style.display = 'none';
     }
+    document.cookie = "domain=.walletconnect.com; path=/";
   </script>
 </body>
 </html>
