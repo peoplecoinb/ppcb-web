@@ -44,3 +44,4 @@ app.*.map.json
 /.fvm
 node_modules/
 node_modules
+package-lock.json
