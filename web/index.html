@@ -14,7 +14,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="$FLUTTER_BASE_HREF">
+  <base href="/"/>
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -46,10 +46,10 @@
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
   <script src="https://www.gstatic.com/flutter-canvaskit/b16c0f136cdd76a97854b7ba3550d199fbd694ff/skwasm.js"></script>
-  <script src="dist/430.bundle.js"></script>
-  <script src="dist/737.bundle.js"></script>
-  <script src="dist/940.bundle.js"></script>
-  <script src="dist/flutter_wallet_connect.bundle.js" type="application/javascript"></script>
+  <script src="web/.dist/430.bundle.js"></script>
+  <script src="web/.dist/940.bundle.js"></script>
+  <script src="web/.dist/wallect_connect_etherum.bundle.js"></script>
+  <!-- <script src="web/.dist/flutter_wallet_connect.bundle.js"></script> -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -59,7 +59,7 @@
     </div>
   </div>
   <script>
-    const connect = new FlutterWalletConnect({
+    /* const connect = new FlutterWalletConnect({
       projectId: 'c36bf582b97350dd8130834ceb358c39',
       chains: [
         {
@@ -71,11 +71,10 @@
         }
       ],
       matadata: {
-        name: 'PPCB - PEOPLE COIN',
-        description: 'PPCB - PEOPLE COIN',
-        url: 'localhost:8080',
+        name: 'test',
       }
     });
+    */
     /* window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
