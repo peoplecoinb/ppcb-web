@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -14,11 +15,12 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="$FLUTTER_BASE_HREF">
+  <base href="/" />
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="PPCB - People Coin">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- iOS meta tags & icons -->
   <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
@@ -30,7 +32,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
@@ -46,12 +48,14 @@
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
   <script src="https://www.gstatic.com/flutter-canvaskit/b16c0f136cdd76a97854b7ba3550d199fbd694ff/skwasm.js"></script>
-  <!--Ethers-->
-  <script src="https://cdn.ethers.io/lib/ethers-5.4.umd.min.js" type="application/javascript"></script>
-  <!--Wallet Connect-->
-  <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.6.5/dist/umd/index.min.js" type="application/javascript"></script>
+  <script src="web/.dist/430.bundle.js"></script>
+  <script src="web/.dist/737.bundle.js"></script>
+  <script src="web/.dist/940.bundle.js"></script>
+  <script src="web/.dist/flutter_wallet_connect.bundle.js" type="application/javascript"></script>
+  <!-- <script src="web/.dist/flutter_wallet_wagi.bundle.js" type="module"></script> -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="splash-screen">
     <div class="logo-container">
@@ -73,11 +77,12 @@
         }
       });
     });
-
     function hideSplashScreen() {
       var splashScreen = document.querySelector('.splash-screen');
       splashScreen.style.display = 'none';
     }
+    document.cookie = "domain=.walletconnect.com; path=/";
   </script>
 </body>
+
 </html>
