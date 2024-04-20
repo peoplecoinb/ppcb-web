@@ -5,17 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf .dist && webpack --mode production"
+    "build": "rm -rf ../web/.dist && webpack --mode production"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@wagmi/connectors": "^4.1.26",
-    "@wagmi/core": "^2.6.17",
     "@web3modal/ethers": "^4.1.10",
-    "@web3modal/wagmi": "^4.1.10",
-    "ethers": "^6.12.0",
-    "viem": "^2.9.23"
+    "ethers": "^6.12.0"
   },
   "devDependencies": {
     "node-polyfill-webpack-plugin": "^3.0.0",

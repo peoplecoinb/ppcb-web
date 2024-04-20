@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:input_formatter/input_formatter.dart';
 
 import '../../../blocs/application/application_cubit.dart';
-import '../../../blocs/metamask/metamask_cubit.dart';
+import '../../../blocs/web3/web3_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../extensions/hex_color.dart';
 import '../../widgets/custom_outline_button.dart';
@@ -222,9 +222,9 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
   }
 
   Widget buildButton() {
-    return BlocSelector<MetamaskCubit, MetamaskState, String?>(
-      bloc: Get.find<MetamaskCubit>(),
-      selector: (MetamaskState state) {
+    return BlocSelector<Web3Cubit, Web3State, String?>(
+      bloc: Get.find<Web3Cubit>(),
+      selector: (Web3State state) {
         return state.account;
       },
       builder: (BuildContext context, String? state) {
@@ -246,7 +246,7 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
                 title: (state != null) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
                 action: () {
                   if(state == null)
-                    Get.find<MetamaskCubit>().connect();
+                    Get.find<Web3Cubit>().connect();
                   else
                     Get.find<ApplicationCubit>().notification(
                       title: 'notification'.tr,

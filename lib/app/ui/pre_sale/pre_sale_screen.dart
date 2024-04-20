@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_earth_globe/flutter_earth_globe.dart';
 import 'package:flutter_earth_globe/flutter_earth_globe_controller.dart';
 import 'package:flutter_earth_globe/sphere_style.dart';
 
-import '../../constants/app_images.dart';
 import '../../constants/constants.dart';
 import 'widget/pre_sale_component.dart';
 

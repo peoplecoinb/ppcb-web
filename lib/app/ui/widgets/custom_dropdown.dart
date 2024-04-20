@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../constants/app_colors.dart';
 import '../../constants/constants.dart';
 import '../../extensions/hex_color.dart';
 
