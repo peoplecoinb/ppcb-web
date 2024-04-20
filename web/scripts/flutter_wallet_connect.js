@@ -1,5 +1,5 @@
 // Import các modules cần thiết từ thư viện '@web3modal/ethers'
-const { createWeb3Modal, defaultConfig } = require('@web3modal/ethers');
+const { createWeb3Modal, defaultConfig,  } = require('@web3modal/ethers/react');
 
 // 1. Lấy projectId tại https://cloud.walletconnect.com
 const projectId = 'c36bf582b97350dd8130834ceb358c39';
