@@ -1,5 +1,12 @@
 ARG APP=/ppcb_web
 
+FROM node:21-alpine AS build-webpack
+WORKDIR /node
+COPY . .
+RUN cd node && \ 
+    npm install && \
+    npm run build
+
 # Environemnt to install flutter and build web
 FROM debian:latest AS build-env
 
@@ -28,6 +35,8 @@ RUN flutter doctor -v
 WORKDIR $APP
 
 COPY . $APP
+
+COPY --from=build-webpack /node/web/.dist $APP/web/.dist/
 
 # Run build: 1 - clean, 2 - pub get, 3 - build web
 RUN flutter clean
