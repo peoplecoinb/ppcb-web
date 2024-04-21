@@ -23,13 +23,32 @@ FlutterWalletConnect = function ({projectId, metadata, chains}){
         return this.web3Modal.getAddress();
     }
 
+    this.getChainId = function(){
+        return this.web3Modal.getChainId();
+    }
+
     this.isConnected = function(){
         return this.web3Modal.getIsConnected();
     }
 
     this.subscribeWalletInfo = function(callback){
-        console.log('subscribeWalletInfo', callback);
         this.web3Modal.subscribeWalletInfo(callback);
+    }
+
+    this.subscribeProvider = function(callback){
+        this.web3Modal.subscribeProvider(callback);
+    }
+
+    this.subscribeState = function(callback){
+        this.web3Modal.subscribeState(callback);
+    }
+
+    this.switchNetwork = async function(chainId){
+        return this.web3Modal.switchNetwork(chainId);
+    }
+
+    this.closeModal = function(){
+        return this.web3Modal.close();
     }
 }
 

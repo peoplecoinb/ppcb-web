@@ -8,6 +8,6 @@ class ConnectWalletInfo {
     String? icon,
   });
 
-  external String? name;
-  external String? icon;
+  external String? get name;
+  external String? get icon;
 }

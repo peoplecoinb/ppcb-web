@@ -13,17 +13,5 @@
                 "--dart-define FLAVOR=dev",
             ]
         },
-        {
-            "name": "web_bloc_boilerplate (dev mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        },
-        {
-            "name": "web_bloc_boilerplate (prod mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        }
     ]
 }

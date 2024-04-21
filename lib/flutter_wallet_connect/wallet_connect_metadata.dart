@@ -11,8 +11,8 @@ class WalletConnectMetadata {
     required List<String> icons,
   });
 
-  external String name;
-  external String description;
-  external String url;
-  external List<String> icons;
+  external String get name;
+  external String get description;
+  external String get url;
+  external List<String> get icons;
 }

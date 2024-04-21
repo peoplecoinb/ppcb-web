@@ -36,9 +36,9 @@ class NetworkChain {
     rpcUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545',
   );
 
-  external int chainId;
-  external String name;
-  external String currency;
-  external String explorerUrl;
-  external String rpcUrl;
+  external int get chainId;
+  external String get name;
+  external String get currency;
+  external String get explorerUrl;
+  external String get rpcUrl;
 }
