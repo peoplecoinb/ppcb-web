@@ -1,10 +1,11 @@
-// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member, avoid_redundant_argument_values
 
+import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:input_formatter/input_formatter.dart';
+// import 'package:input_formatter/input_formatter.dart';
 
 import '../../../blocs/web3/web3_cubit.dart';
 import '../../../constants/constants.dart';
@@ -23,12 +24,6 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
   final TextEditingController _usdtController = TextEditingController();
   final TextEditingController _ppcbController = TextEditingController();
   final PreSaleCubit _preSaleCubit = Get.put(PreSaleCubit());
-
-  @override
-  void initState() {
-    print('PreSaleConnect initState: ${Get.find<PreSaleCubit>().hashCode}');
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +91,7 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
                   if (value.isNotEmpty) {
                     final String usdtText = value.replaceAll(',', '');
                     final double usdt = double.parse(usdtText);
-                    _ppcbController.text = (usdt / 0.0002).toStringAsFixed(4);
+                    _ppcbController.text = (usdt / 0.0002).toStringAsFixed(0);
                   }
                 },
               ),
@@ -109,11 +104,12 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
                 'PPCB ${'presale_you_receive'.tr}',
                 AppImages.png('logo'),
                 _ppcbController,
+                decimalDigits: 0,
                 onChanged: (String value) {
                   if (value.isNotEmpty) {
                     final String ppcbText = value.replaceAll(',', '');
                     final double ppcb = double.parse(ppcbText);
-                    _usdtController.text = (ppcb * 0.0002).toStringAsFixed(4);
+                    _usdtController.text = (ppcb * 0.0002).toStringAsFixed(2);
                   }
                 },
               ),
@@ -174,7 +170,14 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
     );
   }
 
-  Widget buildInput(String title, String icon, TextEditingController controller, {ValueChanged<String>? onChanged}) {
+  Widget buildInput(
+    String title,
+    String icon,
+    TextEditingController controller, {
+    ValueChanged<String>? onChanged,
+    String hintText = '0',
+    int decimalDigits = 2,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -189,7 +192,7 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
           controller: controller,
           onChanged: onChanged,
           inputFormatters: <TextInputFormatter>[
-            NumberThousandDecimalFormatter(digitLimit: 16, precision: 2),
+            CurrencyTextInputFormatter.currency(symbol: '', decimalDigits: decimalDigits)
           ],
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
           decoration: InputDecoration(
@@ -201,7 +204,7 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
                 height: 25,
               ),
             ),
-            hintText: '0.0',
+            hintText: hintText,
             hintStyle: AppTextStyles.getSmStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -236,7 +239,7 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
       listener: (BuildContext context, Web3State state) {
         if (state is Web3Connected) {
           _preSaleCubit.emit(PreSaleConnected(state.account));
-        }else{
+        } else {
           _preSaleCubit.emit(const PreSaleInitial());
         }
       },
