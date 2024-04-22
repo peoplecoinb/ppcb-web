@@ -4,6 +4,8 @@ import 'package:currency_text_input_formatter/currency_text_input_formatter.dart
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_rounded_progress_bar/flutter_rounded_progress_bar.dart';
+import 'package:flutter_rounded_progress_bar/rounded_progress_bar_style.dart';
 import 'package:get/get.dart';
 // import 'package:input_formatter/input_formatter.dart';
 
@@ -67,13 +69,6 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
         ),
         buildProgress(),
         const SizedBox(
-          height: 16,
-        ),
-        Text(
-          '9,737,759 PPCB / 3,000,000,000 PPCB',
-          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
-        ),
-        const SizedBox(
           height: 32,
         ),
         buildUSDT(),
@@ -125,17 +120,22 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
   }
 
   Widget buildProgress() {
-    return PhysicalModel(
-      borderRadius: BorderRadius.circular(20),
-      color: AppColors.gray,
-      elevation: 2,
-      shadowColor: Colors.white,
-      child: LinearProgressIndicator(
-        value: 0.6666,
-        valueColor: AlwaysStoppedAnimation<Color>(HexColor.fromHex('#509E7C')),
-        borderRadius: BorderRadius.circular(20),
-        minHeight: 30,
+    return RoundedProgressBar(
+      height: 40,
+      borderRadius: BorderRadius.circular(5),
+      percent: 900737759/3000000000 * 100,
+      style: RoundedProgressBarStyle(
+        colorBorder: AppColors.white,
+        backgroundProgress: AppColors.gray,
+        colorProgressDark: AppColors.success,
+        colorProgress: AppColors.success,
+        borderWidth: 4,
+        widthShadow: 3,
       ),
+      childCenter: Text(
+          '900,737,759 PPCB / 3,000,000,000 PPCB',
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+        ),
     );
   }
 

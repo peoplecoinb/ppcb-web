@@ -87,6 +87,7 @@ dependencies:
   js: ^0.6.7
   youtube_player_iframe: ^5.1.2
   currency_text_input_formatter: ^2.2.1
+  flutter_rounded_progress_bar: ^0.3.2
 
 dev_dependencies:
   flutter_lints: ^2.0.1
