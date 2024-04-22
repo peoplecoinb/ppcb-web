@@ -9,7 +9,7 @@ class Web3ModalState {
     int? selectedNetworkId,
   });
 
-  external bool get loading;
-  external bool get open;
-  external int get selectedNetworkId;
+  external bool? get loading;
+  external bool? get open;
+  external int? get selectedNetworkId;
 }

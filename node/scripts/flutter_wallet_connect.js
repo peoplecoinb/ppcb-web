@@ -3,6 +3,7 @@ const { createWeb3Modal, defaultConfig} = require('@web3modal/ethers');
 FlutterWalletConnect = function ({projectId, metadata, chains}){
     const config = defaultConfig({
         metadata,
+        enableInjected: false
     });
 
     this.web3Modal = createWeb3Modal({
@@ -47,8 +48,17 @@ FlutterWalletConnect = function ({projectId, metadata, chains}){
         return this.web3Modal.switchNetwork(chainId);
     }
 
-    this.closeModal = function(){
+    this.closeModal = async function(){
         return this.web3Modal.close();
+    }
+
+    this.openModal = async function(view){
+        return this.web3Modal.open({view: view});
+    }
+
+    this.getState = function(){
+        return this.web3Modal.getState();
+    
     }
 }
 

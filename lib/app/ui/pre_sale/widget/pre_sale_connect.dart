@@ -4,11 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:input_formatter/input_formatter.dart';
 
-import '../../../blocs/application/application_cubit.dart';
-import '../../../blocs/web3/web3_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../extensions/hex_color.dart';
 import '../../widgets/custom_outline_button.dart';
+import '../bloc/pre_sale_cubit.dart';
 
 class PreSaleConnect extends StatefulWidget {
   const PreSaleConnect({super.key});
@@ -20,6 +19,13 @@ class PreSaleConnect extends StatefulWidget {
 class _PreSaleConnectState extends State<PreSaleConnect> {
   final TextEditingController _usdtController = TextEditingController();
   final TextEditingController _ppcbController = TextEditingController();
+  final PreSaleCubit _preSaleCubit = Get.put(PreSaleCubit());
+
+  @override
+  void initState() {
+    print('PreSaleConnect initState: ${Get.find<PreSaleCubit>().hashCode}');
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -222,15 +228,12 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
   }
 
   Widget buildButton() {
-    return BlocSelector<Web3Cubit, Web3State, String?>(
-      bloc: Get.find<Web3Cubit>(),
-      selector: (Web3State state) {
-        return state.account;
-      },
-      builder: (BuildContext context, String? state) {
+    return BlocBuilder<PreSaleCubit, PreSaleState>(
+      bloc: _preSaleCubit,
+      builder: (BuildContext context, PreSaleState state) {
         return Column(
           children: <Widget>[
-            buildAccount(state),
+            buildAccount(state.address),
             const SizedBox(
               height: 32,
             ),
@@ -243,16 +246,12 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
                 ),
               ),
               child: CustomOutlinedButton(
-                title: (state != null) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
+                title: (state is! PreSaleInitial) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
                 action: () {
-                  if(state == null)
-                    Get.find<Web3Cubit>().connect();
+                  if (state is! PreSaleInitial)
+                    _preSaleCubit.buy();
                   else
-                    Get.find<ApplicationCubit>().notification(
-                      title: 'notification'.tr,
-                      des: 'presale_later'.tr,
-                      isFailed: false,
-                    );
+                    _preSaleCubit.connect();
                 },
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
                 radius: 10,
