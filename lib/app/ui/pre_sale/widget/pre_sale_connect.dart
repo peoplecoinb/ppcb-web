@@ -1,9 +1,12 @@
+// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:input_formatter/input_formatter.dart';
 
+import '../../../blocs/web3/web3_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../extensions/hex_color.dart';
 import '../../widgets/custom_outline_button.dart';
@@ -228,42 +231,52 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
   }
 
   Widget buildButton() {
-    return BlocBuilder<PreSaleCubit, PreSaleState>(
-      bloc: _preSaleCubit,
-      builder: (BuildContext context, PreSaleState state) {
-        return Column(
-          children: <Widget>[
-            buildAccount(state.address),
-            const SizedBox(
-              height: 32,
-            ),
-            Container(
-              width: 300,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                gradient: LinearGradient(
-                  colors: <Color>[Colors.deepPurple, AppColors.primary.shade600],
+    return BlocListener<Web3Cubit, Web3State>(
+      bloc: Get.find<Web3Cubit>(),
+      listener: (BuildContext context, Web3State state) {
+        if (state is Web3Connected) {
+          _preSaleCubit.emit(PreSaleConnected(state.account));
+        }else{
+          _preSaleCubit.emit(const PreSaleInitial());
+        }
+      },
+      child: BlocBuilder<PreSaleCubit, PreSaleState>(
+        bloc: _preSaleCubit,
+        builder: (BuildContext context, PreSaleState state) {
+          return Column(
+            children: <Widget>[
+              buildAccount(state.address),
+              const SizedBox(
+                height: 32,
+              ),
+              Container(
+                width: 300,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  gradient: LinearGradient(
+                    colors: <Color>[Colors.deepPurple, AppColors.primary.shade600],
+                  ),
+                ),
+                child: CustomOutlinedButton(
+                  title: (state is! PreSaleInitial) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
+                  action: () {
+                    if (state is! PreSaleInitial)
+                      _preSaleCubit.buy();
+                    else
+                      _preSaleCubit.connect();
+                  },
+                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
+                  radius: 10,
+                  textColor: AppColors.white,
+                  backgroundColor: Colors.transparent,
+                  borderColor: Colors.transparent,
+                  textStyle: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
                 ),
               ),
-              child: CustomOutlinedButton(
-                title: (state is! PreSaleInitial) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
-                action: () {
-                  if (state is! PreSaleInitial)
-                    _preSaleCubit.buy();
-                  else
-                    _preSaleCubit.connect();
-                },
-                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
-                radius: 10,
-                textColor: AppColors.white,
-                backgroundColor: Colors.transparent,
-                borderColor: Colors.transparent,
-                textStyle: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
-              ),
-            ),
-          ],
-        );
-      },
+            ],
+          );
+        },
+      ),
     );
   }
 
