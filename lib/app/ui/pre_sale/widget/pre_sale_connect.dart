@@ -127,10 +127,10 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
       style: RoundedProgressBarStyle(
         colorBorder: AppColors.white,
         backgroundProgress: AppColors.gray,
-        colorProgressDark: AppColors.success,
+        colorProgressDark: AppColors.success.shade600,
         colorProgress: AppColors.success,
         borderWidth: 4,
-        widthShadow: 3,
+        widthShadow: 6,
       ),
       childCenter: Text(
           '900,737,759 PPCB / 3,000,000,000 PPCB',
