@@ -14,21 +14,8 @@ class PreSaleComponent extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: SizedBox(
-        width: DESKTOP_PAGE_MAX_WIDTH - 300,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: buildPresaleHeader(),
-            ),
-            const SizedBox(
-              width: 80,
-            ),
-            const Expanded(
-              child: PreSaleConnect(),
-            ),
-          ],
-        ),
+        width: 500,
+        child: PreSaleConnect(),
       ),
     );
   }
@@ -98,14 +85,14 @@ class PreSaleComponent extends StatelessWidget {
             style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(fontSize: 50),
             textAlign: TextAlign.start,
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            'presale_description'.tr,
-            style: AppTextStyles.get2xlStyle(AppTextStyles.zendots).copyWith(color: AppColors.gray.shade400),
-            textAlign: TextAlign.start,
-          ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          // Text(
+          //   'presale_description'.tr,
+          //   style: AppTextStyles.get2xlStyle(AppTextStyles.zendots).copyWith(color: AppColors.gray.shade400),
+          //   textAlign: TextAlign.start,
+          // ),
           const SizedBox(
             height: 40,
           ),
