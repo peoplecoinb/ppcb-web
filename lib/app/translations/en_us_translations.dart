@@ -30,4 +30,9 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
   'meta_mask_connect_error': 'Please install Metamask wallet',
   'presale_later': 'Please wait until the pre-sale begins',
   'notification': 'Notification',
+  'features': 'Features',
+  'ico_chart': 'ICO Chart',
+  'road_map': 'Road Map',
+  'blog': 'Blog',
+  'contract': 'Contract',
 };

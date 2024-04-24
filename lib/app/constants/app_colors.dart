@@ -31,7 +31,7 @@ class AppColors {
   //       900: Color(0xFF041203),
   //     });
 
-  static MaterialColor get primary => Colors.blue;
+  static Color get primary => const Color(0xFF3A8C7B);
 
   static MaterialColor get error => const MaterialColor(0xFFFD4438, <int, Color>{
         25: Color(0xFFFFFBFA),
@@ -91,5 +91,5 @@ class AppColors {
 
   static Color get white => const Color(0xFFFFFFFF);
 
-  static Color get black => const Color(0xFF000000);
+  static Color get black => const Color(0xFF040814);
 }

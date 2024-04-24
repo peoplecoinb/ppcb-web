@@ -257,7 +257,7 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   gradient: LinearGradient(
-                    colors: <Color>[Colors.deepPurple, AppColors.primary.shade600],
+                    colors: <Color>[Colors.deepPurple, AppColors.primary],
                   ),
                 ),
                 child: CustomOutlinedButton(

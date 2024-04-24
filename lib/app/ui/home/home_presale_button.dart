@@ -44,7 +44,7 @@ class _HomePresaleButtonState extends State<HomePresaleButton> with SingleTicker
                 ? LinearGradient(
                     colors: <Color>[
                       Colors.deepPurple.withOpacity(0.7),
-                      AppColors.primary.shade600.withOpacity(0.7),
+                      AppColors.primary.withOpacity(0.7),
                     ],
                   )
                 : null,
@@ -57,7 +57,7 @@ class _HomePresaleButtonState extends State<HomePresaleButton> with SingleTicker
               gradient: _animation.value > 0.33
                   ? LinearGradient(
                       colors: <Color>[
-                        AppColors.primary.shade600.withOpacity(0.7),
+                        AppColors.primary.withOpacity(0.7),
                         Colors.deepPurple.withOpacity(0.7),
                       ],
                     )
@@ -73,7 +73,7 @@ class _HomePresaleButtonState extends State<HomePresaleButton> with SingleTicker
           gradient: LinearGradient(
             colors: <Color>[
               Colors.deepPurple,
-              AppColors.primary.shade600,
+              AppColors.primary,
             ],
           ),
         ),

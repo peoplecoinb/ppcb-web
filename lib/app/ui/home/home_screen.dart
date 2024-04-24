@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/constants.dart';
+import '../navigation/widget/app_navigation_bar.dart';
 import '../ui.dart';
-import 'home_presale_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,22 +18,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
+  final ScrollController scrollController = ScrollController();
   final FlutterEarthGlobeController _controller = FlutterEarthGlobeController(
     isRotating: true,
-    rotationSpeed: 0.1,
+    rotationSpeed: 0.01,
+    zoom: 0.9,
     background: Image.asset(AppImages.jpg('2k_stars_milky_way')).image,
-    surface: Image.asset(AppImages.jpg('2k_venus_surface')).image,
-    isBackgroundFollowingSphereRotation: true,  
-    sphereStyle: SphereStyle(
-      shadowColor: AppColors.warring,
-      shadowBlurSigma: 200
-    )
-  );
-
-  final Shadow textShadow = Shadow(
-    color: Colors.black.withOpacity(0.8),
-    offset: const Offset(0, 4),
-    blurRadius: 4,
+    isBackgroundFollowingSphereRotation: true,
+    sphereStyle: SphereStyle(shadowColor: AppColors.black, shadowBlurSigma: 200),
   );
 
   @override
@@ -43,47 +35,70 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
 
   @override
   Widget build(BuildContext context) {
-    return RepaintBoundary(
-      child: Container(
-        color: AppColors.black,
-        child: buildResponsiveScreen(context),
-      ),
-    );
+    return buildResponsiveScreen(context);
   }
 
   @override
   Widget buildDesktop(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Center(
-          child: FlutterEarthGlobe(
-            controller: _controller,
-            radius: 120,
-          ),
-        ),
-        Center(
+    return Scrollbar(
+      controller: scrollController,
+      thumbVisibility: true,
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        controller: scrollController,
+        child: SizedBox(
+          width: Get.width,
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Text(
-                'home_slogan'.tr.toUpperCase(),
-                style: AppTextStyles.getHeadingStyle(
-                  AppTextStyles.zendots.copyWith(
-                    color: AppColors.white,
-                    shadows: <Shadow>[textShadow],
-                  ),
-                ).copyWith(
-                  fontSize: 60,
-                ),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              const HomePresaleButton()
+              buildTopBg(),
             ],
           ),
-        )
-      ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildTopBg() {
+    return SizedBox(
+      width: Get.width,
+      height: 700,
+      child: Stack(
+        children: <Widget>[
+          // SizedBox(
+          //   width: Get.width,
+          //   height: 700,
+          //   child: FittedBox(
+          //     fit: BoxFit.fitWidth,
+          //     child: IgnorePointer(
+          //       child: FlutterEarthGlobe(
+          //         controller: _controller,
+          //         radius: 120,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          Container(
+            height: 700,
+            width: Get.width,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+                  Colors.transparent,
+                  AppColors.primary,
+                ],
+              ),
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
+            ),
+            alignment: Alignment.topCenter,
+            child: AppNavigationBar(),
+          ),
+        ],
+      ),
     );
   }
 
