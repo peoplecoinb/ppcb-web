@@ -82,7 +82,7 @@ const List<String> NAVIGATION_SOCIAL = <String>[
     'discord_logo',
 ];
 
-const double MOBILE_PAGE_MAX_WIDTH = 430;
-const double TABLET_PAGE_MAX_HEIGHT = 1024;
+const double MOBILE_PAGE_MAX_WIDTH = 990;
+const double TABLET_PAGE_MAX_WIDTH = 1100;
 const double DESKTOP_PAGE_MAX_WIDTH = 1200;
-const double DESKTOP_PAGE_MAX_HEIGHT = 696;
+const double DESKTOP_PAGE_MAX_HEIGHT = 800;

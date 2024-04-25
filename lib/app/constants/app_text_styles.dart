@@ -66,7 +66,7 @@ class AppTextStyles {
 
   static TextStyle getHeadingStyle(TextStyle textStyle) {
     return textStyle.copyWith(
-      fontSize: 38,
+      fontSize: 45,
     );
   }
 }

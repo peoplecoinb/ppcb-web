@@ -81,13 +81,13 @@ dependencies:
 #  flutter_inappwebview: ^5.8.0
   gif_view: ^0.4.3
   pretty_qr_code: ^3.3.0
-  flutter_earth_globe: ^1.0.3
   flutter_timer_countdown: ^1.0.7
   flutter_web3: ^2.1.9
   js: ^0.6.7
   youtube_player_iframe: ^5.1.2
   currency_text_input_formatter: ^2.2.1
   flutter_rounded_progress_bar: ^0.3.2
+  lottie: ^3.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.1
@@ -105,3 +105,4 @@ flutter:
     - assets/images/jpg/
     - assets/images/svg/
     - assets/images/gif/
+    - assets/images/lottie/
