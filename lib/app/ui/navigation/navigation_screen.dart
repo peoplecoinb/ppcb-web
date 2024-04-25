@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../constants/constants.dart';
 import '../../routes/app_route_delegate.dart';

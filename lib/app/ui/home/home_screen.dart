@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 // import 'package:pretty_qr_code/pretty_qr_code.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
-import '../../constants/constants.dart';
 import '../navigation/widget/app_navigation_bar.dart';
 import 'widget/home_presale_head.dart';
 import 'widget/top_background.dart';

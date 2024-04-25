@@ -41,19 +41,8 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
 
   Future<void> preloadAsset() async {
     await Future.wait(<Future>[
-      precacheImage(AssetImage(AppImages.jpg('2k_venus_surface')), context),
-      precacheImage(AssetImage(AppImages.jpg('2k_stars_milky_way')), context),
-      precacheImage(AssetImage(AppImages.png('home_bg')), context),
-      precacheImage(AssetImage(AppImages.png('white_paper')), context),
-      precacheImage(AssetImage(AppImages.png('road_map')), context),
-      precacheImage(AssetImage(AppImages.png('fund')), context),
-      precacheImage(AssetImage(AppImages.png('team')), context),
-      precacheImage(AssetImage(AppImages.png('presale_campaign')), context),
-      precacheImage(AssetImage(AppImages.png('partner')), context),
-      precacheImage(AssetImage(AppImages.png('mission')), context),
-      precacheImage(AssetImage(AppImages.png('app')), context),
-      precacheImage(AssetImage(AppImages.png('member')), context),
-      precacheImage(AssetImage(AppImages.png('token_allocation')), context),
+      precacheImage(AssetImage(AppImages.png('banner_shape01')), context),
+      precacheImage(AssetImage(AppImages.png('banner_shape02')), context),
     ]);
   }
 
