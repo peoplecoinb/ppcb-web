@@ -76,9 +76,8 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen{
   Widget buildTablet(BuildContext context) {
     return Container(
       constraints: const BoxConstraints(
-        minHeight: DESKTOP_PAGE_MAX_HEIGHT,
+        maxHeight: DESKTOP_PAGE_MAX_HEIGHT,
       ),
-      height: Get.height - 16,
       width: Get.width,
       decoration: BoxDecoration(
         image: DecorationImage(

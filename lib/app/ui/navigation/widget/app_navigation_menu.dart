@@ -58,19 +58,17 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
   @override
   Widget buildMobile(BuildContext context) {
     return OutlinedButton(
-    
-        onPressed: (){},
+        onPressed: () {
+          Scaffold.of(context).openEndDrawer();
+        },
         style: ButtonStyle(
-          padding: MaterialStateProperty.all(EdgeInsets.zero),
           alignment: Alignment.center,
-          fixedSize: MaterialStateProperty.all(const Size(60, 60)),
           iconSize: MaterialStateProperty.all(28),
           side: MaterialStateProperty.all(BorderSide(color: AppColors.primary)),
           shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(999))),
           backgroundColor: MaterialStateProperty.all<Color>(AppColors.primary),
         ),
-        child: Icon(Icons.menu, color: AppColors.white)
-      );
+        child: Icon(Icons.menu, color: AppColors.white));
   }
 
   @override

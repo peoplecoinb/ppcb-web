@@ -40,9 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
               TopBackground(
                 child: Column(
                   children: <Widget>[
-                    SizedBox(
-                      height: 32,
-                    ),
                     AppNavigationBar(),
                     SizedBox(
                       height: 32,

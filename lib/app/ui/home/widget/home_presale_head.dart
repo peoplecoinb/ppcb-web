@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../constants/constants.dart';
 import '../../widgets/app_responsive_screen.dart';
+import 'home_banner_icon_animation.dart';
 
 class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
   const HomePresaleHead({super.key});
 
   TextStyle get timeTextStyle => AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.black);
   TextStyle get timeDescriptionTextStyle =>
-      AppTextStyles.getXlStyle(AppTextStyles.bold).copyWith(color: AppColors.black);
+      AppTextStyles.getXlStyle(AppTextStyles.bold).copyWith(color: AppColors.primary);
 
   @override
   Widget build(BuildContext context) {
@@ -21,31 +23,38 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
   @override
   Widget buildDesktop(BuildContext context) {
     return Center(
-      child: SizedBox(
-        width: double.infinity,
-        child: Stack(
-          children: <Widget>[
-                        Positioned(
-              bottom: 32,
-              left: 50,
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+            bottom: 120,
+            left: 0,
+            child: HomeBannerIconAnimation(
               child: Image.asset(AppImages.png('banner_shape01')),
             ),
-            Positioned(
-              bottom: 32,
-              right: 90,
+          ),
+          Positioned(
+            bottom: 120,
+            right: 0,
+            child: HomeBannerIconAnimation(
+              direction: Axis.vertical,
               child: Image.asset(AppImages.png('banner_shape02')),
             ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              const SizedBox(
+                height: 50,
+              ),
+              Column(
                 children: <Widget>[
-                  const SizedBox(
-                    height: 50,
-                  ),
                   Text(
                     'presale_title'.tr.toUpperCase(),
                     textAlign: TextAlign.center,
                     style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   ShaderMask(
                     blendMode: BlendMode.srcIn,
@@ -70,19 +79,16 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                     textAlign: TextAlign.center,
                     style: AppTextStyles.getXlStyle(AppTextStyles.zendots),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  buildClock(),
-                  const SizedBox(
-                    height: 80,
-                  ),
-                  Lottie.asset(AppImages.lottie('scroll_down')),
                 ],
               ),
-            ),
-          ],
-        ),
+              const SizedBox(
+                height: 20,
+              ),
+              buildClock(),
+              Lottie.asset(AppImages.lottie('scroll_down')),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -95,68 +101,78 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
       child: Center(
         child: Stack(
           children: <Widget>[
-                        Positioned(
-              bottom: 16,
-              left: 16,
-              child: Image.asset(
-                AppImages.png('banner_shape01'),
-                width: 120,
-                height: 120,
+            Positioned(
+              bottom: 50,
+              left: 0,
+              child: HomeBannerIconAnimation(
+                direction: Axis.vertical,
+                child: Image.asset(
+                  AppImages.png('banner_shape01'),
+                  width: 140,
+                  height: 140,
+                ),
               ),
             ),
             Positioned(
-              bottom: 16,
-              right: 16,
-              child: Image.asset(
-                AppImages.png('banner_shape02'),
-                width: 120,
-                height: 120,
+              bottom: 50,
+              right: 0,
+              child: HomeBannerIconAnimation(
+                child: Image.asset(
+                  AppImages.png('banner_shape02'),
+                  width: 140,
+                  height: 140,
+                ),
               ),
             ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text(
-                    'presale_title'.tr.toUpperCase(),
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots),
-                  ),
-                  ShaderMask(
-                    blendMode: BlendMode.srcIn,
-                    shaderCallback: (Rect bounds) => LinearGradient(colors: <Color>[
-                      AppColors.white,
-                      AppColors.primary,
-                    ], begin: Alignment.topCenter, end: Alignment.bottomCenter)
-                        .createShader(
-                      Rect.fromLTWH(0, 0, bounds.width, bounds.height),
-                    ),
-                    child: Text(
-                      'Our ICO is incoming'.toUpperCase(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Text(
+                      'presale_title'.tr.toUpperCase(),
                       textAlign: TextAlign.center,
-                      style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+                      style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots),
                     ),
-                  ),
-                  Text(
-                    'A new smart blockchain based marketplace for\ntrading digital goods & assets according.',
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  buildClock(
-                    width: 350,
-                    height: 90,
-                    timeTextStyle: timeTextStyle.copyWith(fontSize: 20),
-                    timeDescriptionTextStyle: timeDescriptionTextStyle.copyWith(fontSize: 14),
-                  ),
-                  const SizedBox(
-                    height: 2,
-                  ),
-                  Lottie.asset(AppImages.lottie('scroll_down'), width: 50, height: 70),
-                ],
-              ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    ShaderMask(
+                      blendMode: BlendMode.srcIn,
+                      shaderCallback: (Rect bounds) => LinearGradient(colors: <Color>[
+                        AppColors.white,
+                        AppColors.primary,
+                      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)
+                          .createShader(
+                        Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+                      ),
+                      child: Text(
+                        'Our ICO is incoming'.toUpperCase(),
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      'A new smart blockchain based marketplace for\ntrading digital goods & assets according.',
+                      textAlign: TextAlign.center,
+                      style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+                    ),
+                  ],
+                ),
+                buildClock(
+                  width: 350,
+                  height: 90,
+                  timeTextStyle: timeTextStyle.copyWith(fontSize: 20),
+                  timeDescriptionTextStyle: timeDescriptionTextStyle.copyWith(fontSize: 14),
+                ),
+                const SizedBox(
+                  height: 2,
+                ),
+                Lottie.asset(AppImages.lottie('scroll_down'), width: 50, height: 70),
+              ],
             ),
           ],
         ),
@@ -179,9 +195,24 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        color: AppColors.white,
-      ),
+          borderRadius: BorderRadius.circular(10),
+          color: AppColors.white,
+          // gradient: LinearGradient(
+          //   colors: <Color>[
+          //     HexColor.fromHex('#6C6D81'),
+          //     HexColor.fromHex('#202128'),
+          //   ],
+          //   begin: Alignment.topCenter,
+          //   end: Alignment.bottomCenter,
+          // ),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: AppColors.black.withOpacity(0.5),
+              blurRadius: 20,
+              spreadRadius: 0.5,
+              offset: const Offset(0, 5),
+            ),
+          ]),
       child: Center(
         child: TimerCountdown(
           endTime: DateTime(2024, 6, 8, 23, 23, 59).toUtc(),

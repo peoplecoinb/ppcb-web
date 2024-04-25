@@ -5,6 +5,7 @@ import '../../constants/constants.dart';
 import '../../routes/app_route_delegate.dart';
 import '../../routes/app_routes.dart';
 import '../ui.dart';
+import 'widget/app_menu_drawer.dart';
 import 'widget/app_navigation_bar.dart';
 
 class NavigationScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveS
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: const AppMenuDrawer(),
       body: buildResponsiveScreen(context),
     );
   }
