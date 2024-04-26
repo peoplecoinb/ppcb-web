@@ -41,7 +41,7 @@ COPY --from=build-webpack /node/web/.dist $APP/web/.dist/
 # Run build: 1 - clean, 2 - pub get, 3 - build web
 RUN flutter clean
 RUN flutter pub get
-RUN flutter build web --web-renderer html --release --dart-define FLAVOR=dev
+RUN flutter build web --web-renderer canvaskit --release --dart-define FLAVOR=dev
 
 # once heare the app will be compiled and ready to deploy
 
