@@ -32,4 +32,10 @@ class _HomeBannerIconAnimationState extends State<HomeBannerIconAnimation> with 
       },
     );
   }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 }

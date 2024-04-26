@@ -15,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
@@ -24,32 +23,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scrollbar(
-      controller: scrollController,
-      thumbVisibility: true,
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        controller: scrollController,
-        child: SizedBox(
-          width: Get.width,
-          child: const Column(
-            children: <Widget>[
-              TopBackground(
-                child: Column(
-                  children: <Widget>[
-                    AppNavigationBar(),
-                    SizedBox(
-                      height: 32,
-                    ),
-                    Expanded(
-                      child: HomePresaleHead(),
-                    ),
-                  ],
+    return const SizedBox(
+      width: double.infinity,
+      child: Column(
+        children: <Widget>[
+          TopBackground(
+            child: Column(
+              children: <Widget>[
+                AppNavigationBar(),
+                SizedBox(
+                  height: 32,
                 ),
-              ),
-            ],
+                Expanded(
+                  child: HomePresaleHead(),
+                ),
+              ],
+            ),
           ),
-        ),
+          SizedBox(height: 900,)
+        ],
       ),
     );
   }

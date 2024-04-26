@@ -1,9 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../constants/constants.dart';
+import '../../extensions/extensions.dart';
 import '../../routes/app_route_delegate.dart';
 import '../../routes/app_routes.dart';
 import '../ui.dart';
+import '../widgets/animated_hide_header.dart';
 import 'widget/app_menu_drawer.dart';
 import 'widget/app_navigation_bar.dart';
 
@@ -15,71 +19,48 @@ class NavigationScreen extends StatefulWidget {
   State<NavigationScreen> createState() => _NavigationScreenState();
 }
 
-class _NavigationScreenState extends State<NavigationScreen> with AppResponsiveScreen {
+class _NavigationScreenState extends State<NavigationScreen>{
+  final ScrollController scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer: const AppMenuDrawer(),
-      body: buildResponsiveScreen(context),
-    );
-  }
-
-  Widget buildNavigationBar() {
-    return const AppNavigationBar();
-  }
-
-  Widget buildLogoAppName() {
-    return GestureDetector(
-      onTap: () { 
-        AppRouteDelegate().toNamed(Routes.home.route);
-      },
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
+      body: Stack(
         children: <Widget>[
-          Image.asset(
-            AppImages.png('logo'),
-            width: 37,
+
+          Scrollbar(
+            controller: scrollController,
+            thumbVisibility: true,
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              controller: scrollController,
+              child: widget.child,
+            ),
           ),
-          const SizedBox(
-            width: 20,
-          ),
-          Text(
-            APP_NAME,
-            style: AppTextStyles.getXlStyle(AppTextStyles.zendots.copyWith(
-              color: AppColors.primary,
-              shadows: <Shadow>[
-                Shadow(
-                  color: Colors.white.withOpacity(0.2),
-                  blurRadius: 4,
-                  offset: const Offset(0, 4),
+          AnimatedHideHeader(
+            scrollController: scrollController,
+            child: PhysicalModel(
+              color: AppColors.white,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: HexColor.fromHex('#11121B'),
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: <Color>[
+                      HexColor.fromHex('#11121B').withOpacity(0.95),
+                      HexColor.fromHex('#11121B'),
+                    ],
+                  ),
                 ),
-              ],
-            )),
-          )
+                child: const AppNavigationBar(),
+              ),
+            ),
+          ),
         ],
       ),
     );
-  }
-
-  @override
-  Widget buildDesktop(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        // buildNavigationBar(),
-        Expanded(
-          child: widget.child,
-        ),
-      ],
-    );
-  }
-
-  @override
-  Widget buildMobile(BuildContext context) {
-    return buildDesktop(context);
-  }
-
-  @override
-  Widget buildTablet(BuildContext context) {
-    return buildDesktop(context);
   }
 }

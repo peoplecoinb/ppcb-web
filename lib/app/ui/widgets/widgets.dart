@@ -16,3 +16,4 @@ export 'theme_switcher.dart';
 export 'theme_testing.dart';
 export 'unicorn_outline_button.dart';
 export 'hover_text.dart';
+export 'animated_hide_header.dart';
