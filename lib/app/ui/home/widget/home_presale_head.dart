@@ -29,64 +29,67 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
             bottom: 120,
             left: 0,
             child: HomeBannerIconAnimation(
-              child: Image.asset(AppImages.png('contribution_shape01')),
+              direction: Axis.vertical,
+              child: Image.asset(AppImages.png('3'), height: 220, fit: BoxFit.fitHeight,),
             ),
           ),
           Positioned(
             bottom: 120,
             right: 0,
             child: HomeBannerIconAnimation(
-              direction: Axis.vertical,
-              child: Image.asset(AppImages.png('contribution_shape02')),
+              child: Image.asset(AppImages.png('4')),
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              const SizedBox(
-                height: 50,
-              ),
-              Column(
-                children: <Widget>[
-                  Text(
-                    'presale_title'.tr.toUpperCase(),
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  ShaderMask(
-                    blendMode: BlendMode.srcIn,
-                    shaderCallback: (Rect bounds) => LinearGradient(colors: <Color>[
-                      AppColors.white,
-                      AppColors.primary,
-                    ], begin: Alignment.topCenter, end: Alignment.bottomCenter)
-                        .createShader(
-                      Rect.fromLTWH(0, 0, bounds.width, bounds.height),
-                    ),
-                    child: Text(
-                      'home_slogan'.tr.toUpperCase(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 100),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                const SizedBox(
+                  height: 50,
+                ),
+                Column(
+                  children: <Widget>[
+                    Text(
+                      'presale_title'.tr.toUpperCase(),
                       textAlign: TextAlign.center,
-                      style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+                      style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'home_content'.tr,
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.getXlStyle(AppTextStyles.zendots),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              buildClock(),
-              Lottie.asset(AppImages.lottie('scroll_down')),
-            ],
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ShaderMask(
+                      blendMode: BlendMode.srcIn,
+                      shaderCallback: (Rect bounds) => LinearGradient(colors: <Color>[
+                        AppColors.white,
+                        AppColors.primary,
+                      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)
+                          .createShader(
+                        Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+                      ),
+                      child: Text(
+                        'home_slogan'.tr.toUpperCase(),
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'home_content'.tr,
+                      textAlign: TextAlign.center,
+                      style: AppTextStyles.getXlStyle(AppTextStyles.zendots),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                buildClock(),
+                Lottie.asset(AppImages.lottie('scroll_down')),
+              ],
+            ),
           ),
         ],
       ),
@@ -107,7 +110,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
               child: HomeBannerIconAnimation(
                 direction: Axis.vertical,
                 child: Image.asset(
-                  AppImages.png('contribution_shape01'),
+                  AppImages.png('3'),
                   width: 140,
                   height: 140,
                 ),
@@ -118,7 +121,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
               right: 0,
               child: HomeBannerIconAnimation(
                 child: Image.asset(
-                  AppImages.png('contribution_shape02'),
+                  AppImages.png('4'),
                   width: 140,
                   height: 140,
                 ),
