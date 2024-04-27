@@ -17,7 +17,7 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
   'home_android': 'Android',
   'home_ios': 'iOS',
   'home_pre_sales': 'Pre-Sales',
-  'presale_title': 'The presale will start later:',
+  'presale_title': 'Presale will start later:',
   'presale_component_title': 'PPCB Presale',
   'presale_component_connenct': 'Connect wallet',
   'presale_you_pay': 'you pay',
@@ -35,4 +35,5 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
   'road_map': 'Road Map',
   'blog': 'Blog',
   'contract': 'Contract',
+  'home_content': 'PPCB is a cryptocurrency of compassion,\nborn to fulfill the mission of assisting places in need.'
 };

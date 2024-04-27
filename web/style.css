@@ -10,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #142421;
 }
 
 .logo-container {
@@ -19,7 +20,7 @@ body {
 }
 
 .logo {
-    width: 75px;
+    width: 200px;
     /* Adjust size as needed */
     animation: pulse 0.7s infinite alternate;
     /* Add animation here */

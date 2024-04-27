@@ -35,7 +35,7 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
   Widget buildDesktop(BuildContext context) {
     return Container(
       height: 50,
-      padding: const EdgeInsets.symmetric(horizontal: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         color: AppColors.black,
         borderRadius: BorderRadius.circular(40),
@@ -45,10 +45,10 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           buildMenuItems('home'),
-          buildMenuItems('features'),
-          buildMenuItems('ico_chart'),
+          buildMenuItems('navigation_white_paper'),
+          buildMenuItems('fund'),
           buildMenuItems('road_map'),
-          buildMenuItems('blog'),
+          buildMenuItems('team'),
           buildMenuItems('contract'),
         ],
       ),
@@ -75,7 +75,7 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
   Widget buildTablet(BuildContext context) {
     return Container(
       height: 50,
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: AppColors.black,
         borderRadius: BorderRadius.circular(40),

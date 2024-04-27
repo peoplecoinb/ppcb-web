@@ -26,7 +26,7 @@ class _HomeBannerIconAnimationState extends State<HomeBannerIconAnimation> with 
       child: widget.child,
       builder: (BuildContext context, Widget? child) {
         return Transform.translate(
-          offset: widget.direction == Axis.vertical ? Offset(0, -10 * _animation.value) : Offset(-10 * _animation.value, 0),
+          offset: widget.direction != Axis.vertical ? Offset(0, -10 * _animation.value) : Offset(-10 * _animation.value, 0),
           child: child,
         );
       },

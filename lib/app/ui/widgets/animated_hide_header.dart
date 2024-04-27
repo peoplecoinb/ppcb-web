@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
- import 'package:get/get.dart';
 
 class AnimatedHideHeader extends StatefulWidget {
   const AnimatedHideHeader({super.key, required this.scrollController, required this.child});
@@ -19,14 +17,14 @@ class _AnimatedHideHeaderState extends State<AnimatedHideHeader> {
   void initState() {
     super.initState();
     widget.scrollController.addListener(() {
-      if(widget.scrollController.offset < 100){
-        if(isShow){
+      if (widget.scrollController.offset < 50) {
+        if (isShow) {
           setState(() {
             isShow = false;
           });
         }
-      }else{
-        if(!isShow){
+      } else {
+        if (!isShow) {
           setState(() {
             isShow = true;
           });
@@ -37,8 +35,8 @@ class _AnimatedHideHeaderState extends State<AnimatedHideHeader> {
 
   @override
   Widget build(BuildContext context) {
-    if(isFirstTime){
-      Future.delayed(const Duration(milliseconds: 300), (){
+    if (isFirstTime) {
+      Future<dynamic>.delayed(const Duration(milliseconds: 300), () {
         setState(() {
           isFirstTime = false;
         });
@@ -47,8 +45,8 @@ class _AnimatedHideHeaderState extends State<AnimatedHideHeader> {
     }
     return AnimatedOpacity(
       opacity: isShow ? 1 : 0,
-      duration: const Duration(milliseconds: 300),
-      child: widget.child,
+      duration: const Duration(milliseconds: 500),
+      child: isShow ? widget.child : const SizedBox(),
     );
   }
 }

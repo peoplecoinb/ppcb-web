@@ -10,9 +10,14 @@ class AppNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Row(
         children: <Widget>[
+          Image.asset(
+            AppImages.png('logo'),
+            width: 100,
+            height: 100,
+            fit: BoxFit.fill,
+          ),
           Text(
             'PPCB',
             style: AppTextStyles.get2xlPlusStyle(

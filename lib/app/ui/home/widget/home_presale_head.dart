@@ -29,7 +29,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
             bottom: 120,
             left: 0,
             child: HomeBannerIconAnimation(
-              child: Image.asset(AppImages.png('banner_shape01')),
+              child: Image.asset(AppImages.png('contribution_shape01')),
             ),
           ),
           Positioned(
@@ -37,7 +37,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
             right: 0,
             child: HomeBannerIconAnimation(
               direction: Axis.vertical,
-              child: Image.asset(AppImages.png('banner_shape02')),
+              child: Image.asset(AppImages.png('contribution_shape02')),
             ),
           ),
           Column(
@@ -66,7 +66,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                       Rect.fromLTWH(0, 0, bounds.width, bounds.height),
                     ),
                     child: Text(
-                      'Our ICO is incoming'.toUpperCase(),
+                      'home_slogan'.tr.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
                     ),
@@ -75,7 +75,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                     height: 20,
                   ),
                   Text(
-                    'A new smart block chain based marketplace for\ntrading digital goods & assets according.',
+                    'home_content'.tr,
                     textAlign: TextAlign.center,
                     style: AppTextStyles.getXlStyle(AppTextStyles.zendots),
                   ),
@@ -107,7 +107,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
               child: HomeBannerIconAnimation(
                 direction: Axis.vertical,
                 child: Image.asset(
-                  AppImages.png('banner_shape01'),
+                  AppImages.png('contribution_shape01'),
                   width: 140,
                   height: 140,
                 ),
@@ -118,7 +118,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
               right: 0,
               child: HomeBannerIconAnimation(
                 child: Image.asset(
-                  AppImages.png('banner_shape02'),
+                  AppImages.png('contribution_shape02'),
                   width: 140,
                   height: 140,
                 ),
@@ -147,7 +147,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
                       ),
                       child: Text(
-                        'Our ICO is incoming'.toUpperCase(),
+                        'home_slogan'.tr.toUpperCase(),
                         textAlign: TextAlign.center,
                         style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
                       ),
@@ -156,7 +156,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                       height: 16,
                     ),
                     Text(
-                      'A new smart blockchain based marketplace for\ntrading digital goods & assets according.',
+                      'home_content'.tr,
                       textAlign: TextAlign.center,
                       style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
                     ),
