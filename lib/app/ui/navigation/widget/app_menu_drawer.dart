@@ -54,12 +54,12 @@ class AppMenuDrawer extends StatelessWidget {
   Widget buildMenu(){
     return Column(
       children: <Widget>[
-        buildMenuItem('home'),
-        buildMenuItem('features'),
-        buildMenuItem('ico_chart'),
-        buildMenuItem('road_map'),
-        buildMenuItem('blog'),
-        buildMenuItem('contract'),
+          buildMenuItem('home'),
+          buildMenuItem('navigation_white_paper'),
+          buildMenuItem('fund'),
+          buildMenuItem('road_map'),
+          buildMenuItem('team'),
+          buildMenuItem('contract'),
       ],
     );
   }

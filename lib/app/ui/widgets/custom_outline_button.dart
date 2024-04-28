@@ -46,7 +46,7 @@ class CustomOutlinedButton extends StatelessWidget {
           padding: padding,
           child: Text(
             title.tr,
-            style: (textStyle ?? AppTextStyles.getXlStyle(AppTextStyles.bold)).copyWith(color: AppColors.white),
+            style: (textStyle ?? AppTextStyles.getXlStyle(AppTextStyles.bold)).copyWith(color: textColor ?? AppColors.white),
           ),
         ),
       ),

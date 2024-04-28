@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 import '../navigation/widget/app_navigation_bar.dart';
+import 'widget/home_presale_board.dart';
 import 'widget/home_presale_head.dart';
 import 'widget/top_background.dart';
 
@@ -39,7 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          SizedBox(height: 900,)
+          SizedBox(height: 16,),
+          TopBackground(child: HomePresaleBoard(), showBlur: false,),
         ],
       ),
     );

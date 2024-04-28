@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HomeBannerIconAnimation extends StatefulWidget {
-  const HomeBannerIconAnimation({super.key, this.direction = Axis.horizontal, required this.child});
+  const HomeBannerIconAnimation({super.key, this.direction = Axis.horizontal, required this.child, this.speedRange});
   final Axis direction;
   final Widget child;
+  final double? speedRange;
 
   @override
   State<HomeBannerIconAnimation> createState() => _HomeBannerIconAnimationState();
@@ -26,7 +27,7 @@ class _HomeBannerIconAnimationState extends State<HomeBannerIconAnimation> with 
       child: widget.child,
       builder: (BuildContext context, Widget? child) {
         return Transform.translate(
-          offset: widget.direction == Axis.vertical ? Offset(0, -10 * _animation.value) : Offset(-10 * _animation.value, 0),
+          offset: widget.direction == Axis.vertical ? Offset(0, -(widget.speedRange ?? 10) * _animation.value) : Offset(-(widget.speedRange ?? 10) * _animation.value, 0),
           child: child,
         );
       },

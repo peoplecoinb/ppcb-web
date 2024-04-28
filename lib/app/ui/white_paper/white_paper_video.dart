@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-import '../../blocs/application/application_cubit.dart';
 
 class WhitePaperVideo extends StatefulWidget {
   const WhitePaperVideo({super.key, required this.videoId});

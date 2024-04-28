@@ -5,8 +5,9 @@ import '../../../constants/constants.dart';
 import '../../widgets/app_responsive_screen.dart';
 
 class TopBackground extends StatelessWidget with AppResponsiveScreen{
-  const TopBackground({super.key, required this.child});
+  const TopBackground({super.key, required this.child, this.showBlur = true});
   final Widget child;
+  final bool showBlur;
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +27,14 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen{
           image: AssetImage(AppImages.png('banner_bg')),
           fit: BoxFit.cover,
         ),
-        gradient: LinearGradient(
+        gradient: showBlur ? LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: <Color>[
             Colors.transparent,
             AppColors.primary,
           ],
-        ),
+        ) : null,
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),

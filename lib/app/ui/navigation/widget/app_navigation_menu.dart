@@ -85,10 +85,10 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           buildMenuItems('home', padding: 16),
-          buildMenuItems('features', padding: 16),
-          buildMenuItems('ico_chart', padding: 16),
+          buildMenuItems('navigation_white_paper', padding: 16),
+          buildMenuItems('fund', padding: 16),
           buildMenuItems('road_map', padding: 16),
-          buildMenuItems('blog', padding: 16),
+          buildMenuItems('team', padding: 16),
           buildMenuItems('contract', padding: 16),
         ],
       ),

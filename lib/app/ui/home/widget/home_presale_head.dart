@@ -30,7 +30,11 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
             left: 0,
             child: HomeBannerIconAnimation(
               direction: Axis.vertical,
-              child: Image.asset(AppImages.png('3'), height: 220, fit: BoxFit.fitHeight,),
+              child: Image.asset(
+                AppImages.png('3'),
+                height: 220,
+                fit: BoxFit.fitHeight,
+              ),
             ),
           ),
           Positioned(
@@ -198,24 +202,18 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
       height: height,
       width: width,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: AppColors.white,
-          // gradient: LinearGradient(
-          //   colors: <Color>[
-          //     HexColor.fromHex('#6C6D81'),
-          //     HexColor.fromHex('#202128'),
-          //   ],
-          //   begin: Alignment.topCenter,
-          //   end: Alignment.bottomCenter,
-          // ),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: AppColors.black.withOpacity(0.5),
-              blurRadius: 20,
-              spreadRadius: 0.5,
-              offset: const Offset(0, 5),
-            ),
-          ]),
+        borderRadius: BorderRadius.circular(10),
+        color: AppColors.white,
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: AppColors.black.withOpacity(0.5),
+            blurRadius: 20,
+            spreadRadius: 0.5,
+            offset: const Offset(0, 5),
+          ),
+        ],
+        border: Border.all(color: AppColors.primary, width: 2)
+      ),
       child: Center(
         child: TimerCountdown(
           endTime: DateTime(2024, 6, 8, 23, 23, 59).toUtc(),

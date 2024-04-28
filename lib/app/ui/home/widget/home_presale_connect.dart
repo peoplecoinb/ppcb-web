@@ -13,7 +13,7 @@ import '../../../blocs/web3/web3_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../extensions/hex_color.dart';
 import '../../widgets/custom_outline_button.dart';
-import '../bloc/pre_sale_cubit.dart';
+import '../../pre_sale/bloc/pre_sale_cubit.dart';
 
 class PreSaleConnect extends StatefulWidget {
   const PreSaleConnect({super.key});
@@ -32,21 +32,42 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
     return Container(
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
+        color: AppColors.black.withOpacity(0.25),
         borderRadius: BorderRadius.circular(25),
-        gradient: LinearGradient(
-          colors: <Color>[
-            HexColor.fromHex('#28272F').withOpacity(0.7),
-            HexColor.fromHex('#040404').withOpacity(0.7),
-          ],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
         border: Border.all(
-          color: AppColors.gray,
+          color: AppColors.primary,
           width: 1.5,
         ),
+        // boxShadow: <BoxShadow>[
+        //   BoxShadow(
+        //     color: AppColors.primary.withOpacity(0.5),
+        //     spreadRadius: 1,
+        //     blurRadius: 10,
+        //     offset: Offset.zero,
+        //   ),
+        // ],
       ),
       child: buildBody(),
+    );
+  }
+
+    Widget buildProgress() {
+    return RoundedProgressBar(
+      height: 20,
+      borderRadius: BorderRadius.circular(20),
+      percent: 9999999 / 100000000 * 100,
+      style: RoundedProgressBarStyle(
+        colorBorder: HexColor.fromHex('#1C1D33'),
+        backgroundProgress: HexColor.fromHex('#1C1D33'),
+        colorProgressDark: AppColors.primary,
+        colorProgress: AppColors.primary,
+        borderWidth: 8,
+      ),
+      childCenter: Text(
+        '0 PPCB / 100,000,000 PPCB',
+        textAlign: TextAlign.center,
+        style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+      ),
     );
   }
 
@@ -54,18 +75,18 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
     return Column(
       children: <Widget>[
         Text(
-          'presale_component_title'.tr,
+          'Stage 1',
           style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 8,
         ),
         Text(
-          r'1 PPCB = $ 0.0002',
-          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+          r'(1 USDT = 5000 PPCB)',
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
         ),
         const SizedBox(
-          height: 32,
+          height: 16,
         ),
         buildProgress(),
         const SizedBox(
@@ -116,26 +137,6 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
         ),
         buildButton(),
       ],
-    );
-  }
-
-  Widget buildProgress() {
-    return RoundedProgressBar(
-      height: 40,
-      borderRadius: BorderRadius.circular(5),
-      percent: 900737759/3000000000 * 100,
-      style: RoundedProgressBarStyle(
-        colorBorder: AppColors.white,
-        backgroundProgress: AppColors.gray,
-        colorProgressDark: AppColors.success.shade600,
-        colorProgress: AppColors.success,
-        borderWidth: 4,
-        widthShadow: 6,
-      ),
-      childCenter: Text(
-          '900,737,759 PPCB / 3,000,000,000 PPCB',
-          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
-        ),
     );
   }
 
@@ -216,7 +217,7 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(
-                color: AppColors.warring,
+                color: AppColors.primary,
                 width: 1.5,
               ),
             ),
@@ -252,15 +253,7 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
               const SizedBox(
                 height: 32,
               ),
-              Container(
-                width: 300,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: LinearGradient(
-                    colors: <Color>[Colors.deepPurple, AppColors.primary],
-                  ),
-                ),
-                child: CustomOutlinedButton(
+              CustomOutlinedButton(
                   title: (state is! PreSaleInitial) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
                   action: () {
                     if (state is! PreSaleInitial)
@@ -270,12 +263,11 @@ class _PreSaleConnectState extends State<PreSaleConnect> {
                   },
                   padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
                   radius: 10,
+                  backgroundColor: AppColors.primary,
+                  borderColor: AppColors.primary,
                   textColor: AppColors.white,
-                  backgroundColor: Colors.transparent,
-                  borderColor: Colors.transparent,
-                  textStyle: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+                  textStyle: AppTextStyles.getXlStyle(AppTextStyles.zendots),
                 ),
-              ),
             ],
           );
         },

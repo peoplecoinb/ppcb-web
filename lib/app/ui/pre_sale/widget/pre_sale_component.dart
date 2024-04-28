@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../constants/constants.dart';
 import '../../../extensions/extensions.dart';
-import 'pre_sale_connect.dart';
+import '../../home/widget/home_presale_connect.dart';
 
 class PreSaleComponent extends StatelessWidget {
   const PreSaleComponent({super.key});

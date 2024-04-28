@@ -61,7 +61,8 @@ class AppUtils {
     return DateFormat(format, locale).parse(dateTime);
   }
 
-  static String convertString2String(String? dateTime, {String inputFormat = 'yyyy-MM-ddTHH:mm:ss.SSSZ', String outputFormat = 'yyyy-MM-dd'}) {
+  static String convertString2String(String? dateTime,
+      {String inputFormat = 'yyyy-MM-ddTHH:mm:ss.SSSZ', String outputFormat = 'yyyy-MM-dd'}) {
     if (dateTime == null) {
       return '';
     }
@@ -93,7 +94,10 @@ class AppUtils {
   }
 
   static bool useWhiteForeground(Color backgroundColor, {double bias = 0.0}) {
-    final int v = sqrt(pow(backgroundColor.red, 2) * 0.299 + pow(backgroundColor.green, 2) * 0.587 + pow(backgroundColor.blue, 2) * 0.114).round();
+    final int v = sqrt(pow(backgroundColor.red, 2) * 0.299 +
+            pow(backgroundColor.green, 2) * 0.587 +
+            pow(backgroundColor.blue, 2) * 0.114)
+        .round();
     return v < (130 + bias);
   }
 
@@ -168,13 +172,25 @@ class AppUtils {
     }
   }
 
-  static dynamic jsonTryParse(String source){
+  static dynamic jsonTryParse(String source) {
     dynamic data;
-    try{
+    try {
       data = jsonDecode(source);
-    }catch(e){
+    } catch (e) {
       data = source;
     }
     return data;
+  }
+
+  static String generateRandomEthereumAddress() {
+    final Random random = Random.secure();
+    const String hexDigits = '0123456789abcdef';
+    String address = '0x';
+
+    for (int i = 0; i < 40; i++) {
+      address += hexDigits[random.nextInt(16)].toUpperCase();
+    }
+
+    return address;
   }
 }
