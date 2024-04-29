@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
 class HomeBannerIconAnimation extends StatefulWidget {
-  const HomeBannerIconAnimation({super.key, this.direction = Axis.horizontal, required this.child, this.speedRange});
+  const HomeBannerIconAnimation({super.key, this.direction = Axis.horizontal, required this.child, this.speedRange, this.duration});
   final Axis direction;
   final Widget child;
   final double? speedRange;
+  final Duration? duration;
 
   @override
   State<HomeBannerIconAnimation> createState() => _HomeBannerIconAnimationState();
 }
 
 class _HomeBannerIconAnimationState extends State<HomeBannerIconAnimation> with SingleTickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(vsync: this, duration: const Duration(seconds: 2));
+  late final AnimationController _controller = AnimationController(vsync: this, duration: widget.duration ?? const Duration(seconds: 2));
   late final Animation<double> _animation = Tween<double>(begin: 0, end: 2).animate(_controller);
 
   @override

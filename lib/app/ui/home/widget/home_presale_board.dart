@@ -20,28 +20,60 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
 
   @override
   Widget buildDesktop(BuildContext context) {
-    return SizedBox(
-      width: DESKTOP_PAGE_MAX_WIDTH,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Center(
+      child: Stack(
         children: <Widget>[
-          const SizedBox(
-            height: 50,
-          ),
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              text: r'$180,148 ',
-              style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Contribution Receive',
-                  style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
-                )
-              ],
+          Positioned(
+            top: 200,
+            right: 0,
+            child: HomeBannerIconAnimation(
+              direction: Axis.vertical,
+              speedRange: 100,
+              duration: const Duration(seconds: 15),
+              child: Image.asset(
+                AppImages.png('features_shape02'),
+                fit: BoxFit.fitHeight,
+              ),
             ),
           ),
-          buildBottom(),
+          Positioned(
+            top: 0,
+            left: 300,
+            child: HomeBannerIconAnimation(
+              speedRange: 150,
+              duration: const Duration(seconds: 15),
+              child: Image.asset(
+                AppImages.png('features_shape02'),
+                fit: BoxFit.fitHeight,
+                width: 200,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: HomeBannerIconAnimation(
+              speedRange: -150,
+              duration: const Duration(seconds: 15),
+              child: Image.asset(
+                AppImages.png('features_shape02'),
+                fit: BoxFit.fitHeight,
+                width: 400,
+              ),
+            ),
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const SizedBox(
+                height: 50,
+              ),
+              buildBottom(),
+              const SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -49,37 +81,131 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
 
   Widget buildBottom() {
     return SizedBox(
+      width: DESKTOP_PAGE_MAX_WIDTH,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
-          Container(
-            width: 2,
-            height: 250,
-            color: AppColors.primary,
+          const Expanded(
+            flex: 3,
+            child: PreSaleConnect(),
           ),
           const SizedBox(
-            width: 16,
+            width: 20,
           ),
           Expanded(
+            flex: 4,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                HomeBannerIconAnimation(
-                  speedRange: 50,
-                  child: Image.asset(
-                    AppImages.png('features_shape02'),
-                    height: 380,
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: r'$180,148 ',
+                    style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Received',
+                        style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
+                      )
+                    ],
                   ),
                 ),
                 const SizedBox(
                   height: 16,
                 ),
-                buildPresaleNote(),
+                buildNotes(),
               ],
             ),
           ),
-          const Expanded(child: PreSaleConnect()),
         ],
       ),
+    );
+  }
+
+  Widget buildNotesMobile() {
+    return Container(
+      width: 430,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: AppColors.primary,
+          width: 1.5,
+        ),
+        color: AppColors.black.withOpacity(0.25),
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const SizedBox(
+            height: 16,
+          ),
+          buildBonusStageMobile(),
+          const SizedBox(
+            height: 30,
+          ),
+          buildPresaleNoteMobile(),
+        ],
+      ),
+    );
+  }
+
+  Widget buildNotes() {
+    return Container(
+      padding: const EdgeInsets.all(32),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: AppColors.primary,
+          width: 1.5,
+        ),
+        color: AppColors.black.withOpacity(0.25),
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const SizedBox(
+            height: 16,
+          ),
+          buildBonusStage(),
+          const SizedBox(
+            height: 30,
+          ),
+          buildPresaleNote(),
+        ],
+      ),
+    );
+  }
+
+  Widget buildPresaleNoteMobile() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'stages'.toUpperCase(),
+          style: AppTextStyles.getLgStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        buildNoteItemMobile('Stage 1', '1USDT = 5000PPCB', ' for 100M PPCB'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildNoteItemMobile('Stage 2', '1USDT = 3000PPCB', ' for 300M PPCB'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildNoteItemMobile('Stage 3', '1USDT = 2500PPCB', ' for 1B PPCB'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildNoteItemMobile('Stage 4', '1USDT = 2000PPCB', ' for 2.6B PPCB'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildNoteItemMobile('Stage 5', '1USDT = 1500PPCB', ' for 6B PPCB'),
+      ],
     );
   }
 
@@ -93,23 +219,101 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        buildNoteItem('Stage 1', '1USDT = 5000PPCB', ' for initial 100,000,000 PPCB'),
+        Text(
+          'stages'.toUpperCase(),
+          style: AppTextStyles.get2xlStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        buildNoteItem('Stage 1', '1USDT = 5000PPCB', ' for 100,000,000 PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 2', '1USDT = 3000PPCB', ' for the next 300,000,000 PPCB'),
+        buildNoteItem('Stage 2', '1USDT = 3000PPCB', ' for 300,000,000 PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 3', '1USDT = 2500PPCB', ' for the next 1,000,000,000 PPCB'),
+        buildNoteItem('Stage 3', '1USDT = 2500PPCB', ' for 1,000,000,000 PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 4', '1USDT = 2000PPCB', ' for the next 2,600,000,000 PPCB'),
+        buildNoteItem('Stage 4', '1USDT = 2000PPCB', ' for 2,600,000,000 PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 5', '1USDT = 1500PPCB', ' for the remaining 6,000,000,000 PPCB'),
+        buildNoteItem('Stage 5', '1USDT = 1500PPCB', ' for 6,000,000,000 PPCB'),
+      ],
+    );
+  }
+
+// Bonus:
+// Buy orders > 10 USDT are rewarded with 5% PPCB
+// Buy orders > 100 USDT are rewarded with 20% PPCB
+// Buy orders > 500 USDT are rewarded with 30% PPCB
+// Buy orders > 2000 USDT are rewarded with 50% PPCB
+// Buy orders > 5000 USDT are rewarded with 70% PPCB
+
+  Widget buildBonusStageMobile() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'bonus'.toUpperCase(),
+          style: AppTextStyles.getLgStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        buildBonusItemMobile('Buy orders > 10 USDT', ' rewarded with 5%'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildBonusItemMobile('Buy orders > 100 USDT', ' rewarded with 20%'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildBonusItemMobile('Buy orders > 500 USDT', ' rewarded with 30%'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildBonusItemMobile('Buy orders > 2000 USDT', ' rewarded with 50%'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildBonusItemMobile('Buy orders > 5000 USDT', ' rewarded with 70%'),
+      ],
+    );
+  }
+
+  Widget buildBonusStage() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'bonus'.toUpperCase(),
+          style: AppTextStyles.get2xlStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        buildBonusItem('Buy orders > 10 USDT', ' are rewarded with 5% PPCB'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildBonusItem('Buy orders > 100 USDT', ' are rewarded with 20% PPCB'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildBonusItem('Buy orders > 500 USDT', ' are rewarded with 30% PPCB'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildBonusItem('Buy orders > 2000 USDT', ' are rewarded with 50% PPCB'),
+        const SizedBox(
+          height: 8,
+        ),
+        buildBonusItem('Buy orders > 5000 USDT', ' are rewarded with 70% PPCB'),
       ],
     );
   }
@@ -118,15 +322,15 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          '$stageName: $price',
-          style: AppTextStyles.getLgStyle(AppTextStyles.zendots),
-        ),
+        // Text(
+        //   '$stageName: $price',
+        //   style: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
+        // ),
         RichText(
             text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              text: price,
+              text: '$stageName: $price',
               style: AppTextStyles.getSmStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
             ),
             TextSpan(
@@ -139,10 +343,147 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
     );
   }
 
+  Widget buildNoteItemMobile(String stageName, String price, String remain) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        // Text(
+        //   '$stageName: $price',
+        //   style: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
+        // ),
+        RichText(
+            text: TextSpan(
+          children: <TextSpan>[
+            TextSpan(
+              text: '$stageName: $price',
+              style: AppTextStyles.getXsStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+            ),
+            TextSpan(
+              text: remain,
+              style: AppTextStyles.getXsStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
+            ),
+          ],
+        )),
+      ],
+    );
+  }
+
+  Widget buildBonusItem(String condition, String reward) {
+    return RichText(
+        text: TextSpan(
+      children: <TextSpan>[
+        TextSpan(
+          text: condition,
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+        ),
+        TextSpan(
+          text: reward,
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
+        ),
+      ],
+    ));
+  }
+
+  Widget buildBonusItemMobile(String condition, String reward) {
+    return RichText(
+        text: TextSpan(
+      children: <TextSpan>[
+        TextSpan(
+          text: condition,
+          style: AppTextStyles.getXsStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+        ),
+        TextSpan(
+          text: reward,
+          style: AppTextStyles.getXsStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
+        ),
+      ],
+    ));
+  }
+
   @override
   Widget buildMobile(BuildContext context) {
-    // TODO: implement buildMobile
-    throw UnimplementedError();
+    return Stack(
+      children: <Widget>[
+                              Positioned(
+          bottom: 50,
+          right: 0,
+          child: HomeBannerIconAnimation(
+            direction: Axis.vertical,
+            speedRange: 100,
+            duration: const Duration(seconds: 30),
+            child: Image.asset(
+              AppImages.png('features_shape02'),
+              width: 300,
+            ),
+          ),
+        ),
+                        Positioned(
+          top: 50,
+          left: 0,
+          child: HomeBannerIconAnimation(
+            direction: Axis.vertical,
+            speedRange: -100,
+            duration: const Duration(seconds: 15),
+            child: Image.asset(
+              AppImages.png('features_shape02'),
+              width: 200,
+              
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 50,
+          left: 0,
+          child: HomeBannerIconAnimation(
+            direction: Axis.vertical,
+            speedRange: 200,
+                        duration: const Duration(seconds: 15),
+            child: Image.asset(
+              AppImages.png('features_shape02'),
+              width: 140,
+              height: 140,
+            ),
+          ),
+        ),
+
+        Column(
+          children: <Widget>[
+            const SizedBox(
+              height: 30,
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: r'$180,148 ',
+                    style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Received',
+                        style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.white),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                buildNotesMobile(),
+                const SizedBox(
+                  height: 16,
+                ),
+                const PreSaleConnect(),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      ],
+    );
   }
 
   @override
