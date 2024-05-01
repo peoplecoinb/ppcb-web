@@ -18,22 +18,22 @@ import '../../pre_sale/bloc/pre_sale_cubit.dart';
 
 class PreSaleConnect extends StatelessWidget with AppResponsiveScreen {
   const PreSaleConnect({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return buildResponsiveScreen(context);
   }
-  
+
   @override
   Widget buildDesktop(BuildContext context) {
     return const _PreSaleConnectDesktop();
   }
-  
+
   @override
   Widget buildMobile(BuildContext context) {
     return const _PreSaleConnectMobile();
   }
-  
+
   @override
   Widget buildTablet(BuildContext context) {
     return const _PreSaleConnectDesktop();
@@ -447,7 +447,7 @@ class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
           ],
         ),
         const SizedBox(
-          height: 32,
+          height: 16,
         ),
         buildButton(),
       ],
@@ -590,19 +590,19 @@ class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
   }
 
   Widget buildAccount(String? account) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Expanded(
-          child: Text(
-            account ?? '',
+        if (account != null) ...<Widget>[
+          Text(
+            account,
             style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
           ),
-        ),
-        const SizedBox(
-          width: 32,
-        ),
+          const SizedBox(
+            height: 10,
+          ),
+        ],
         Row(
-          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             CircleAvatar(
               radius: 4,

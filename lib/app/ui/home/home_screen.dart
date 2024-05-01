@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 // import 'package:pretty_qr_code/pretty_qr_code.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
+import '../../blocs/application/application_cubit.dart';
 import '../navigation/widget/app_navigation_bar.dart';
 import '../ui.dart';
 import 'widget/home_presale_board.dart';
@@ -28,63 +31,71 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
 
   @override
   Widget buildDesktop(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       width: double.infinity,
-      child: Column(
-        children: <Widget>[
-          TopBackground(
-            child: Column(
-              children: <Widget>[
-                AppNavigationBar(),
-                SizedBox(
-                  height: 32,
-                ),
-                Expanded(
-                  child: HomePresaleHead(),
-                ),
-              ],
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        controller: Get.find<ApplicationCubit>().scrollController,
+        child: const Column(
+          children: <Widget>[
+            TopBackground(
+              child: Column(
+                children: <Widget>[
+                  AppNavigationBar(),
+                  SizedBox(
+                    height: 32,
+                  ),
+                  Expanded(
+                    child: HomePresaleHead(),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 16,
-          ),
-          TopBackground(
-            showBlur: false,
-            child: HomePresaleBoard(),
-          ),
-        ],
+            SizedBox(
+              height: 16,
+            ),
+            TopBackground(
+              showBlur: false,
+              child: HomePresaleBoard(),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   @override
   Widget buildMobile(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       width: double.infinity,
-      child: Column(
-        children: <Widget>[
-          TopBackground(
-            child: Column(
-              children: <Widget>[
-                AppNavigationBar(),
-                SizedBox(
-                  height: 32,
-                ),
-                Expanded(
-                  child: HomePresaleHead(),
-                ),
-              ],
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        controller: Get.find<ApplicationCubit>().scrollController,
+        child: const Column(
+          children: <Widget>[
+            TopBackground(
+              child: Column(
+                children: <Widget>[
+                  AppNavigationBar(),
+                  SizedBox(
+                    height: 32,
+                  ),
+                  Expanded(
+                    child: HomePresaleHead(),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 16,
-          ),
-          TopBackground(
-            showBlur: false,
-            isDynamicHeigh: true,
-            child: HomePresaleBoard(),
-          ),
-        ],
+            SizedBox(
+              height: 16,
+            ),
+            TopBackground(
+              showBlur: false,
+              isDynamicHeigh: true,
+              child: HomePresaleBoard(),
+            ),
+          ],
+        ),
       ),
     );
   }

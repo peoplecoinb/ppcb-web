@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../blocs/application/application_cubit.dart';
 import '../../constants/constants.dart';
 import '../../extensions/extensions.dart';
 import '../ui.dart';
@@ -16,7 +18,7 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen>{
-  final ScrollController scrollController = ScrollController();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +27,12 @@ class _NavigationScreenState extends State<NavigationScreen>{
       body: Stack(
         children: <Widget>[
           Scrollbar(
-            controller: scrollController,
+            controller: Get.find<ApplicationCubit>().scrollController,
             thumbVisibility: true,
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              controller: scrollController,
-              child: widget.child,
-            ),
+            child: widget.child,
           ),
           AnimatedHideHeader(
-            scrollController: scrollController,
+            scrollController: Get.find<ApplicationCubit>().scrollController,
             child: PhysicalModel(
               color: AppColors.white,
               child: Container(
