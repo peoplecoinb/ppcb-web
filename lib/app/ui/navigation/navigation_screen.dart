@@ -24,7 +24,6 @@ class _NavigationScreenState extends State<NavigationScreen>{
       endDrawer: const AppMenuDrawer(),
       body: Stack(
         children: <Widget>[
-
           Scrollbar(
             controller: scrollController,
             thumbVisibility: true,
@@ -42,14 +41,6 @@ class _NavigationScreenState extends State<NavigationScreen>{
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   color: HexColor.fromHex('#11121B'),
-                  // gradient: LinearGradient(
-                  //   begin: Alignment.topRight,
-                  //   end: Alignment.bottomLeft,
-                  //   colors: <Color>[
-                  //     HexColor.fromHex('#1C1D33').withOpacity(0.95),
-                  //     HexColor.fromHex('#1C1D33'),
-                  //   ],
-                  // ),
                 ),
                 child: const AppNavigationBar(),
               ),

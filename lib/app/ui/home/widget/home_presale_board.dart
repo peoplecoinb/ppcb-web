@@ -226,23 +226,23 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
         const SizedBox(
           height: 16,
         ),
-        buildNoteItem('Stage 1', '1USDT = 5000PPCB', ' for 100,000,000 PPCB'),
+        buildNoteItem('Stage 1', '1USDT = 5000PPCB', ' for 100M PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 2', '1USDT = 3000PPCB', ' for 300,000,000 PPCB'),
+        buildNoteItem('Stage 2', '1USDT = 3000PPCB', ' for 300M PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 3', '1USDT = 2500PPCB', ' for 1,000,000,000 PPCB'),
+        buildNoteItem('Stage 3', '1USDT = 2500PPCB', ' for 1B PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 4', '1USDT = 2000PPCB', ' for 2,600,000,000 PPCB'),
+        buildNoteItem('Stage 4', '1USDT = 2000PPCB', ' for 2.6B PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 5', '1USDT = 1500PPCB', ' for 6,000,000,000 PPCB'),
+        buildNoteItem('Stage 5', '1USDT = 1500PPCB', ' for 6B PPCB'),
       ],
     );
   }
@@ -265,23 +265,23 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
         const SizedBox(
           height: 16,
         ),
-        buildBonusItemMobile('Buy orders > 10 USDT', ' rewarded with 5%'),
+        buildBonusItemMobile('Buy orders > 10 USDT', ' bonus 5%'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItemMobile('Buy orders > 100 USDT', ' rewarded with 20%'),
+        buildBonusItemMobile('Buy orders > 100 USDT', ' bonus 20%'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItemMobile('Buy orders > 500 USDT', ' rewarded with 30%'),
+        buildBonusItemMobile('Buy orders > 500 USDT', ' bonus 30%'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItemMobile('Buy orders > 2000 USDT', ' rewarded with 50%'),
+        buildBonusItemMobile('Buy orders > 2000 USDT', ' bonus 50%'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItemMobile('Buy orders > 5000 USDT', ' rewarded with 70%'),
+        buildBonusItemMobile('Buy orders > 5000 USDT', ' bonus 70%'),
       ],
     );
   }
