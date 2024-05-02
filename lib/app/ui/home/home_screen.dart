@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
       width: double.infinity,
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        controller: Get.find<ApplicationCubit>().scrollController,
+        controller: NavigationProvider.of(context).scrollController,
         child: const Column(
           children: <Widget>[
             TopBackground(
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
       width: double.infinity,
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        controller: Get.find<ApplicationCubit>().scrollController,
+        controller: NavigationProvider.of(context).scrollController,
         child: const Column(
           children: <Widget>[
             TopBackground(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../blocs/application/application_cubit.dart';
 import '../../../constants/constants.dart';
+import '../../../routes/app_route_delegate.dart';
+import '../../../routes/app_routes.dart';
 import '../../ui.dart';
 
 class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
@@ -12,19 +15,27 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
     return buildResponsiveScreen(context);
   }
 
-  Widget buildMenuItems(String text, {double padding = 24}) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: padding),
-      child: HoverText(
-        text: text.tr.toUpperCase(),
-        style: AppTextStyles.getSmStyle(
-          AppTextStyles.zendots.copyWith(
-            color: AppColors.white,
+  Widget buildMenuItems(String text, {double padding = 24, Function()? action}) {
+    return GestureDetector(
+      onTap: (){
+        Get.find<ApplicationCubit>().videoController.stopVideo();
+        if(action != null){
+          action();
+        }
+      },
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: padding),
+        child: HoverText(
+          text: text.tr.toUpperCase(),
+          style: AppTextStyles.getSmStyle(
+            AppTextStyles.zendots.copyWith(
+              color: AppColors.white,
+            ),
           ),
-        ),
-        hoverStyle: AppTextStyles.getSmStyle(
-          AppTextStyles.zendots.copyWith(
-            color: AppColors.primary,
+          hoverStyle: AppTextStyles.getSmStyle(
+            AppTextStyles.zendots.copyWith(
+              color: AppColors.primary,
+            ),
           ),
         ),
       ),
@@ -44,8 +55,15 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          buildMenuItems('home'),
-          buildMenuItems('navigation_white_paper'),
+          buildMenuItems(
+            'home',
+            action: () {
+              Get.rootDelegate.toNamed(Routes.home.route);
+            },
+          ),
+          buildMenuItems('navigation_white_paper', action: () {
+            Get.rootDelegate.toNamed(Routes.whitePaper.route);
+          }),
           buildMenuItems('fund'),
           buildMenuItems('road_map'),
           buildMenuItems('team'),
@@ -84,8 +102,20 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          buildMenuItems('home', padding: 16),
-          buildMenuItems('navigation_white_paper', padding: 16),
+          buildMenuItems(
+            'home',
+            padding: 16,
+            action: () {
+              AppRouteDelegate().toNamed(Routes.home.route);
+            },
+          ),
+          buildMenuItems(
+            'navigation_white_paper',
+            padding: 16,
+            action: () {
+              AppRouteDelegate().toNamed(Routes.whitePaper.route);
+            },
+          ),
           buildMenuItems('fund', padding: 16),
           buildMenuItems('road_map', padding: 16),
           buildMenuItems('team', padding: 16),

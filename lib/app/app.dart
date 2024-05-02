@@ -10,6 +10,7 @@ import 'blocs/language/language_select_state.dart';
 import 'blocs/web3/web3_cubit.dart';
 import 'blocs/theme/theme_cubit.dart';
 import 'constants/constants.dart';
+import 'routes/app_navigator_observer.dart';
 import 'routes/app_pages.dart';
 import 'routes/app_route_delegate.dart';
 import 'routes/app_route_infomation_parser.dart';
@@ -107,7 +108,8 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
               translationsKeys: AppTranslation.translations,
               builder: (BuildContext context, Widget? child) {
                 return LoadingFullScreen(
-                  child: NavigationScreen(child: child!),
+                  child: child!,
+                  // child: NavigationScreen(key: key, child: child!,),
                 );
               },
             );

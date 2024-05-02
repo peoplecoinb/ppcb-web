@@ -5,10 +5,12 @@ import '../../../constants/constants.dart';
 import '../../widgets/app_responsive_screen.dart';
 
 class TopBackground extends StatelessWidget with AppResponsiveScreen {
-  const TopBackground({super.key, required this.child, this.showBlur = true, this.isDynamicHeigh = false});
+  const TopBackground({super.key, required this.child, this.showBlur = true, this.isDynamicHeigh = false, this.desktopMinHeight, this.image});
   final Widget child;
   final bool showBlur;
   final bool isDynamicHeigh;
+  final double? desktopMinHeight;
+  final String? image;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +20,14 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen {
   @override
   Widget buildDesktop(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(
-        minHeight: DESKTOP_PAGE_MAX_HEIGHT,
+      constraints: BoxConstraints(
+        minHeight: desktopMinHeight ?? DESKTOP_PAGE_MAX_HEIGHT,
       ),
       height: isDynamicHeigh ? null : Get.height - 16,
       width: Get.width,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(AppImages.png('banner_bg')),
+          image: AssetImage(image ?? AppImages.png('banner_bg')),
           fit: BoxFit.cover,
         ),
         gradient: showBlur
@@ -55,7 +57,7 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen {
       width: Get.width,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(AppImages.png('banner_bg')),
+          image: AssetImage(image ?? AppImages.png('banner_bg')),
           fit: BoxFit.cover,
         ),
         gradient: showBlur
@@ -87,7 +89,7 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen {
       width: Get.width,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(AppImages.png('banner_bg')),
+          image: AssetImage(image ?? AppImages.png('banner_bg')),
           fit: BoxFit.cover,
         ),
         gradient: showBlur

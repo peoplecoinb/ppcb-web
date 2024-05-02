@@ -8,6 +8,7 @@ class AppRouteDelegate extends GetDelegate{
   AppRouteDelegate._internal();
 
   static final AppRouteDelegate _singleton = AppRouteDelegate._internal();
+  
   @override
   List<NavigatorObserver>? get navigatorObservers => <NavigatorObserver>[
     AppNavigatorObserver(),

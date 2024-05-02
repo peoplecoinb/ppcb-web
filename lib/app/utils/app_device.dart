@@ -58,7 +58,6 @@ class AppDeviceInfo {
           isPhysicalDevice: info.isPhysicalDevice,
           os: Platform.operatingSystem,
         );
-        print(info.data);
       }
     } catch (e) {
       print('Failed to get platform version: $e');

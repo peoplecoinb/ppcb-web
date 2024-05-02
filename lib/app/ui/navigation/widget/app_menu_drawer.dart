@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../../../blocs/application/application_cubit.dart';
 import '../../../constants/constants.dart';
+import '../../../routes/app_routes.dart';
 import '../../widgets/hover_text.dart';
 
-class AppMenuDrawer extends StatelessWidget {
+class AppMenuDrawer extends StatefulWidget {
   const AppMenuDrawer({super.key});
 
+  @override
+  State<AppMenuDrawer> createState() => _AppMenuDrawerState();
+}
+
+class _AppMenuDrawerState extends State<AppMenuDrawer> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,35 +59,54 @@ class AppMenuDrawer extends StatelessWidget {
     );
   }
 
-  Widget buildMenu(){
+  Widget buildMenu() {
     return Column(
       children: <Widget>[
-          buildMenuItem('home'),
-          buildMenuItem('navigation_white_paper'),
-          buildMenuItem('fund'),
-          buildMenuItem('road_map'),
-          buildMenuItem('team'),
-          buildMenuItem('contract'),
+        buildMenuItem(
+          'home',
+          action: () {
+            Get.rootDelegate.toNamed(Routes.home.route);
+          },
+        ),
+        buildMenuItem(
+          'navigation_white_paper',
+          action: () {
+            Get.rootDelegate.toNamed(Routes.whitePaper.route);
+          },
+        ),
+        buildMenuItem('fund'),
+        buildMenuItem('road_map'),
+        buildMenuItem('team'),
+        buildMenuItem('contract'),
       ],
     );
   }
 
-  Widget buildMenuItem(String text) {
+  Widget buildMenuItem(String text, {Function()? action}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: HoverText(
-            text: text.tr.toUpperCase(),
-            style: AppTextStyles.getXsStyle(
-              AppTextStyles.zendots.copyWith(
-                color: AppColors.white,
+        GestureDetector(
+          onTap: () {
+            Get.find<ApplicationCubit>().videoController.stopVideo();
+            Scaffold.of(context).closeEndDrawer();
+            if (action != null) {
+              action();
+            }
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: HoverText(
+              text: text.tr.toUpperCase(),
+              style: AppTextStyles.getXsStyle(
+                AppTextStyles.zendots.copyWith(
+                  color: AppColors.white,
+                ),
               ),
-            ),
-            hoverStyle: AppTextStyles.getXsStyle(
-              AppTextStyles.zendots.copyWith(
-                color: AppColors.primary,
+              hoverStyle: AppTextStyles.getXsStyle(
+                AppTextStyles.zendots.copyWith(
+                  color: AppColors.primary,
+                ),
               ),
             ),
           ),

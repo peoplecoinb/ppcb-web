@@ -46,7 +46,6 @@ class AppNavigationBar extends StatelessWidget with AppResponsiveScreen{
   
   @override
   Widget buildMobile(BuildContext context) {
-    print('Dep');
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[

@@ -15,8 +15,7 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   ApplicationCubit() : super(const ApplicationState());
 
   final _ApplicationActionHelper _helper = _ApplicationActionHelper();
-  final ScrollController scrollController = ScrollController();
-  // final YoutubePlayerController videoController = YoutubePlayerController();
+  final YoutubePlayerController videoController = YoutubePlayerController();
 
   Future<bool?> Function({String title, String? des, IconData? icon, String? keyCancel, String? keyConfirm, bool isFailed}) get confirm => _helper.confirm;
 
