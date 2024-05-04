@@ -55,4 +55,12 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
   'white_paper_content_4':'The funds received from the desire to help will be transferred by PPCB to where they are most needed, leveraging its extensive global network.',
   'white_paper_content_5':'When you purchase PPCB, you are contributing to the community support value, represented by the amount of PPCB you hold. By holding PPCB over time, the support value you provide will be delivered to those who truly need it through PPCB operations.',
   'white_paper_content_6':'Participating in and holding PPCB may not yield significant economic benefits for owners. However, the value in terms of trust, spirituality, as well as the value of contributing to society is a complete and immense value that cannot be measured by any means.',
+  'co_founders': 'Co-Founders',
+  'economic_expert': 'Economic Expert',
+  'pharmacist': 'Pharmacist',
+  'design_director': 'Design Director',
+  'artist': 'Artist',
+  'factory_director': 'Factory Director',
+  'doctor': 'Doctor',
+  'it_specialist': 'IT Specialist',
 };

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import '../../blocs/application/application_cubit.dart';
 import '../../constants/constants.dart';
 import '../home/widget/home_banner_icon_animation.dart';
 import '../home/widget/top_background.dart';

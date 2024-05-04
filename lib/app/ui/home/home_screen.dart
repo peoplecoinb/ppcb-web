@@ -9,6 +9,7 @@ import '../navigation/widget/app_navigation_bar.dart';
 import '../ui.dart';
 import 'widget/home_presale_board.dart';
 import 'widget/home_presale_head.dart';
+import 'widget/home_team.dart';
 import 'widget/top_background.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -58,6 +59,9 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
               showBlur: false,
               child: HomePresaleBoard(),
             ),
+            TopBackground(
+              child: HomeTeam(),
+            ),
           ],
         ),
       ),
@@ -93,6 +97,9 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
               showBlur: false,
               isDynamicHeigh: true,
               child: HomePresaleBoard(),
+            ),
+            TopBackground(
+              child: HomeTeam(),
             ),
           ],
         ),
