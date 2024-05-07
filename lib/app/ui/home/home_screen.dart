@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 // import 'package:pretty_qr_code/pretty_qr_code.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
-import '../../blocs/application/application_cubit.dart';
 import '../navigation/widget/app_navigation_bar.dart';
 import '../ui.dart';
 import 'widget/home_presale_board.dart';
@@ -60,6 +57,8 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
               child: HomePresaleBoard(),
             ),
             TopBackground(
+              isDynamicHeigh: true,
+              desktopMinHeight: 200,
               child: HomeTeam(),
             ),
           ],
@@ -99,6 +98,7 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
               child: HomePresaleBoard(),
             ),
             TopBackground(
+              isDynamicHeigh: true,
               child: HomeTeam(),
             ),
           ],

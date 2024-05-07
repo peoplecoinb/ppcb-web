@@ -5,7 +5,6 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../../blocs/application/application_cubit.dart';
 import '../ui.dart';
 
-
 class WhitePaperVideo extends StatefulWidget {
   const WhitePaperVideo({super.key, required this.videoId});
   final String videoId;
@@ -14,8 +13,7 @@ class WhitePaperVideo extends StatefulWidget {
   State<WhitePaperVideo> createState() => _WhitePaperVideoState();
 }
 
-class _WhitePaperVideoState extends State<WhitePaperVideo> with AppResponsiveScreen{
-
+class _WhitePaperVideoState extends State<WhitePaperVideo> with AppResponsiveScreen {
   @override
   void initState() {
     Get.find<ApplicationCubit>().videoController.loadVideoById(videoId: widget.videoId);
@@ -26,7 +24,7 @@ class _WhitePaperVideoState extends State<WhitePaperVideo> with AppResponsiveScr
   Widget build(BuildContext context) {
     return buildResponsiveScreen(context);
   }
-  
+
   @override
   Widget buildDesktop(BuildContext context) {
     return ClipRRect(
@@ -37,7 +35,7 @@ class _WhitePaperVideoState extends State<WhitePaperVideo> with AppResponsiveScr
       ),
     );
   }
-  
+
   @override
   Widget buildMobile(BuildContext context) {
     return ClipRRect(
@@ -48,7 +46,7 @@ class _WhitePaperVideoState extends State<WhitePaperVideo> with AppResponsiveScr
       ),
     );
   }
-  
+
   @override
   Widget buildTablet(BuildContext context) {
     return buildDesktop(context);

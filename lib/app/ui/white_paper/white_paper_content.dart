@@ -26,59 +26,265 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          buildIntroduction(),
           const SizedBox(
-            height: 16,
+            height: 30,
           ),
-          Text(
-            'white_paper_content_1'.tr,
-            style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
-          ),
+          buildFundFromCommunity(),
           const SizedBox(
-            height: 16,
+            height: 30,
           ),
-          Text(
-            'white_paper_content_2'.tr,
-            style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          const WhitePaperVideo(
-            videoId: 'BW76pE40fMA',
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'white_paper_content_3'.tr,
-            style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'white_paper_content_4'.tr,
-            style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'white_paper_content_5'.tr,
-            style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'white_paper_content_6'.tr,
-            style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
+          buildAllocation(),
         ],
       ),
+    );
+  }
+
+  Widget buildIntroduction() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Text(
+          'I. ${'white_paper_intro'.tr}',
+          style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_1'.tr,
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_2'.tr,
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        const WhitePaperVideo(
+          videoId: 'BW76pE40fMA',
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_3'.tr,
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_4'.tr,
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_5'.tr,
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_6'.tr,
+          style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+      ],
+    );
+  }
+
+  Widget buildFundFromCommunity() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'II. ${'white_paper_fund_from_community'.tr}',
+          style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: AssetImage(AppImages.png('banner_bg')),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Image.asset(AppImages.png('white_paper_fund_from_community')),
+        ),
+      ],
+    );
+  }
+
+  Widget buildFundFromCommunityMobile() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'II. ${'white_paper_fund_from_community'.tr}',
+          style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: AssetImage(AppImages.png('banner_bg')),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Image.asset(AppImages.png('white_paper_fund_from_community')),
+        ),
+      ],
+    );
+  }
+
+  Widget buildAllocation() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'III. ${'white_paper_allocation'.tr}',
+          style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: AssetImage(AppImages.png('banner_bg')),
+              fit: BoxFit.cover,
+            ),
+            gradient: LinearGradient(
+              colors: <Color>[
+                AppColors.primary,
+                AppColors.primary,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Image.asset(AppImages.png('white_paper_allocation')),
+        ),
+      ],
+    );
+  }
+
+  Widget buildAllocationMobile() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'III. ${'white_paper_allocation'.tr}',
+          style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: AssetImage(AppImages.png('banner_bg')),
+              fit: BoxFit.cover,
+            ),
+            gradient: LinearGradient(
+              colors: <Color>[
+                AppColors.primary,
+                AppColors.primary,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Image.asset(AppImages.png('white_paper_allocation')),
+        ),
+      ],
+    );
+  }
+
+  Widget buildIntroductionMobile() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'I. ${'white_paper_intro'.tr}',
+          style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_1'.tr,
+          style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_2'.tr,
+          style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        const WhitePaperVideo(
+          videoId: 'BW76pE40fMA',
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_3'.tr,
+          style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_4'.tr,
+          style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_5'.tr,
+          style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        Text(
+          'white_paper_content_6'.tr,
+          style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+      ],
     );
   }
 
@@ -94,57 +300,15 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          buildIntroductionMobile(),
           const SizedBox(
-            height: 16,
+            height: 30,
           ),
-          Text(
-            'white_paper_content_1'.tr,
-            style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
-          ),
+          buildFundFromCommunityMobile(),
           const SizedBox(
-            height: 16,
+            height: 30,
           ),
-          Text(
-            'white_paper_content_2'.tr,
-            style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          const WhitePaperVideo(
-            videoId: 'BW76pE40fMA',
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'white_paper_content_3'.tr,
-            style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'white_paper_content_4'.tr,
-            style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'white_paper_content_5'.tr,
-            style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'white_paper_content_6'.tr,
-            style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
+          buildAllocationMobile(),
         ],
       ),
     );

@@ -49,12 +49,18 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
 
 // Participating in and holding PPCB may not yield significant economic benefits for owners. However, the value in terms of trust, spirituality, as well as the value of contributing to society is a complete and immense value that cannot be measured by any means.
 // '''
-  'white_paper_content_1':'In the world, there always exist unresolved issues in healthcare, education, religion, environment, and many other fields. These problems cannot be completely solved. We can only strive to minimize them.',
-  'white_paper_content_2':'Many assistance efforts have been provided by communities of individuals willing to help. However, those aids seem too small and isolated.',
-  'white_paper_content_3':'PPCB - People Coin was created to acknowledge and preserve the values of assisting people from all over the world. If the desire to help others in the world is likened to a mineral mine, it will never be depleted, as this desire is an inherent aspect of the formation and development journey of humanity. This also implies that PPCB capitalization will be sufficiently large and continually increasing.',
-  'white_paper_content_4':'The funds received from the desire to help will be transferred by PPCB to where they are most needed, leveraging its extensive global network.',
-  'white_paper_content_5':'When you purchase PPCB, you are contributing to the community support value, represented by the amount of PPCB you hold. By holding PPCB over time, the support value you provide will be delivered to those who truly need it through PPCB operations.',
-  'white_paper_content_6':'Participating in and holding PPCB may not yield significant economic benefits for owners. However, the value in terms of trust, spirituality, as well as the value of contributing to society is a complete and immense value that cannot be measured by any means.',
+  'white_paper_content_1':
+      'In the world, there always exist unresolved issues in healthcare, education, religion, environment, and many other fields. These problems cannot be completely solved. We can only strive to minimize them.',
+  'white_paper_content_2':
+      'Many assistance efforts have been provided by communities of individuals willing to help. However, those aids seem too small and isolated.',
+  'white_paper_content_3':
+      'PPCB - People Coin was created to acknowledge and preserve the values of assisting people from all over the world. If the desire to help others in the world is likened to a mineral mine, it will never be depleted, as this desire is an inherent aspect of the formation and development journey of humanity. This also implies that PPCB capitalization will be sufficiently large and continually increasing.',
+  'white_paper_content_4':
+      'The funds received from the desire to help will be transferred by PPCB to where they are most needed, leveraging its extensive global network.',
+  'white_paper_content_5':
+      'When you purchase PPCB, you are contributing to the community support value, represented by the amount of PPCB you hold. By holding PPCB over time, the support value you provide will be delivered to those who truly need it through PPCB operations.',
+  'white_paper_content_6':
+      'Participating in and holding PPCB may not yield significant economic benefits for owners. However, the value in terms of trust, spirituality, as well as the value of contributing to society is a complete and immense value that cannot be measured by any means.',
   'co_founders': 'Co-Founders',
   'economic_expert': 'Economic Expert',
   'pharmacist': 'Pharmacist',
@@ -63,4 +69,11 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
   'factory_director': 'Factory Director',
   'doctor': 'Doctor',
   'it_specialist': 'IT Specialist',
+  'economic_expert_mobile': 'Economic\nExpert',
+  'design_director_mobile': 'Design\nDirector',
+  'factory_director_mobile': 'Factory\nDirector',
+  'it_specialist_mobile': 'IT\nSpecialist',
+  'white_paper_intro': 'Introduction',
+  'white_paper_fund_from_community': 'Fund received (community)',
+  'white_paper_allocation': 'Allocation',
 };
