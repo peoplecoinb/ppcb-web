@@ -13,7 +13,7 @@ FlutterWalletConnect = function ({projectId, metadata, chains}){
     });
 
     this.connect = async function(){
-        return this.web3Modal.open();
+        return this.web3Modal.open('Connect');
     }
 
     this.disconnect = function(){

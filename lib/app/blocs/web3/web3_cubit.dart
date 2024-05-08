@@ -36,7 +36,8 @@ class Web3Cubit extends Cubit<Web3State> {
   }
 
   Future<void> connect() async {
-    walletConnect.connect();
+    await Future<dynamic>.delayed(const Duration(milliseconds: 100));
+    await walletConnect.connect();
   }
 
   Future<void> getAccount() async {

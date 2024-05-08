@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:get/get.dart';
 
-import '../../../blocs/application/application_cubit.dart';
-import '../../../blocs/web3/web3_cubit.dart';
+import '../../../../blocs/application/application_cubit.dart';
+import '../../../../blocs/web3/web3_cubit.dart';
 
 part 'pre_sale_state.dart';
 
