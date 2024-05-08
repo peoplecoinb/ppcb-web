@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_dynamic_calls
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexagon/hexagon.dart';
@@ -127,22 +128,27 @@ class HomeTeamDesktop extends StatelessWidget {
         const SizedBox(
           height: 100,
         ),
-        buildMembers(),
+        buildMembers(context),
       ],
     );
   }
 
-  Widget buildMembers() {
+  Widget buildMembers(BuildContext context) {
     return SizedBox(
       height: 400,
-      child: Center(
-        child: InfiniteCarousel.builder(
-          itemCount: _team.length,
-          itemExtent: 250,
-          itemBuilder: (BuildContext context, int itemIndex, int realIndex) {
-            return buildMember(_team[itemIndex]);
+      child: InfiniteCarousel.builder(
+        itemCount: _team.length,
+        scrollBehavior: ScrollConfiguration.of(context).copyWith(
+          dragDevices: <PointerDeviceKind>{
+            PointerDeviceKind.touch,
+            PointerDeviceKind.mouse
           },
         ),
+        itemExtent: 250,
+        anchor: 0.9,
+        itemBuilder: (BuildContext context, int itemIndex, int realIndex) {
+          return buildMember(_team[itemIndex]);
+        },
       ),
     );
   }
@@ -185,7 +191,7 @@ class HomeTeamMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-                const SizedBox(
+        const SizedBox(
           height: 30,
         ),
         ShaderMask(
