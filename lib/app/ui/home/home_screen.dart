@@ -6,6 +6,7 @@ import '../navigation/widget/app_navigation_bar.dart';
 import '../ui.dart';
 import 'widget/home_presale_board.dart';
 import 'widget/home_presale_head.dart';
+import 'widget/home_roadmap.dart';
 import 'widget/home_team.dart';
 import 'widget/top_background.dart';
 
@@ -55,11 +56,18 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
             TopBackground(
               showBlur: false,
               child: HomePresaleBoard(),
-            ),
+            ),  
             TopBackground(
               isDynamicHeigh: true,
-              desktopMinHeight: 200,
-              child: HomeTeam(),
+              child: Column(
+                children: <Widget>[
+                  HomeRoadmap(),
+                  SizedBox(
+                    height: 100,
+                  ),
+                  HomeTeam(),
+                ],
+              ),
             ),
           ],
         ),
