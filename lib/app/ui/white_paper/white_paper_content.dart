@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../constants/constants.dart';
 import '../../extensions/hex_color.dart';
+import '../ui.dart';
 import '../widgets/app_responsive_screen.dart';
 import 'white_paper_video.dart';
 
@@ -124,7 +125,9 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
               fit: BoxFit.cover,
             ),
           ),
-          child: Image.asset(AppImages.png('white_paper_fund_from_community')),
+          child: ImageViewer(
+            image: AssetImage(AppImages.png('white_paper_fund_from_community')),
+          ),
         ),
       ],
     );
@@ -150,7 +153,9 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
               fit: BoxFit.cover,
             ),
           ),
-          child: Image.asset(AppImages.png('white_paper_fund_from_community')),
+          child: ImageViewer(
+            image: AssetImage(AppImages.png('white_paper_fund_from_community')),
+          ),
         ),
       ],
     );
@@ -184,7 +189,9 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
               end: Alignment.bottomCenter,
             ),
           ),
-          child: Image.asset(AppImages.png('white_paper_allocation')),
+          child: ImageViewer(
+            image: AssetImage(AppImages.png('white_paper_allocation')),
+          )
         ),
       ],
     );
@@ -218,7 +225,9 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
               end: Alignment.bottomCenter,
             ),
           ),
-          child: Image.asset(AppImages.png('white_paper_allocation')),
+          child: ImageViewer(
+            image: AssetImage(AppImages.png('white_paper_allocation')),
+          )
         ),
       ],
     );
