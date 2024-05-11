@@ -318,6 +318,7 @@ class _HomeRoadmapMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 430,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisSize: MainAxisSize.min,

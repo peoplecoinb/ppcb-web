@@ -404,7 +404,7 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
   Widget buildMobile(BuildContext context) {
     return Stack(
       children: <Widget>[
-                              Positioned(
+        Positioned(
           bottom: 50,
           right: 0,
           child: HomeBannerIconAnimation(
@@ -417,7 +417,7 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
             ),
           ),
         ),
-                        Positioned(
+        Positioned(
           top: 50,
           left: 0,
           child: HomeBannerIconAnimation(
@@ -427,7 +427,6 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
             child: Image.asset(
               AppImages.png('features_shape02'),
               width: 200,
-              
             ),
           ),
         ),
@@ -437,7 +436,7 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
           child: HomeBannerIconAnimation(
             direction: Axis.vertical,
             speedRange: 200,
-                        duration: const Duration(seconds: 15),
+            duration: const Duration(seconds: 15),
             child: Image.asset(
               AppImages.png('features_shape02'),
               width: 140,
@@ -445,7 +444,6 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
             ),
           ),
         ),
-
         Column(
           children: <Widget>[
             const SizedBox(
