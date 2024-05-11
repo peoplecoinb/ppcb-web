@@ -100,7 +100,7 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
                 RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: r'$180,148 ',
+                    text: r'$0 ',
                     style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
                     children: <TextSpan>[
                       TextSpan(
@@ -457,7 +457,7 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
                 RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: r'$180,148 ',
+                    text: r'$0 ',
                     style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
                     children: <TextSpan>[
                       TextSpan(

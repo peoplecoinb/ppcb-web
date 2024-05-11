@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_widget_cache.dart';
 
 import '../../../constants/constants.dart';
+import '../../ui.dart';
 
 List<Map<String, dynamic>> roadMapData = <Map<String, dynamic>>[
   <String, dynamic>{
@@ -37,7 +35,7 @@ List<Map<String, dynamic>> roadMapData = <Map<String, dynamic>>[
     ]
   },
   <String, dynamic>{
-    'holder': '20000 Holders',
+    'holder': 'More than 20000 Holders',
     'title': 'Long-term holding',
     'contents': <String>[
       'PPCB executes its mission of global assistance',
@@ -47,36 +45,105 @@ List<Map<String, dynamic>> roadMapData = <Map<String, dynamic>>[
   },
 ];
 
-class HomeRoadmap extends StatelessWidget {
+List<Map<String, dynamic>> roadMapDataMobile = <Map<String, dynamic>>[
+  <String, dynamic>{
+    'holder': 'More than 20 Holders',
+    'title': 'PPCB established',
+    'contents': <String>[
+      'List on Dex',
+      'Pre-sale',
+      'Communities',
+    ]
+  },
+  <String, dynamic>{
+    'holder': 'More than 1000 Holders',
+    'title': 'Long-term holding',
+    'contents': <String>[
+      'ICO',
+      'Partners',
+      'Organizations sponsored',
+      'Communities',
+    ]
+  },
+  <String, dynamic>{
+    'holder': 'More than 5000 Holders',
+    'title': 'Long-term holding',
+    'contents': <String>[
+      'Listed on Ex',
+      'Partners',
+      'Organizations sponsored',
+      'Communities',
+    ]
+  },
+  <String, dynamic>{
+    'holder': 'More than 20000 Holders',
+    'title': 'Long-term holding',
+    'contents': <String>[
+      'PPCB executes its mission of global assistance',
+      'PPCB establishes a global-scale ecosystem',
+      'Communities',
+    ]
+  },
+  <String, dynamic>{'holder': '∞ Holders', 'title': '', 'contents': <String>[]},
+];
+
+class HomeRoadmap extends StatelessWidget with AppResponsiveScreen {
   const HomeRoadmap({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Text(
-          'navigation_road_map'.tr,
-          textAlign: TextAlign.center,
-          style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Text(
-          'Market-cap grows over time'.tr,
-          textAlign: TextAlign.center,
-          style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots),
-        ),
-        const SizedBox(
-          height: 50,
-        ),
-        buildRoadMap(),
-        const SizedBox(
-          height: 8,
-        ),
-        buildFinal(),
-      ],
+    return buildResponsiveScreen(context);
+  }
+
+  @override
+  Widget buildDesktop(BuildContext context) {
+    return const _HomeRoadmapDesktop();
+  }
+
+  @override
+  Widget buildMobile(BuildContext context) {
+    return const _HomeRoadmapMobile();
+  }
+
+  @override
+  Widget buildTablet(BuildContext context) {
+    return const _HomeRoadmapDesktop();
+  }
+}
+
+class _HomeRoadmapDesktop extends StatelessWidget {
+  const _HomeRoadmapDesktop({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text(
+            'navigation_road_map'.tr,
+            textAlign: TextAlign.center,
+            style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Market-cap grows over time'.tr,
+            textAlign: TextAlign.center,
+            style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots),
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          buildRoadMap(),
+          const SizedBox(
+            height: 8,
+          ),
+          buildFinal(),
+        ],
+      ),
     );
   }
 
@@ -159,12 +226,11 @@ class HomeRoadmap extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              width: 5,
-              decoration: BoxDecoration(
-                color: AppColors.primary,
-                borderRadius: BorderRadius.circular(5),
-              )
-            ),
+                width: 5,
+                decoration: BoxDecoration(
+                  color: AppColors.primary,
+                  borderRadius: BorderRadius.circular(5),
+                )),
           ),
         ],
       ),
@@ -172,41 +238,40 @@ class HomeRoadmap extends StatelessWidget {
   }
 
   Widget buildItem(Map<String, dynamic> item, {bool isRight = false, bool isLast = false}) {
-    return SizedBox(
-      width: 1280,
-      child: IntrinsicHeight(
-        child: Row(
-          children: <Widget>[
-            if (isRight)
-              const Expanded(child: SizedBox())
-            else
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: buildItemContent(item),
-                ),
+    return IntrinsicHeight(
+      child: Row(
+        children: <Widget>[
+          if (isRight)
+            const Expanded(child: SizedBox())
+          else
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: buildItemContent(item),
               ),
-            const SizedBox(width: 20),
-            buildLine(),
-            const SizedBox(width: 20),
-            if (isRight)
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: buildItemContent(item),
-                ),
-              )
-            else
-              const Expanded(child: SizedBox()),
-          ],
-        ),
+            ),
+          const SizedBox(width: 20),
+          buildLine(),
+          const SizedBox(width: 20),
+          if (isRight)
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: buildItemContent(item),
+              ),
+            )
+          else
+            const Expanded(child: SizedBox()),
+        ],
       ),
     );
   }
 
   Widget buildItemContent(Map<String, dynamic> item) {
-    return SizedBox(
-      height: 200,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        minHeight: 220,
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,6 +306,137 @@ class HomeRoadmap extends StatelessWidget {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HomeRoadmapMobile extends StatelessWidget {
+  const _HomeRoadmapMobile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text(
+            'navigation_road_map'.tr,
+            textAlign: TextAlign.center,
+            style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Market-cap grows over time'.tr,
+            textAlign: TextAlign.center,
+            style: AppTextStyles.getLgStyle(AppTextStyles.zendots),
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          buildRoadMap(),
+        ],
+      ),
+    );
+  }
+
+  Widget buildRoadMap() {
+    return Column(
+      children: List<Widget>.generate(
+        roadMapDataMobile.length,
+        (int index) => buildItem(roadMapDataMobile[index], isLast: index == roadMapDataMobile.length - 1),
+      ),
+    );
+  }
+
+  Widget buildLine({bool isLast = false}) {
+    return ShaderMask(
+      blendMode: BlendMode.srcIn,
+      shaderCallback: (Rect bounds) => LinearGradient(colors: <Color>[
+        AppColors.white,
+        AppColors.warring,
+      ]).createShader(
+        Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+      ),
+      child: Column(
+        children: <Widget>[
+          Icon(
+            Icons.arrow_circle_down_rounded,
+            size: 35,
+            color: AppColors.primary,
+          ),
+          if (!isLast)
+            Expanded(
+              child: Container(
+                width: 5,
+                decoration: BoxDecoration(
+                  color: AppColors.primary,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildItem(Map<String, dynamic> item, {bool isLast = false}) {
+    return IntrinsicHeight(
+      child: Row(
+        children: <Widget>[
+          buildLine(isLast: isLast),
+          const SizedBox(width: 20),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: isLast ? 0 : 170,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const SizedBox(height: 4,),
+                    ShaderMask(
+                      blendMode: BlendMode.srcIn,
+                      shaderCallback: (Rect bounds) => LinearGradient(colors: <Color>[
+                        AppColors.primary,
+                        AppColors.warring,
+                      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)
+                          .createShader(
+                        Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+                      ),
+                      child: Text(
+                        '${item['holder']}'.toUpperCase(),
+                        style: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
+                      ),
+                    ),
+                    Text(
+                      '${item['title']}',
+                      style: AppTextStyles.getBaseStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: List<Widget>.generate(
+                          (item['contents'] as List<String>).length,
+                          (int index) => Text(
+                            '- ${(item['contents'] as List<String>)[index]}',
+                            style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

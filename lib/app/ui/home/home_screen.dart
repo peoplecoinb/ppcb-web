@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
             TopBackground(
               showBlur: false,
               child: HomePresaleBoard(),
-            ),  
+            ),
             TopBackground(
               isDynamicHeigh: true,
               child: Column(
@@ -105,9 +105,20 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
               isDynamicHeigh: true,
               child: HomePresaleBoard(),
             ),
+            SizedBox(
+              height: 32,
+            ),
             TopBackground(
               isDynamicHeigh: true,
-              child: HomeTeam(),
+              child: Column(
+                children: <Widget>[
+                  HomeRoadmap(),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  HomeTeam(),
+                ],
+              ),
             ),
           ],
         ),
