@@ -1,4 +1,6 @@
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 import '../ui/ui.dart';
 import 'app_routes.dart';
@@ -24,4 +26,25 @@ class AppPages {
       page: () => const UnknownScreen(),
     ),
   ];
+
+  static GoRouter routes = GoRouter(
+    routes: <RouteBase>[
+      GoRoute(
+        path: Routes.home.route,
+        builder: (BuildContext context, GoRouterState state) => const NavigationScreen(
+          child: HomeScreen(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.whitePaper.route,
+        builder: (BuildContext context, GoRouterState state) => const NavigationScreen(
+          child: WhitePaperScreen(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.unknown.route,
+        builder: (BuildContext context, GoRouterState state) => const UnknownScreen(),
+      ),
+    ],
+  );
 }

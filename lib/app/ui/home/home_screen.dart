@@ -50,25 +50,25 @@ class _HomeScreenState extends State<HomeScreen> with AppResponsiveScreen {
                 ],
               ),
             ),
-            SizedBox(
-              height: 16,
-            ),
-            TopBackground(
-              showBlur: false,
-              child: HomePresaleBoard(),
-            ),
-            TopBackground(
-              isDynamicHeigh: true,
-              child: Column(
-                children: <Widget>[
-                  HomeRoadmap(),
-                  SizedBox(
-                    height: 100,
-                  ),
-                  HomeTeam(),
-                ],
-              ),
-            ),
+            // SizedBox(
+            //   height: 16,
+            // ),
+            // TopBackground(
+            //   showBlur: false,
+            //   child: HomePresaleBoard(),
+            // ),
+            // TopBackground(
+            //   isDynamicHeigh: true,
+            //   child: Column(
+            //     children: <Widget>[
+            //       HomeRoadmap(),
+            //       SizedBox(
+            //         height: 100,
+            //       ),
+            //       HomeTeam(),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),

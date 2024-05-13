@@ -91,6 +91,7 @@ dependencies:
   hexagon: ^0.2.0
   infinite_carousel: ^1.1.1
   easy_image_viewer: ^1.5.0
+  go_router: ^14.1.0
   
 dev_dependencies:
   flutter_lints: ^2.0.1

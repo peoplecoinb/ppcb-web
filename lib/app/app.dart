@@ -92,25 +92,34 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
         child: bloc.BlocBuilder<ThemeCubit, ThemeState>(
           bloc: getx.Get.find<ThemeCubit>(),
           builder: (BuildContext context, ThemeState state) {
-            return getx.GetMaterialApp.router(
+            // return getx.GetMaterialApp.router(
+            //   debugShowCheckedModeBanner: false,
+            //   theme: (state.mode == ThemeMode.light ? state.lightTheme : state.darkTheme),
+            //   title: APP_NAME,
+            //   getPages: AppPages.pages,
+            //   // initialRoute: Routes.SPLASH,
+            //   defaultTransition: getx.Transition.cupertino,
+            //   locale: getx.Get.find<LanguageCubit>().state.locale,
+            //   routeInformationParser: AppRouteInformationParser(
+            //     initialRoute: Routes.home.route,
+            //   ),
+            //   routerDelegate: AppRouteDelegate(),
+            //   translationsKeys: AppTranslation.translations,
+            //   builder: (BuildContext context, Widget? child) {
+            //     return LoadingFullScreen(
+            //       child: child!,
+            //       // child: NavigationScreen(key: key, child: child!,),
+            //     );
+            //   },
+            // );
+            return MaterialApp.router(
+              routerConfig: AppPages.routes,
+              title: APP_NAME,
               debugShowCheckedModeBanner: false,
               theme: (state.mode == ThemeMode.light ? state.lightTheme : state.darkTheme),
-              title: APP_NAME,
-              getPages: AppPages.pages,
-              // initialRoute: Routes.SPLASH,
-              defaultTransition: getx.Transition.cupertino,
-              locale: getx.Get.find<LanguageCubit>().state.locale,
-              routeInformationParser: AppRouteInformationParser(
-                initialRoute: Routes.home.route,
-              ),
-              routerDelegate: AppRouteDelegate(),
-              translationsKeys: AppTranslation.translations,
-              builder: (BuildContext context, Widget? child) {
-                return LoadingFullScreen(
-                  child: child!,
-                  // child: NavigationScreen(key: key, child: child!,),
-                );
-              },
+              // builder: (context, child) => LoadingFullScreen(
+              //   child: child!,
+              // ),
             );
           },
         ),
