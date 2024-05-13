@@ -10,7 +10,6 @@ import 'blocs/language/language_select_state.dart';
 import 'blocs/web3/web3_cubit.dart';
 import 'blocs/theme/theme_cubit.dart';
 import 'constants/constants.dart';
-import 'routes/app_navigator_observer.dart';
 import 'routes/app_pages.dart';
 import 'routes/app_route_delegate.dart';
 import 'routes/app_route_infomation_parser.dart';
