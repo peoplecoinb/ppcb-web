@@ -19,12 +19,13 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen {
 
   @override
   Widget buildDesktop(BuildContext context) {
+    print('child ${child}');
     return Container(
       constraints: BoxConstraints(
         minHeight: desktopMinHeight ?? DESKTOP_PAGE_MAX_HEIGHT,
       ),
-      height: isDynamicHeigh ? null : Get.height - 16,
-      width: Get.width,
+      height: isDynamicHeigh ? null : MediaQuery.of(context).size.height - 16,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(image ?? AppImages.png('banner_bg')),

@@ -117,9 +117,9 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
               title: APP_NAME,
               debugShowCheckedModeBanner: false,
               theme: (state.mode == ThemeMode.light ? state.lightTheme : state.darkTheme),
-              // builder: (context, child) => LoadingFullScreen(
-              //   child: child!,
-              // ),
+              builder: (context, child) => LoadingFullScreen(
+                child: child!,
+              ),
             );
           },
         ),

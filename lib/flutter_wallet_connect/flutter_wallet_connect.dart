@@ -31,7 +31,7 @@ class _FlutterWalletConnect {
   external void subscribeState(void Function(Web3ModalState?) callback);
 }
 
-class FlutterWalletConnect implements _FlutterWalletConnect{
+class FlutterWalletConnect implements _FlutterWalletConnect {
   FlutterWalletConnect(FlutterWalletConnectOptions options) : instance = _FlutterWalletConnect(options);
   final _FlutterWalletConnect instance;
 
@@ -54,46 +54,46 @@ class FlutterWalletConnect implements _FlutterWalletConnect{
   void subscribeState(void Function(Web3ModalState?) callback) {
     instance.subscribeState(allowInterop(callback));
   }
-  
+
   @override
   dynamic get web3Modal => instance.web3Modal;
-  
+
   @override
   Future<void> connect() {
     return promiseToFuture<void>(instance.connect());
   }
-  
+
   @override
   Future<void> disconnect() {
     return promiseToFuture<void>(instance.disconnect());
   }
-  
+
   @override
   bool isConnected() {
     return instance.isConnected();
   }
-  
+
   @override
   int getChainId() {
     return instance.getChainId();
   }
-  
+
   @override
   Future<void> switchNetwork(int chainId) {
     return promiseToFuture<void>(instance.switchNetwork(chainId));
   }
-  
+
   @override
   Future<void> closeModal() {
     return promiseToFuture<void>(instance.closeModal());
   }
-  
+
   // view: 'Account' | 'Connect' | 'Networks' | 'ApproveTransaction' | 'OnRampProviders';
   @override
   Future<void> openModal(String view) {
     return promiseToFuture<void>(instance.openModal(view));
   }
-  
+
   @override
   Web3ModalState getState() {
     return instance.getState();
