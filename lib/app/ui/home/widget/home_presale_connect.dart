@@ -63,14 +63,6 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
           color: AppColors.primary,
           width: 1.5,
         ),
-        // boxShadow: <BoxShadow>[
-        //   BoxShadow(
-        //     color: AppColors.primary.withOpacity(0.5),
-        //     spreadRadius: 1,
-        //     blurRadius: 10,
-        //     offset: Offset.zero,
-        //   ),
-        // ],
       ),
       child: buildBody(),
     );
@@ -129,6 +121,7 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
                 'USDT ${'presale_you_pay'.tr}',
                 AppImages.png('usdt_icon'),
                 _usdtController,
+                decimalDigits: 0,
                 onChanged: (String value) {
                   if (value.isNotEmpty) {
                     final String usdtText = value.replaceAll(',', '');
