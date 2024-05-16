@@ -4,8 +4,6 @@ import '../../constants/app_values.dart';
 
 mixin AppResponsiveScreen {
   Widget buildResponsiveScreen(BuildContext context) {
-    print('ssssss');
-    print('context $context - ${MediaQuery.of(context).size.width}');
     return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
       final double maxWidth = MediaQuery.of(context).size.width;
 

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../constants/constants.dart';
 import '../../extensions/hex_color.dart';
 import '../ui.dart';
-import '../widgets/app_responsive_screen.dart';
 import 'white_paper_video.dart';
 
 class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {

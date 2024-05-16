@@ -11,9 +11,6 @@ import 'blocs/web3/web3_cubit.dart';
 import 'blocs/theme/theme_cubit.dart';
 import 'constants/constants.dart';
 import 'routes/app_pages.dart';
-import 'routes/app_route_delegate.dart';
-import 'routes/app_route_infomation_parser.dart';
-import 'routes/app_routes.dart';
 import 'translations/app_translations.dart';
 import 'ui/ui.dart';
 
@@ -28,6 +25,7 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> with WidgetsBindingObserver implements bloc.BlocObserver {
   final Logger logger = Logger();
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   void _initialBlocs() {
     getx.Get.put(ApplicationCubit(), permanent: true);
@@ -75,6 +73,8 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
 
   @override
   Widget build(BuildContext context) {
+    getx.Get.addTranslations(AppTranslation.translations);
+    getx.Get.addKey(navigatorKey);
     return NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (OverscrollIndicatorNotification overscroll) {
         overscroll.disallowIndicator();
@@ -92,27 +92,8 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
         child: bloc.BlocBuilder<ThemeCubit, ThemeState>(
           bloc: getx.Get.find<ThemeCubit>(),
           builder: (BuildContext context, ThemeState state) {
-            // return getx.GetMaterialApp.router(
-            //   debugShowCheckedModeBanner: false,
-            //   theme: (state.mode == ThemeMode.light ? state.lightTheme : state.darkTheme),
-            //   title: APP_NAME,
-            //   getPages: AppPages.pages,
-            //   // initialRoute: Routes.SPLASH,
-            //   defaultTransition: getx.Transition.cupertino,
-            //   locale: getx.Get.find<LanguageCubit>().state.locale,
-            //   routeInformationParser: AppRouteInformationParser(
-            //     initialRoute: Routes.home.route,
-            //   ),
-            //   routerDelegate: AppRouteDelegate(),
-            //   translationsKeys: AppTranslation.translations,
-            //   builder: (BuildContext context, Widget? child) {
-            //     return LoadingFullScreen(
-            //       child: child!,
-            //       // child: NavigationScreen(key: key, child: child!,),
-            //     );
-            //   },
-            // );
             return MaterialApp.router(
+              key: navigatorKey,
               routerConfig: AppPages.routes,
               title: APP_NAME,
               debugShowCheckedModeBanner: false,

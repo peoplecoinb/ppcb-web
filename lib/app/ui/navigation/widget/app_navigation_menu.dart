@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../blocs/application/application_cubit.dart';
 import '../../../constants/constants.dart';
-import '../../../routes/app_route_delegate.dart';
 import '../../../routes/app_routes.dart';
 import '../../ui.dart';
 
@@ -17,9 +16,8 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
 
   Widget buildMenuItems(String text, {double padding = 24, Function()? action}) {
     return GestureDetector(
-      onTap: (){
-        Get.find<ApplicationCubit>().videoController.stopVideo();
-        if(action != null){
+      onTap: () {
+        if (action != null) {
           action();
         }
       },
@@ -58,12 +56,15 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
           buildMenuItems(
             'home',
             action: () {
-              Get.rootDelegate.toNamed(Routes.home.route);
+              context.go(Routes.home.route);
             },
           ),
-          buildMenuItems('navigation_white_paper', action: () {
-            Get.rootDelegate.toNamed(Routes.whitePaper.route);
-          }),
+          buildMenuItems(
+            'navigation_white_paper',
+            action: () {
+              context.go(Routes.whitePaper.route);
+            },
+          ),
           buildMenuItems('fund'),
           buildMenuItems('road_map'),
           buildMenuItems('team'),
@@ -106,14 +107,14 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
             'home',
             padding: 16,
             action: () {
-              AppRouteDelegate().toNamed(Routes.home.route);
+              context.go(Routes.home.route);
             },
           ),
           buildMenuItems(
             'navigation_white_paper',
             padding: 16,
             action: () {
-              AppRouteDelegate().toNamed(Routes.whitePaper.route);
+              context.go(Routes.whitePaper.route);
             },
           ),
           buildMenuItems('fund', padding: 16),

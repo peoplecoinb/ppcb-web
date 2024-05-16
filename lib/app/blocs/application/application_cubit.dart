@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 // import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../ui/widgets/dialog/app_dialog.dart';
@@ -15,7 +14,6 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   ApplicationCubit() : super(const ApplicationState());
 
   final _ApplicationActionHelper _helper = _ApplicationActionHelper();
-  final YoutubePlayerController videoController = YoutubePlayerController();
 
   Future<bool?> Function({String title, String? des, IconData? icon, String? keyCancel, String? keyConfirm, bool isFailed}) get confirm => _helper.confirm;
 

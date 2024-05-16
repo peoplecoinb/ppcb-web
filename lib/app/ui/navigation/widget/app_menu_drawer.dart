@@ -88,7 +88,6 @@ class _AppMenuDrawerState extends State<AppMenuDrawer> {
       children: <Widget>[
         GestureDetector(
           onTap: () {
-            Get.find<ApplicationCubit>().videoController.stopVideo();
             Scaffold.of(context).closeEndDrawer();
             if (action != null) {
               action();
