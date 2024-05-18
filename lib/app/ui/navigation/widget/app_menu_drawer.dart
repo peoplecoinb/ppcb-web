@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-import '../../../blocs/application/application_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../routes/app_routes.dart';
 import '../../widgets/hover_text.dart';

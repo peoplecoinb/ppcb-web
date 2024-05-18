@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart' as getx;
 import 'package:logger/logger.dart';
 import 'blocs/application/application_cubit.dart';
@@ -49,6 +50,8 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
     super.initState();
     bloc.Bloc.observer = this;
     _initialBlocs();
+    getx.Get.addTranslations(AppTranslation.translations);
+    getx.Get.addKey(navigatorKey);
     WidgetsBinding.instance.addObserver(this);
     // AppDeviceInfo.init();
     // FirebaseService().init();
@@ -73,8 +76,6 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
 
   @override
   Widget build(BuildContext context) {
-    getx.Get.addTranslations(AppTranslation.translations);
-    getx.Get.addKey(navigatorKey);
     return NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (OverscrollIndicatorNotification overscroll) {
         overscroll.disallowIndicator();
@@ -95,12 +96,19 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
             return MaterialApp.router(
               key: navigatorKey,
               routerConfig: AppPages.routes,
+              localizationsDelegates: const [
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
               title: APP_NAME,
               debugShowCheckedModeBanner: false,
               theme: (state.mode == ThemeMode.light ? state.lightTheme : state.darkTheme),
-              builder: (context, child) => LoadingFullScreen(
-                child: child!,
-              ),
+              builder: (context, child) {
+                return LoadingFullScreen(
+                  child: child!,
+                );
+              },
             );
           },
         ),

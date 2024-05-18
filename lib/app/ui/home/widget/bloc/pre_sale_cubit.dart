@@ -1,4 +1,7 @@
 
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:get/get.dart';
@@ -31,11 +34,12 @@ class PreSaleCubit extends Cubit<PreSaleState> {
     }
   }
 
-  Future<void> buy() async {
+  Future<void> buy(BuildContext context) async {
     if (web3Cubit.walletConnect.getState().selectedNetworkId != web3Cubit.chain.chainId) {
       final bool isSwitchNetworkSuccess = await switchNetwork();
       if (isSwitchNetworkSuccess) {
         Get.find<ApplicationCubit>().notification(
+          context,
           title: 'notification'.tr,
           des: 'presale_later'.tr,
           isFailed: false,
@@ -43,6 +47,7 @@ class PreSaleCubit extends Cubit<PreSaleState> {
       }
     } else {
       Get.find<ApplicationCubit>().notification(
+        context,
         title: 'notification'.tr,
         des: 'presale_later'.tr,
         isFailed: false,

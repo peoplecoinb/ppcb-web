@@ -9,6 +9,7 @@ import 'package:flutter_rounded_progress_bar/rounded_progress_bar_style.dart';
 import 'package:get/get.dart';
 // import 'package:input_formatter/input_formatter.dart';
 
+import '../../../blocs/application/application_cubit.dart';
 import '../../../blocs/web3/web3_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../extensions/hex_color.dart';
@@ -275,10 +276,17 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
               CustomOutlinedButton(
                 title: (state is! PreSaleInitial) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
                 action: () {
-                  if (state is! PreSaleInitial)
-                    _preSaleCubit.buy();
-                  else
-                    _preSaleCubit.connect();
+                  // // if (state is! PreSaleInitial)
+                  // //   _preSaleCubit.buy();
+                  // // else
+                  // //   _preSaleCubit.connect();
+                  // _preSaleCubit.buy();
+                  Get.find<ApplicationCubit>().notification(
+                    context,
+                  title: 'notification'.tr,
+                  des: 'presale_later'.tr,
+                  isFailed: false,
+                );
                 },
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
                 radius: 10,
@@ -564,7 +572,7 @@ class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
                 title: (state is! PreSaleInitial) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
                 action: () {
                   if (state is! PreSaleInitial)
-                    _preSaleCubit.buy();
+                    _preSaleCubit.buy(context);
                   else
                     _preSaleCubit.connect();
                 },

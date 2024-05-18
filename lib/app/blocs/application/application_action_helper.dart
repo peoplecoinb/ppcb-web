@@ -1,37 +1,46 @@
 part of 'application_cubit.dart';
 
 class _ApplicationActionHelper {
-  Future<bool?> confirm(
+  _ApplicationActionHelper();
+
+  Future<bool?> confirm(BuildContext context,
       {String title = 'alert',
       String? des,
       IconData? icon,
       String? keyCancel,
       String? keyConfirm,
       bool isFailed = true}) async {
-    final bool? _ = await Get.dialog(AppDialog(
-      title: title,
-      icon: icon ?? Icons.notification_important_outlined,
-      description: des ?? '',
-      isFailed: isFailed,
-      showTwoBtn: true,
-      keyCancel: keyCancel,
-      keyConfirm: keyConfirm,
-    ));
+    final bool? _ = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) => AppDialog(
+        title: title,
+        icon: icon ?? Icons.notification_important_outlined,
+        description: des ?? '',
+        isFailed: isFailed,
+        showTwoBtn: true,
+        keyCancel: keyCancel,
+        keyConfirm: keyConfirm,
+      ),
+    );
     return _;
   }
 
-  Future<void> notification({
+  Future<void> notification(
+    BuildContext context, {
     String title = 'notification',
     String? des,
     IconData? icon,
     bool isFailed = true,
   }) async {
-    return Get.dialog(AppDialog(
-      title: title,
-      icon: icon ?? Icons.notification_important_outlined,
-      description: des ?? '',
-      isFailed: isFailed,
-    ));
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) => AppDialog(
+        title: title,
+        icon: icon ?? Icons.notification_important_outlined,
+        description: des ?? '',
+        isFailed: isFailed,
+      ),
+    );
   }
 
   // Future<T?> showBottomSheet<T>(
@@ -49,27 +58,14 @@ class _ApplicationActionHelper {
   //   );
   // }
 
-  void showSnackbar(String message, {bool isError = false, bool isIcon = false}) {
-    Get
-      ..closeCurrentSnackbar()
-      ..showSnackbar(
-        GetSnackBar(
-          message: message.tr,
-          duration: const Duration(milliseconds: 1500),
-          backgroundColor: isError ? Colors.red : Colors.green,
-          icon: isIcon
-              ? IconButton(
-                  icon: const Icon(
-                    Icons.clear,
-                    size: 16,
-                  ),
-                  color: Colors.white,
-                  onPressed: () {
-                    // Get.back();
-                  })
-              : null,
-        ),
-      );
+  void showSnackbar(BuildContext context, String message, {bool isError = false, bool isIcon = false}) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: const Duration(milliseconds: 1500),
+        backgroundColor: isError ? Colors.red : Colors.green,
+      ),
+    );
   }
 
   void unFocus() {

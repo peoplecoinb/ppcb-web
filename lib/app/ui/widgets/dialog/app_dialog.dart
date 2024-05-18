@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../constants/constants.dart';
 import '../../ui.dart';
@@ -138,7 +139,7 @@ class _AppDialogDesktop extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: CustomOutlinedButton(
                     title: 'OK'.tr,
-                    action: Get.back,
+                    action: context.pop,
                     backgroundColor: Colors.green,
                     borderColor: Colors.green,
                     textStyle: AppTextStyles.getLgStyle(AppTextStyles.zendots),

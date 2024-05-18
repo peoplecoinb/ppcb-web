@@ -15,13 +15,21 @@ class ApplicationCubit extends Cubit<ApplicationState> {
 
   final _ApplicationActionHelper _helper = _ApplicationActionHelper();
 
-  Future<bool?> Function({String title, String? des, IconData? icon, String? keyCancel, String? keyConfirm, bool isFailed}) get confirm => _helper.confirm;
+  Future<bool?> Function(BuildContext context,
+      {String title,
+      String? des,
+      IconData? icon,
+      String? keyCancel,
+      String? keyConfirm,
+      bool isFailed}) get confirm => _helper.confirm;
 
-  Future<void> Function({String title, String? des, IconData? icon, bool isFailed}) get notification => _helper.notification;
+  Future<void> Function(BuildContext context, {String title, String? des, IconData? icon, bool isFailed})
+      get notification => _helper.notification;
 
   // Future<T?> Function<T>(BuildContext context, WidgetBuilder builder, {bool isDismissible}) get showBottomSheet => _helper.showBottomSheet;
 
-  void Function(String message, {bool isError, bool isIcon}) get showSnackbar => _helper.showSnackbar;
+  void Function(BuildContext context, String message, {bool isError, bool isIcon}) get showSnackbar =>
+      _helper.showSnackbar;
 
   void Function() get unFocus => _helper.unFocus;
 
@@ -49,5 +57,4 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   //   setLoading(false);
   //   emit(state.copyWith(states: networkState.data));
   // }
-
 }
