@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../constants/constants.dart';
 import '../../../routes/app_routes.dart';
 import '../../widgets/hover_text.dart';
@@ -16,8 +17,8 @@ class _AppMenuDrawerState extends State<AppMenuDrawer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Get.width * 0.7,
-      height: Get.height,
+      width: MediaQuery.of(context).size.width * 0.7,
+      height: MediaQuery.of(context).size.height,
       color: AppColors.black,
       child: SingleChildScrollView(
         child: Column(
@@ -61,21 +62,21 @@ class _AppMenuDrawerState extends State<AppMenuDrawer> {
     return Column(
       children: <Widget>[
         buildMenuItem(
-          'home',
+          S.current.home,
           action: () {
-            Get.rootDelegate.toNamed(Routes.home.route);
+            context.go(Routes.home.route);
           },
         ),
         buildMenuItem(
-          'navigation_white_paper',
+          S.current.navigation_white_paper,
           action: () {
-            Get.rootDelegate.toNamed(Routes.whitePaper.route);
+            context.go(Routes.whitePaper.route);
           },
         ),
-        buildMenuItem('fund'),
-        buildMenuItem('road_map'),
-        buildMenuItem('team'),
-        buildMenuItem('contract'),
+        buildMenuItem(S.current.fund),
+        buildMenuItem(S.current.road_map),
+        buildMenuItem(S.current.team),
+        buildMenuItem(S.current.contact),
       ],
     );
   }
@@ -94,7 +95,7 @@ class _AppMenuDrawerState extends State<AppMenuDrawer> {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: HoverText(
-              text: text.tr.toUpperCase(),
+              text: text.toUpperCase(),
               style: AppTextStyles.getXsStyle(
                 AppTextStyles.zendots.copyWith(
                   color: AppColors.white,

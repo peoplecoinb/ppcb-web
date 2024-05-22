@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-
 class WhitePaperVideo extends StatefulWidget {
   const WhitePaperVideo({super.key, required this.videoId});
   final String videoId;
@@ -15,13 +14,16 @@ class _WhitePaperVideoState extends State<WhitePaperVideo> {
 
   @override
   void initState() {
+    videoController.loadVideoById(videoId: widget.videoId);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
-      videoController.loadVideoById(videoId: widget.videoId);
+      if(videoController.value.playerState != PlayerState.playing){
+        videoController.stopVideo();
+      }
       return ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: YoutubePlayer(
@@ -29,7 +31,7 @@ class _WhitePaperVideoState extends State<WhitePaperVideo> {
           controller: videoController, // Controler that we created earlier
         ),
       );
-    });
+    },);
   }
 
   @override

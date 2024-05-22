@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../blocs/language/language_select_state.dart';
 import '../extensions/extensions.dart';
 import 'app_images.dart';
 
-double get viewPaddingTop => Get.mediaQuery.viewPadding.top;
-double get viewPaddingBot => Get.mediaQuery.viewPadding.bottom;
-bool get isShowKeyboard => Get.mediaQuery.viewInsets.bottom > 0;
+double viewPaddingTop(BuildContext context) => MediaQuery.of(context).viewPadding.top;
+double viewPaddingBot(BuildContext context) => MediaQuery.of(context).viewPadding.bottom;
+bool isShowKeyboard(BuildContext context) => MediaQuery.of(context).viewInsets.bottom > 0;
 
 const String APP_NAME = 'PPCB - PEOPLE COIN';
 

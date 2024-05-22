@@ -3,8 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' as bloc;
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get/get.dart' as getx;
+import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import '../generated/l10n.dart';
 import 'blocs/application/application_cubit.dart';
 import 'blocs/language/language_cubit.dart';
 import 'blocs/language/language_select_state.dart';
@@ -12,7 +13,6 @@ import 'blocs/web3/web3_cubit.dart';
 import 'blocs/theme/theme_cubit.dart';
 import 'constants/constants.dart';
 import 'routes/app_pages.dart';
-import 'translations/app_translations.dart';
 import 'ui/ui.dart';
 
 class App extends StatefulWidget {
@@ -26,16 +26,12 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> with WidgetsBindingObserver implements bloc.BlocObserver {
   final Logger logger = Logger();
-  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   void _initialBlocs() {
-    getx.Get.put(ApplicationCubit(), permanent: true);
-    getx.Get.put(ThemeCubit(), permanent: true);
-    getx.Get.put(LanguageCubit(), permanent: true);
-    getx.Get.put(Web3Cubit(), permanent: true);
-    // getx.Get.put(ProfileCubit(), permanent: true);
-    // getx.Get.put(AuthenticationCubit(), permanent: true);
-    // getx.Get.put(LocalServerCubit()..firstCreateLocalServerAppClient(), permanent: true);
+    GetIt.I.registerSingleton(ApplicationCubit());
+    GetIt.I.registerSingleton(ThemeCubit());
+    GetIt.I.registerSingleton(LanguageCubit());
+    GetIt.I.registerSingleton(Web3Cubit());
   }
 
   Future<void> preloadAsset() async {
@@ -50,8 +46,6 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
     super.initState();
     bloc.Bloc.observer = this;
     _initialBlocs();
-    getx.Get.addTranslations(AppTranslation.translations);
-    getx.Get.addKey(navigatorKey);
     WidgetsBinding.instance.addObserver(this);
     // AppDeviceInfo.init();
     // FirebaseService().init();
@@ -84,19 +78,19 @@ class _AppState extends State<App> with WidgetsBindingObserver implements bloc.B
       child: bloc.MultiBlocListener(
         listeners: <bloc.BlocListener>[
           bloc.BlocListener<LanguageCubit, LanguageSelectState>(
-            bloc: getx.Get.find<LanguageCubit>(),
+            bloc: GetIt.I.get<LanguageCubit>(),
             listener: (BuildContext context, LanguageSelectState state) {
-              getx.Get.updateLocale(state.locale);
+              S.load(state.locale);
             },
           ),
         ],
         child: bloc.BlocBuilder<ThemeCubit, ThemeState>(
-          bloc: getx.Get.find<ThemeCubit>(),
+          bloc: GetIt.I.get<ThemeCubit>(),
           builder: (BuildContext context, ThemeState state) {
             return MaterialApp.router(
-              key: navigatorKey,
               routerConfig: AppPages.routes,
               localizationsDelegates: const [
+                S.delegate,
                 GlobalMaterialLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,

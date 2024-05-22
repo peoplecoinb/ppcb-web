@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
+import '../../../generated/l10n.dart';
 import '../../constants/constants.dart';
 import '../home/widget/home_banner_icon_animation.dart';
 import '../home/widget/top_background.dart';
@@ -42,7 +42,7 @@ class _WhitePaperScreenState extends State<WhitePaperScreen> with AppResponsiveS
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 90),
                     child: Text(
-                      'navigation_white_paper'.tr.toUpperCase(),
+                      S.current.navigation_white_paper.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
                     ),
@@ -129,7 +129,7 @@ class _WhitePaperScreenState extends State<WhitePaperScreen> with AppResponsiveS
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 90),
                     child: Text(
-                      'navigation_white_paper'.tr.toUpperCase(),
+                      S.current.navigation_white_paper.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots),
                     ),

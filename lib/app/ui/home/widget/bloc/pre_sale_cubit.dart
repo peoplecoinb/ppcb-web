@@ -4,8 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 
+import '../../../../../generated/l10n.dart';
 import '../../../../blocs/application/application_cubit.dart';
 import '../../../../blocs/web3/web3_cubit.dart';
 
@@ -19,7 +20,7 @@ class PreSaleCubit extends Cubit<PreSaleState> {
       emit(const PreSaleInitial());
     }
   }
-  Web3Cubit get web3Cubit => Get.find<Web3Cubit>();
+  Web3Cubit get web3Cubit => GetIt.I<Web3Cubit>();
 
   Future<void> connect() async {
     await web3Cubit.connect();
@@ -38,18 +39,18 @@ class PreSaleCubit extends Cubit<PreSaleState> {
     if (web3Cubit.walletConnect.getState().selectedNetworkId != web3Cubit.chain.chainId) {
       final bool isSwitchNetworkSuccess = await switchNetwork();
       if (isSwitchNetworkSuccess) {
-        Get.find<ApplicationCubit>().notification(
+        GetIt.I<ApplicationCubit>().notification(
           context,
-          title: 'notification'.tr,
-          des: 'presale_later'.tr,
+          title: S.current.notification,
+          des: S.current.presale_later,
           isFailed: false,
         );
       }
     } else {
-      Get.find<ApplicationCubit>().notification(
+      GetIt.I<ApplicationCubit>().notification(
         context,
-        title: 'notification'.tr,
-        des: 'presale_later'.tr,
+        title: S.current.notification,
+        des: S.current.presale_later,
         isFailed: false,
       );
     }

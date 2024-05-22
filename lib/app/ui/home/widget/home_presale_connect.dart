@@ -6,10 +6,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rounded_progress_bar/flutter_rounded_progress_bar.dart';
 import 'package:flutter_rounded_progress_bar/rounded_progress_bar_style.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 // import 'package:input_formatter/input_formatter.dart';
 
-import '../../../blocs/application/application_cubit.dart';
+import '../../../../generated/l10n.dart';
 import '../../../blocs/web3/web3_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../extensions/hex_color.dart';
@@ -51,7 +51,13 @@ class _PreSaleConnectDesktop extends StatefulWidget {
 class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
   final TextEditingController _usdtController = TextEditingController();
   final TextEditingController _ppcbController = TextEditingController();
-  final PreSaleCubit _preSaleCubit = Get.put(PreSaleCubit());
+  final PreSaleCubit _preSaleCubit = GetIt.I.registerSingleton(PreSaleCubit());
+
+  @override
+  void dispose() {
+    GetIt.I.unregister<PreSaleCubit>();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +125,7 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
           children: <Widget>[
             Expanded(
               child: buildInput(
-                'USDT ${'presale_you_pay'.tr}',
+                'USDT ${S.current.presale_you_pay}',
                 AppImages.png('usdt_icon'),
                 _usdtController,
                 decimalDigits: 0,
@@ -137,7 +143,7 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
             ),
             Expanded(
               child: buildInput(
-                'PPCB ${'presale_you_receive'.tr}',
+                'PPCB ${S.current.presale_you_receive}',
                 AppImages.png('logo'),
                 _ppcbController,
                 decimalDigits: 0,
@@ -162,7 +168,7 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
 
   Widget buildUSDT() {
     return Container(
-      width: Get.width,
+      width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         border: Border.all(
@@ -256,7 +262,7 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
 
   Widget buildButton() {
     return BlocListener<Web3Cubit, Web3State>(
-      bloc: Get.find<Web3Cubit>(),
+      bloc: GetIt.I<Web3Cubit>(),
       listener: (BuildContext context, Web3State state) {
         if (state is Web3Connected) {
           _preSaleCubit.emit(PreSaleConnected(state.account));
@@ -274,19 +280,12 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
                 height: 32,
               ),
               CustomOutlinedButton(
-                title: (state is! PreSaleInitial) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
+                title: (state is! PreSaleInitial) ? S.current.presale_buy : S.current.presale_component_connenct,
                 action: () {
-                  // // if (state is! PreSaleInitial)
-                  // //   _preSaleCubit.buy();
-                  // // else
-                  // //   _preSaleCubit.connect();
-                  // _preSaleCubit.buy();
-                  Get.find<ApplicationCubit>().notification(
-                    context,
-                  title: 'notification'.tr,
-                  des: 'presale_later'.tr,
-                  isFailed: false,
-                );
+                  if (state is! PreSaleInitial)
+                    _preSaleCubit.buy(context);
+                  else
+                    _preSaleCubit.connect();
                 },
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
                 radius: 10,
@@ -346,7 +345,13 @@ class _PreSaleConnectMobile extends StatefulWidget {
 class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
   final TextEditingController _usdtController = TextEditingController();
   final TextEditingController _ppcbController = TextEditingController();
-  final PreSaleCubit _preSaleCubit = Get.put(PreSaleCubit());
+  final PreSaleCubit _preSaleCubit = GetIt.I.registerSingleton(PreSaleCubit());
+  
+  @override
+  void dispose() {
+    GetIt.I.unregister<PreSaleCubit>();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -415,7 +420,7 @@ class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
           children: <Widget>[
             Expanded(
               child: buildInput(
-                'USDT ${'presale_you_pay'.tr}',
+                'USDT ${S.current.presale_you_pay}',
                 AppImages.png('usdt_icon'),
                 _usdtController,
                 onChanged: (String value) {
@@ -432,7 +437,7 @@ class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
             ),
             Expanded(
               child: buildInput(
-                'PPCB ${'presale_you_receive'.tr}',
+                'PPCB ${S.current.presale_you_receive}',
                 AppImages.png('logo'),
                 _ppcbController,
                 decimalDigits: 0,
@@ -457,7 +462,7 @@ class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
 
   Widget buildUSDT() {
     return Container(
-      width: Get.width,
+      width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         border: Border.all(
@@ -551,7 +556,7 @@ class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
 
   Widget buildButton() {
     return BlocListener<Web3Cubit, Web3State>(
-      bloc: Get.find<Web3Cubit>(),
+      bloc: GetIt.I<Web3Cubit>(),
       listener: (BuildContext context, Web3State state) {
         if (state is Web3Connected) {
           _preSaleCubit.emit(PreSaleConnected(state.account));
@@ -569,7 +574,7 @@ class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
                 height: 32,
               ),
               CustomOutlinedButton(
-                title: (state is! PreSaleInitial) ? 'presale_buy'.tr : 'presale_component_connenct'.tr,
+                title: (state is! PreSaleInitial) ? S.current.presale_buy : S.current.presale_component_connenct,
                 action: () {
                   if (state is! PreSaleInitial)
                     _preSaleCubit.buy(context);

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../constants/constants.dart';
@@ -118,17 +117,17 @@ class _AppDialogDesktop extends StatelessWidget {
             ),
           ),
           Container(
-            width: Get.width,
+            width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.only(top: 40),
             child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               Text(
-                title.tr,
+                title,
                 style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               Text(
-                description.tr,
+                description,
                 textAlign: TextAlign.center,
                 style: AppTextStyles.getLgStyle(AppTextStyles.zendots),
               ),
@@ -138,7 +137,7 @@ class _AppDialogDesktop extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: CustomOutlinedButton(
-                    title: 'OK'.tr,
+                    title: 'OK',
                     action: context.pop,
                     backgroundColor: Colors.green,
                     borderColor: Colors.green,
@@ -155,7 +154,7 @@ class _AppDialogDesktop extends StatelessWidget {
                         title: keyCancel ?? 'no',
                         backgroundColor: AppColors.error,
                         borderColor: AppColors.error,
-                        action: () => Get.back(result: false),
+                        action: () => context.pop(false),
                         textStyle: AppTextStyles.getLgStyle(AppTextStyles.zendots),
                       ),
                     ),
@@ -165,7 +164,7 @@ class _AppDialogDesktop extends StatelessWidget {
                     Expanded(
                       child: CustomOutlinedButton(
                         title: keyConfirm ?? 'yes',
-                        action: () => Get.back(result: true),
+                        action: () => context.pop(true),
                         backgroundColor: AppColors.primary,
                         borderColor: AppColors.primary,
                         textStyle: AppTextStyles.getLgStyle(AppTextStyles.zendots),
@@ -225,17 +224,17 @@ class _AppDialogMobile extends StatelessWidget {
             ),
           ),
           Container(
-            width: Get.width,
+            width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.only(top: 40),
             child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
               Text(
-                title.tr,
+                title,
                 style: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               Text(
-                description.tr,
+                description,
                 textAlign: TextAlign.center,
                 style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
               ),
@@ -245,8 +244,8 @@ class _AppDialogMobile extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: CustomOutlinedButton(
-                    title: 'OK'.tr,
-                    action: Get.back,
+                    title: 'OK',
+                    action: context.pop,
                     backgroundColor: Colors.green,
                     borderColor: Colors.green,
                     textStyle: AppTextStyles.getSmStyle(AppTextStyles.zendots),
@@ -262,7 +261,7 @@ class _AppDialogMobile extends StatelessWidget {
                         title: keyCancel ?? 'no',
                         backgroundColor: AppColors.error,
                         borderColor: AppColors.error,
-                        action: () => Get.back(result: false),
+                        action: () => context.pop(false),
                         textStyle: AppTextStyles.getSmStyle(AppTextStyles.zendots),
                       ),
                     ),
@@ -272,7 +271,7 @@ class _AppDialogMobile extends StatelessWidget {
                     Expanded(
                       child: CustomOutlinedButton(
                         title: keyConfirm ?? 'yes',
-                        action: () => Get.back(result: true),
+                        action: () => context.pop(true),
                         backgroundColor: AppColors.primary,
                         borderColor: AppColors.primary,
                         textStyle: AppTextStyles.getSmStyle(AppTextStyles.zendots),

@@ -1,5 +1,5 @@
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../constants/constants.dart';
 import '../../widgets/app_responsive_screen.dart';
@@ -19,7 +19,6 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen {
 
   @override
   Widget buildDesktop(BuildContext context) {
-    print('child ${child}');
     return Container(
       constraints: BoxConstraints(
         minHeight: desktopMinHeight ?? DESKTOP_PAGE_MAX_HEIGHT,
@@ -55,7 +54,7 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen {
   Widget buildMobile(BuildContext context) {
     return Container(
       height: isDynamicHeigh ? null : 680,
-      width: Get.width,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(image ?? AppImages.png('banner_bg')),
@@ -87,7 +86,7 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen {
       constraints: BoxConstraints(
         maxHeight: isDynamicHeigh ? double.infinity : DESKTOP_PAGE_MAX_HEIGHT,
       ),
-      width: Get.width,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(image ?? AppImages.png('banner_bg')),

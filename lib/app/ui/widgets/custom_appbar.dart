@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../constants/app_values.dart';
 
@@ -11,11 +10,11 @@ class CustomAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Get.width,
-      padding: const EdgeInsets.all(16).copyWith(top: 16 + viewPaddingTop),
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.all(16).copyWith(top: 16 + viewPaddingTop(context)),
       color: backgroundColor,
       child: Text(
-        title.tr,
+        title,
       ),
     );
   }

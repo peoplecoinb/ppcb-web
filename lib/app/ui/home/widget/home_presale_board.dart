@@ -153,6 +153,7 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
   Widget buildNotes() {
     return Container(
       padding: const EdgeInsets.all(32),
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColors.primary,

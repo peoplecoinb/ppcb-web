@@ -36,19 +36,6 @@ From there, PPCB will begin its mission with each PPCB coin having a starting va
   'blog': 'Blog',
   'contract': 'Contract',
   'home_content': 'PPCB is a cryptocurrency of compassion,\nborn to fulfill the mission of assisting places in need.',
-//   'white_paper_content':'''
-// In the world, there always exist unresolved issues in healthcare, education, religion, environment, and many other fields. These problems cannot be completely solved. We can only strive to minimize them.
-
-// Many assistance efforts have been provided by communities of individuals willing to help. However, those aids seem too small and isolated.
-
-// PPCB - People Coin was created to acknowledge and preserve the values of assisting people from all over the world. If the desire to help others in the world is likened to a mineral mine, it will never be depleted, as this desire is an inherent aspect of the formation and development journey of humanity. This also implies that PPCB's capitalization will be sufficiently large and continually increasing.
-
-// The funds received from the desire to help will be transferred by PPCB to where they are most needed, leveraging its extensive global network.
-
-// When you purchase PPCB, you are contributing to the community support value, represented by the amount of PPCB you hold. By holding PPCB over time, the support value you provide will be delivered to those who truly need it through PPCB's operations.
-
-// Participating in and holding PPCB may not yield significant economic benefits for owners. However, the value in terms of trust, spirituality, as well as the value of contributing to society is a complete and immense value that cannot be measured by any means.
-// '''
   'white_paper_content_1':
       'In the world, there always exist unresolved issues in healthcare, education, religion, environment, and many other fields. These problems cannot be completely solved. We can only strive to minimize them.',
   'white_paper_content_2':

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
-import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../constants/constants.dart';
 import '../../widgets/app_responsive_screen.dart';
 import 'home_banner_icon_animation.dart';
@@ -55,7 +55,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                 Column(
                   children: <Widget>[
                     Text(
-                      'presale_title'.tr.toUpperCase(),
+                      S.current.presale_title.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
                     ),
@@ -72,7 +72,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
                       ),
                       child: Text(
-                        'home_slogan'.tr.toUpperCase(),
+                        S.current.home_slogan.toUpperCase(),
                         textAlign: TextAlign.center,
                         style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
                       ),
@@ -81,7 +81,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                       height: 20,
                     ),
                     Text(
-                      'home_content'.tr,
+                      S.current.home_content,
                       textAlign: TextAlign.center,
                       style: AppTextStyles.getXlStyle(AppTextStyles.zendots),
                     ),
@@ -137,7 +137,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                 Column(
                   children: <Widget>[
                     Text(
-                      'presale_title'.tr.toUpperCase(),
+                      S.current.presale_title.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots),
                     ),
@@ -154,7 +154,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
                       ),
                       child: Text(
-                        'home_slogan'.tr.toUpperCase(),
+                        S.current.home_slogan.toUpperCase(),
                         textAlign: TextAlign.center,
                         style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
                       ),
@@ -163,7 +163,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                       height: 16,
                     ),
                     Text(
-                      'home_content'.tr,
+                      S.current.home_content,
                       textAlign: TextAlign.center,
                       style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
                     ),

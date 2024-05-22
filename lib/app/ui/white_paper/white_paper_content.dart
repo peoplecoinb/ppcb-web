@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+import '../../../generated/l10n.dart';
 import '../../constants/constants.dart';
 import '../../extensions/hex_color.dart';
 import '../ui.dart';
@@ -46,21 +46,21 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Text(
-          'I. ${'white_paper_intro'.tr}',
+          'I. ${S.current.white_paper_intro}',
           style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_1'.tr,
+          S.current.white_paper_content_1,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_2'.tr,
+          S.current.white_paper_content_2,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -73,28 +73,28 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
           height: 16,
         ),
         Text(
-          'white_paper_content_3'.tr,
+          S.current.white_paper_content_3,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_4'.tr,
+          S.current.white_paper_content_4,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_5'.tr,
+          S.current.white_paper_content_5,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_6'.tr,
+          S.current.white_paper_content_6,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -110,7 +110,7 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'II. ${'white_paper_fund_from_community'.tr}',
+          'II. ${S.current.white_paper_fund_from_community}',
           style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -138,7 +138,7 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'II. ${'white_paper_fund_from_community'.tr}',
+          'II. ${S.current.white_paper_fund_from_community}',
           style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -166,7 +166,7 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'III. ${'white_paper_allocation'.tr}',
+          'III. ${S.current.white_paper_allocation}',
           style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -202,7 +202,7 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'III. ${'white_paper_allocation'.tr}',
+          'III. ${S.current.white_paper_allocation}',
           style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -238,21 +238,21 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'I. ${'white_paper_intro'.tr}',
+          'I. ${S.current.white_paper_intro}',
           style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_1'.tr,
+          S.current.white_paper_content_1,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_2'.tr,
+          S.current.white_paper_content_2,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -265,28 +265,28 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
           height: 16,
         ),
         Text(
-          'white_paper_content_3'.tr,
+          S.current.white_paper_content_3,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_4'.tr,
+          S.current.white_paper_content_4,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_5'.tr,
+          S.current.white_paper_content_5,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_6'.tr,
+          S.current.white_paper_content_6,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(

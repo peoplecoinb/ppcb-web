@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../constants/constants.dart';
 import '../../../routes/app_routes.dart';
 import '../../ui.dart';
@@ -24,7 +24,7 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: padding),
         child: HoverText(
-          text: text.tr.toUpperCase(),
+          text: text.toUpperCase(),
           style: AppTextStyles.getSmStyle(
             AppTextStyles.zendots.copyWith(
               color: AppColors.white,
@@ -54,21 +54,21 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           buildMenuItems(
-            'home',
+            S.current.home,
             action: () {
               context.go(Routes.home.route);
             },
           ),
           buildMenuItems(
-            'navigation_white_paper',
+            S.current.navigation_white_paper,
             action: () {
               context.go(Routes.whitePaper.route);
             },
           ),
-          buildMenuItems('fund'),
-          buildMenuItems('road_map'),
-          buildMenuItems('team'),
-          buildMenuItems('contract'),
+          buildMenuItems(S.current.fund),
+          buildMenuItems(S.current.road_map),
+          buildMenuItems(S.current.team),
+          buildMenuItems(S.current.contract),
         ],
       ),
     );
@@ -104,23 +104,23 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           buildMenuItems(
-            'home',
+            S.current.home,
             padding: 16,
             action: () {
               context.go(Routes.home.route);
             },
           ),
           buildMenuItems(
-            'navigation_white_paper',
+            S.current.navigation_white_paper,
             padding: 16,
             action: () {
               context.go(Routes.whitePaper.route);
             },
           ),
-          buildMenuItems('fund', padding: 16),
-          buildMenuItems('road_map', padding: 16),
-          buildMenuItems('team', padding: 16),
-          buildMenuItems('contract', padding: 16),
+          buildMenuItems(S.current.fund, padding: 16),
+          buildMenuItems(S.current.road_map, padding: 16),
+          buildMenuItems(S.current.team, padding: 16),
+          buildMenuItems(S.current.contract, padding: 16),
         ],
       ),
     );
