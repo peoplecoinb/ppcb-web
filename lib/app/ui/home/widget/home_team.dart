@@ -12,69 +12,69 @@ import '../../widgets/app_responsive_screen.dart';
 
 final List<Map<String, String>> _team = <Map<String, String>>[
   <String, String>{
-    'name': 'economic_expert',
-    'image': S.current.economic_expert,
+    'name': S.current.economic_expert,
+    'image': 'economic_expert',
   },
   <String, String>{
-    'name': 'pharmacist',
-    'image': S.current.pharmacist,
+    'name': S.current.pharmacist,
+    'image': 'pharmacist',
   },
   <String, String>{
-    'name': 'design_director',
-    'image': S.current.design_director,
+    'name': S.current.design_director,
+    'image': 'design_director',
   },
   <String, String>{
-    'name': 'artist',
-    'image': S.current.artist,
+    'name': S.current.artist,
+    'image': 'artist',
   },
   <String, String>{
-    'name': 'factory_director',
-    'image': S.current.factory_director,
+    'name': S.current.factory_director,
+    'image': 'factory_director',
   },
   <String, String>{
-    'name': 'doctor',
-    'image': S.current.doctor,
+    'name': S.current.doctor,
+    'image': 'doctor',
   },
   <String, String>{
-    'name': 'it_specialist',
-    'image': S.current.it_specialist,
+    'name': S.current.it_specialist,
+    'image':'it_specialist',
   },
 ];
 
 final List<Map<String, dynamic>> _teamInMobile = <Map<String, dynamic>>[
   <String, dynamic>{
-    'name': 'economic_expert_mobile',
-    'image': S.current.economic_expert,
+    'name': S.current.economic_expert_mobile,
+    'image': 'economic_expert',
     'pos': <int>[1, 1]
   },
   <String, dynamic>{
-    'name': 'pharmacist',
-    'image': S.current.pharmacist,
+    'name': S.current.pharmacist,
+    'image': 'pharmacist',
     'pos': <int>[0, 0]
   },
   <String, dynamic>{
-    'name': 'design_director_mobile',
-    'image': S.current.design_director,
+    'name': S.current.design_director_mobile,
+    'image': 'design_director',
     'pos': <int>[2, 0]
   },
   <String, dynamic>{
-    'name': 'artist',
-    'image': S.current.artist,
+    'name': S.current.artist,
+    'image': 'artist',
     'pos': <int>[2, 1]
   },
   <String, dynamic>{
-    'name': 'factory_director_mobile',
-    'image': S.current.factory_director,
+    'name': S.current.factory_director_mobile,
+    'image': 'factory_director',
     'pos': <int>[0, 1]
   },
   <String, dynamic>{
-    'name': 'doctor',
-    'image': S.current.doctor,
+    'name': S.current.doctor,
+    'image': 'doctor',
     'pos': <int>[1, 0]
   },
   <String, dynamic>{
-    'name': 'it_specialist_mobile',
-    'image': S.current.it_specialist,
+    'name': S.current.it_specialist_mobile,
+    'image': 'it_specialist',
     'pos': <int>[1, 2]
   },
 ];
