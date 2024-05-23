@@ -689,6 +689,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Airdrop`
+  String get airdrop_title {
+    return Intl.message(
+      'Airdrop',
+      name: 'airdrop_title',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
