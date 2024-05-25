@@ -699,6 +699,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Basic Airdrop`
+  String get basic_airdrop {
+    return Intl.message(
+      'Basic Airdrop',
+      name: 'basic_airdrop',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reward`
+  String get reward {
+    return Intl.message(
+      'Reward',
+      name: 'reward',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How to participate`
+  String get how_to_participate {
+    return Intl.message(
+      'How to participate',
+      name: 'how_to_participate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number of registrations`
+  String get numberOfRegistrations {
+    return Intl.message(
+      'Number of registrations',
+      name: 'numberOfRegistrations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time frame`
+  String get timeFrame {
+    return Intl.message(
+      'Time frame',
+      name: 'timeFrame',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reward distribution`
+  String get rewardDistribution {
+    return Intl.message(
+      'Reward distribution',
+      name: 'rewardDistribution',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total PPCB received`
+  String get totalPPCBReceived {
+    return Intl.message(
+      'Total PPCB received',
+      name: 'totalPPCBReceived',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

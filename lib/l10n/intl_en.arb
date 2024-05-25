@@ -63,5 +63,13 @@
     "fund": "Fund",
     "team": "Team",
     "contact": "Contact",
-    "airdrop_title": "Airdrop"
+    "airdrop_title": "Airdrop",
+    "basic_airdrop": "Basic Airdrop",
+    "reward": "Reward",
+    "how_to_participate": "How to participate",
+    "date": "Date",
+    "numberOfRegistrations": "Number of registrations",
+    "timeFrame": "Time frame",
+    "rewardDistribution": "Reward distribution",
+    "totalPPCBReceived": "Total PPCB received"
 }

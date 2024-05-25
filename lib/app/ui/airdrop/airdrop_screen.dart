@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
 import '../../../generated/l10n.dart';
 import '../../constants/constants.dart';
@@ -14,59 +16,63 @@ class AirdropScreen extends StatefulWidget {
   State<AirdropScreen> createState() => _AirdropScreenState();
 }
 
-class _AirdropScreenState extends State<AirdropScreen> with AppResponsiveScreen {
+class _AirdropScreenState extends State<AirdropScreen> {
   @override
   Widget build(BuildContext context) {
-    return TopBackground(
-      isDynamicHeigh: true,
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 20),
-        controller: NavigationProvider.of(context).scrollController,
-        child: Column(
-          children: <Widget>[
-            const AppNavigationBar(),
-            Container(
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 20),
+      controller: NavigationProvider.of(context).scrollController,
+      child: Column(
+        children: <Widget>[
+          TopBackground(
+            image: AppImages.png('airdrop_bg'),
+            showBlur: false,
+            child: Column(
+              children: <Widget>[
+                const AppNavigationBar(),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      S.current.airdrop_title.toUpperCase(),
+                      textAlign: TextAlign.center,
+                      style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(shadows: <Shadow>[
+                        Shadow(
+                          color: HexColor.fromHex('#000000'),
+                          blurRadius: 4,
+                          offset: const Offset(4, 4),
+                        ),
+                      ]),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          TopBackground(
+            isDynamicHeigh: true,
+            child: Container(
               width: MOBILE_PAGE_MAX_WIDTH,
-              height: 2000,
               padding: const EdgeInsets.all(20),
-              margin: const EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 20, bottom: 20),
               decoration: BoxDecoration(
                 color: HexColor.fromHex('#0F101D'),
+                border: Border.all(
+                  color: HexColor.fromHex('#2D2E3A'),
+                ),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: HexColor.fromHex('#000000').withOpacity(0.7),
+                    blurRadius: 20,
+                    offset: const Offset(0, 0),
+                  ),
+                ],
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: buildResponsiveScreen(context),
+              child: HtmlWidget(aidrop_html),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
-  }
-
-  Widget buildTitleDestop(String text) {
-    return Text(
-      text,
-      style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
-    );
-  }
-
-  @override
-  Widget buildDesktop(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        buildTitleDestop(S.current.airdrop_title),
-      ],
-    );
-  }
-
-  @override
-  Widget buildMobile(BuildContext context) {
-    // TODO: implement buildMobile
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget buildTablet(BuildContext context) {
-    // TODO: implement buildTablet
-    throw UnimplementedError();
   }
 }

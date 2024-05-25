@@ -24,12 +24,14 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "airdrop_title": MessageLookupByLibrary.simpleMessage("Airdrop"),
         "artist": MessageLookupByLibrary.simpleMessage("Artist"),
+        "basic_airdrop": MessageLookupByLibrary.simpleMessage("Basic Airdrop"),
         "blog": MessageLookupByLibrary.simpleMessage("Blog"),
         "co_founders": MessageLookupByLibrary.simpleMessage("Co-Founders"),
         "confirm_password_invalid":
             MessageLookupByLibrary.simpleMessage("Password does not match"),
         "contact": MessageLookupByLibrary.simpleMessage("Contact"),
         "contract": MessageLookupByLibrary.simpleMessage("Contract"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "design_director":
             MessageLookupByLibrary.simpleMessage("Design Director"),
         "design_director_mobile":
@@ -59,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home_pre_sales": MessageLookupByLibrary.simpleMessage("Pre-Sales"),
         "home_slogan":
             MessageLookupByLibrary.simpleMessage("Help those in need"),
+        "how_to_participate":
+            MessageLookupByLibrary.simpleMessage("How to participate"),
         "ico_chart": MessageLookupByLibrary.simpleMessage("ICO Chart"),
         "it_specialist": MessageLookupByLibrary.simpleMessage("IT Specialist"),
         "it_specialist_mobile":
@@ -73,6 +77,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("White Paper"),
         "no_data_found": MessageLookupByLibrary.simpleMessage("No data found"),
         "notification": MessageLookupByLibrary.simpleMessage("Notification"),
+        "numberOfRegistrations":
+            MessageLookupByLibrary.simpleMessage("Number of registrations"),
         "password_invalid": MessageLookupByLibrary.simpleMessage(
             "Password must be at least 6 characters"),
         "pharmacist": MessageLookupByLibrary.simpleMessage("Pharmacist"),
@@ -92,12 +98,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "presale_you_pay": MessageLookupByLibrary.simpleMessage("pay"),
         "presale_you_receive": MessageLookupByLibrary.simpleMessage("receive"),
         "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
+        "reward": MessageLookupByLibrary.simpleMessage("Reward"),
+        "rewardDistribution":
+            MessageLookupByLibrary.simpleMessage("Reward distribution"),
         "road_map": MessageLookupByLibrary.simpleMessage("Road Map"),
         "system_can_not_connect_server": MessageLookupByLibrary.simpleMessage(
             "System can not connect to server"),
         "system_lost_internet": MessageLookupByLibrary.simpleMessage(
             "System lost internet connection"),
         "team": MessageLookupByLibrary.simpleMessage("Team"),
+        "timeFrame": MessageLookupByLibrary.simpleMessage("Time frame"),
+        "totalPPCBReceived":
+            MessageLookupByLibrary.simpleMessage("Total PPCB received"),
         "valid_enter_full_name":
             MessageLookupByLibrary.simpleMessage("Please enter your full name"),
         "valid_enter_number":
