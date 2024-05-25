@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:lottie/lottie.dart';
 import '../../../generated/l10n.dart';
 import '../../constants/constants.dart';
 import '../home/widget/home_banner_icon_animation.dart';
@@ -32,22 +33,25 @@ class _WhitePaperScreenState extends State<WhitePaperScreen> with AppResponsiveS
         controller: NavigationProvider.of(context).scrollController,
         child: Column(
           children: <Widget>[
-            TopBackground(
-              isDynamicHeigh: true,
-              desktopMinHeight: 400,
-              image: AppImages.png('white_paper_bg'),
-              child: Column(
-                children: <Widget>[
-                  const AppNavigationBar(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 90),
-                    child: Text(
-                      S.current.navigation_white_paper.toUpperCase(),
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: TopBackground(
+                isDynamicHeigh: true,
+                image: AppImages.png('white_paper_bg'),
+                child: Column(
+                  children: <Widget>[
+                    const AppNavigationBar(),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          S.current.navigation_white_paper.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             const SizedBox(

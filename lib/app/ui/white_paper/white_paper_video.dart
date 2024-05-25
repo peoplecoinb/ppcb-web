@@ -14,25 +14,27 @@ class _WhitePaperVideoState extends State<WhitePaperVideo> {
 
   @override
   void initState() {
+    controller.loadVideoById(videoId: widget.videoId);
+    controller.stopVideo();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<void>(
-      future: controller.loadVideo(widget.videoId),
+      future: Future<void>.delayed(const Duration(milliseconds: 400)),
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: YoutubePlayer(
-              aspectRatio: 2,
-              controller: controller, // Controler that we created earlier
-            ),
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
           );
         }
-        return const Center(
-          child: CircularProgressIndicator(),
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: YoutubePlayer(
+            aspectRatio: 2,
+            controller: controller, // Controler that we created earlier
+          ),
         );
       },
     );
