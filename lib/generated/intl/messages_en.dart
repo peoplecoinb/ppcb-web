@@ -135,6 +135,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "white_paper_fund_from_community":
             MessageLookupByLibrary.simpleMessage("Fund received (community)"),
         "white_paper_intro":
-            MessageLookupByLibrary.simpleMessage("Introduction")
+            MessageLookupByLibrary.simpleMessage("Introduction"),
+        "white_paper_partner": MessageLookupByLibrary.simpleMessage("Partners")
       };
 }

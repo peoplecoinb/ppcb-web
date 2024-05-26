@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../../generated/l10n.dart';
 import '../../constants/constants.dart';
@@ -35,6 +36,10 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
             height: 30,
           ),
           buildAllocation(),
+          const SizedBox(
+            height: 30,
+          ),
+          buildPartner(),
         ],
       ),
     );
@@ -173,25 +178,24 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
           height: 16,
         ),
         Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: AssetImage(AppImages.png('banner_bg')),
-              fit: BoxFit.cover,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: AssetImage(AppImages.png('banner_bg')),
+                fit: BoxFit.cover,
+              ),
+              gradient: LinearGradient(
+                colors: <Color>[
+                  AppColors.primary,
+                  AppColors.primary,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
-            gradient: LinearGradient(
-              colors: <Color>[
-                AppColors.primary,
-                AppColors.primary,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: ImageViewer(
-            image: AssetImage(AppImages.png('white_paper_allocation')),
-          )
-        ),
+            child: ImageViewer(
+              image: AssetImage(AppImages.png('white_paper_allocation')),
+            )),
       ],
     );
   }
@@ -209,24 +213,91 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
           height: 16,
         ),
         Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: AssetImage(AppImages.png('banner_bg')),
-              fit: BoxFit.cover,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: AssetImage(AppImages.png('banner_bg')),
+                fit: BoxFit.cover,
+              ),
+              gradient: LinearGradient(
+                colors: <Color>[
+                  AppColors.primary,
+                  AppColors.primary,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
-            gradient: LinearGradient(
-              colors: <Color>[
-                AppColors.primary,
-                AppColors.primary,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: ImageViewer(
-            image: AssetImage(AppImages.png('white_paper_allocation')),
-          )
+            child: ImageViewer(
+              image: AssetImage(AppImages.png('white_paper_allocation')),
+            )),
+      ],
+    );
+  }
+
+  Widget buildPartner() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'IV. ${S.current.white_paper_partner}',
+          style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                gradient: LinearGradient(
+                  colors: <Color>[
+                    AppColors.primary,
+                    AppColors.primary,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: ImageViewer(
+                image: AssetImage(AppImages.png('white_paper_partner')),
+              )),
+        ),
+      ],
+    );
+  }
+
+  Widget buildPartnerMobile() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'IV. ${S.current.white_paper_partner}',
+          style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                gradient: LinearGradient(
+                  colors: <Color>[
+                    AppColors.primary,
+                    AppColors.primary,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: ImageViewer(
+                image: AssetImage(AppImages.png('white_paper_partner')),
+              )),
         ),
       ],
     );
@@ -317,6 +388,10 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
             height: 30,
           ),
           buildAllocationMobile(),
+          const SizedBox(
+            height: 30,
+          ),
+          buildPartnerMobile(),
         ],
       ),
     );

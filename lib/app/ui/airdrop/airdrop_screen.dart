@@ -119,11 +119,19 @@ class _AirdropScreenState extends State<AirdropScreen> {
                   child: HtmlWidget(
                     aidrop_html,
                     onTapUrl: (String p0) {
-                      if(p0.contains('mailto:')){
+                      if (p0.contains('mailto:')) {
                         p0 = p0.replaceAll('mailto:', '');
                       }
                       Clipboard.setData(ClipboardData(text: p0)).then((_) {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Copied to clipboard: $p0')));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: AppColors.white,
+                            content: Text(
+                              'Copied to clipboard: $p0',
+                              style: AppTextStyles.zendots.copyWith(color: AppColors.primary),
+                            ),
+                          ),
+                        );
                       });
                       return true;
                     },

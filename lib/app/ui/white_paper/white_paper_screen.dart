@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:lottie/lottie.dart';
 import '../../../generated/l10n.dart';
 import '../../constants/constants.dart';
 import '../home/widget/home_banner_icon_animation.dart';

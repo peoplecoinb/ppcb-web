@@ -98,7 +98,7 @@ const String aidrop_html = r'''
 <p>Join Telegram <a href="https://t.me/ppcb_community" target="_blank" rel="noopener noreferrer nofollow">https://t.me/ppcb_community</a></p>
 </li>
 <li>
-<p>Send your BNB wallet address to the email <a href="mailto:team.ppcb@gmail.com" target="_blank" rel="noopener noreferrer nofollow">team.ppcb@gmail.com</a> with the subject line &ldquo;Join basic airdrop&rdquo;.</p>
+<p>Send your BNB wallet address to the email <a href="mailto:team.ppcb@gmail.com" target="_blank" rel="noopener noreferrer nofollow">team.ppcb@gmail.com</a> with the subject line "<a href="Join basic airdrop">Join basic airdrop</a>".</p>
 </li>
 </ul>
 <p><strong>Reward distribution:</strong></p>
@@ -134,17 +134,17 @@ const String aidrop_html = r'''
 <p><strong>Phase 7:</strong> 01/12/2025: Receive 3,000,000 PPCB</p>
 </li>
 </ul>
-<p><strong>Total PPCB received:</strong> 6,111,100 PPCB, a substantial reward as a token of appreciation for those who have supported and followed PPCB from the early stages.</p>
+<p><strong>Total PPCB will receive:</strong> 6,111,100 PPCB, a substantial reward as a token of appreciation for those who have supported and followed PPCB from the early stages.</p>
 <p><strong>How to participate:</strong></p>
 <ul>
 <li>
 <p>Join Telegram <a href="https://t.me/ppcb_community" target="_blank" rel="noopener noreferrer nofollow">https://t.me/ppcb_community</a></p>
 </li>
 <li>
-<p>Send your BNB wallet address to <a href="mailto:team.ppcb@gmail.com" target="_blank" rel="noopener noreferrer nofollow">team.ppcb@gmail.com</a> with the subject line "Join mega airdrop" .</p>
+<p>Send your BNB wallet address to <a href="mailto:team.ppcb@gmail.com" target="_blank" rel="noopener noreferrer nofollow">team.ppcb@gmail.com</a> with the subject line "<a href="Join mega airdrop">Join mega airdrop</a>" .</p>
 </li>
 <li>
-<p>Include a transaction confirmation showing you have transferred 5 USDT from your wallet to our USDT wallet address.</p>
+<p>Include a transaction confirmation showing you have transferred 7 USDT (BEP20) from your wallet to our USDT (BEP20) wallet address <a href="0x9f51e995FbEb6674b9016E829497358113ead044">0x9f51e995FbEb6674b9016E829497358113ead044</a>.</p>
 </li>
 <li>
 <p>Leave a congratulatory comment for the project on our specified YouTube video.</p>
@@ -153,7 +153,7 @@ const String aidrop_html = r'''
 <p>Receive confirmation of successful airdrop participation.</p>
 </li>
 </ul>
-<h1 style="text-align: center;"><span style="color: #339966;"><strong>PPCB will be an excellent choice for you!</strong></span></h1>
+<h2 style="text-align: center;"><span style="color: #339966;">PPCB WILL BE AN EXCELLENT CHOICE FOR YOU!</span></h2>
 ''';
 
 const Map<String, dynamic> airdropDes = <String, dynamic>{

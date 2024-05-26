@@ -779,6 +779,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Partners`
+  String get white_paper_partner {
+    return Intl.message(
+      'Partners',
+      name: 'white_paper_partner',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -10,19 +10,19 @@ class WhitePaperVideo extends StatefulWidget {
 }
 
 class _WhitePaperVideoState extends State<WhitePaperVideo> {
-  final YoutubePlayerController controller = YoutubePlayerController();
+  YoutubePlayerController? controller = YoutubePlayerController();
 
   @override
   void initState() {
-    controller.loadVideoById(videoId: widget.videoId);
-    controller.stopVideo();
+    controller!.loadVideoById(videoId: widget.videoId);
+    controller!.stopVideo();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<void>(
-      future: Future<void>.delayed(const Duration(milliseconds: 400)),
+      future: Future<void>.delayed(const Duration(milliseconds: 1000)),
       builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
@@ -33,7 +33,7 @@ class _WhitePaperVideoState extends State<WhitePaperVideo> {
           borderRadius: BorderRadius.circular(20),
           child: YoutubePlayer(
             aspectRatio: 2,
-            controller: controller, // Controler that we created earlier
+            controller: controller!, // Controler that we created earlier
           ),
         );
       },
@@ -42,6 +42,8 @@ class _WhitePaperVideoState extends State<WhitePaperVideo> {
 
   @override
   void dispose() {
+    controller!.stopVideo();
+    controller = null;
     super.dispose();
   }
 }

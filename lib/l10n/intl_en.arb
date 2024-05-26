@@ -71,5 +71,6 @@
     "numberOfRegistrations": "Number of registrations",
     "timeFrame": "Time frame",
     "rewardDistribution": "Reward distribution",
-    "totalPPCBReceived": "Total PPCB received"
+    "totalPPCBReceived": "Total PPCB received",
+    "white_paper_partner": "Partners"
 }
