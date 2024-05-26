@@ -17,8 +17,28 @@ import '../../widgets/app_responsive_screen.dart';
 import '../../widgets/custom_outline_button.dart';
 import 'bloc/pre_sale_cubit.dart';
 
-class PreSaleConnect extends StatelessWidget with AppResponsiveScreen {
+class PreSaleConnect extends StatefulWidget{
   const PreSaleConnect({super.key});
+
+  @override
+  State<PreSaleConnect> createState() => _PreSaleConnectState();
+}
+
+class _PreSaleConnectState extends State<PreSaleConnect> with AppResponsiveScreen {
+
+  @override
+  void initState() {
+    if(!GetIt.I.isRegistered<PreSaleCubit>()){
+      GetIt.I.registerSingleton(PreSaleCubit());
+    }
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    GetIt.I.unregister<PreSaleCubit>();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +62,7 @@ class PreSaleConnect extends StatelessWidget with AppResponsiveScreen {
 }
 
 class _PreSaleConnectDesktop extends StatefulWidget {
-  const _PreSaleConnectDesktop({super.key});
+  const _PreSaleConnectDesktop();
 
   @override
   State<_PreSaleConnectDesktop> createState() => _PreSaleConnectDesktopState();
@@ -51,13 +71,7 @@ class _PreSaleConnectDesktop extends StatefulWidget {
 class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
   final TextEditingController _usdtController = TextEditingController();
   final TextEditingController _ppcbController = TextEditingController();
-  final PreSaleCubit _preSaleCubit = GetIt.I.registerSingleton(PreSaleCubit());
-
-  @override
-  void dispose() {
-    GetIt.I.unregister<PreSaleCubit>();
-    super.dispose();
-  }
+  final PreSaleCubit _preSaleCubit = GetIt.I<PreSaleCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -336,7 +350,7 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
 }
 
 class _PreSaleConnectMobile extends StatefulWidget {
-  const _PreSaleConnectMobile({super.key});
+  const _PreSaleConnectMobile();
 
   @override
   State<_PreSaleConnectMobile> createState() => _PreSaleConnectMobileState();
@@ -345,13 +359,7 @@ class _PreSaleConnectMobile extends StatefulWidget {
 class _PreSaleConnectMobileState extends State<_PreSaleConnectMobile> {
   final TextEditingController _usdtController = TextEditingController();
   final TextEditingController _ppcbController = TextEditingController();
-  final PreSaleCubit _preSaleCubit = GetIt.I.registerSingleton(PreSaleCubit());
-  
-  @override
-  void dispose() {
-    GetIt.I.unregister<PreSaleCubit>();
-    super.dispose();
-  }
+  final PreSaleCubit _preSaleCubit = GetIt.I<PreSaleCubit>();
 
   @override
   Widget build(BuildContext context) {

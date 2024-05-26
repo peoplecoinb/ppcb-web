@@ -1,15 +1,23 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../constants/constants.dart';
 import '../../widgets/app_responsive_screen.dart';
 
 class TopBackground extends StatelessWidget with AppResponsiveScreen {
-  const TopBackground({super.key, required this.child, this.showBlur = true, this.isDynamicHeigh = false, this.desktopMinHeight, this.image});
+  const TopBackground({
+    super.key,
+    required this.child,
+    this.showBlur = true,
+    this.isDynamicHeigh = false,
+    this.desktopMinHeight,
+    this.image,
+    this.borderRadius,
+  });
   final Widget child;
   final bool showBlur;
   final bool isDynamicHeigh;
   final double? desktopMinHeight;
+  final double? borderRadius;
   final String? image;
 
   @override
@@ -40,9 +48,9 @@ class TopBackground extends StatelessWidget with AppResponsiveScreen {
                 ],
               )
             : null,
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(borderRadius ?? 20),
+          bottomRight: Radius.circular(borderRadius ?? 20),
         ),
       ),
       alignment: Alignment.topCenter,
