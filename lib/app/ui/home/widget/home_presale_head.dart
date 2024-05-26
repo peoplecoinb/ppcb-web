@@ -216,7 +216,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
       ),
       child: Center(
         child: TimerCountdown(
-          endTime: DateTime(2024, 6, 8, 23, 23, 59).toUtc(),
+          endTime: DateTime(2024, 8, 1, 23, 23, 59).toUtc(),
           timeTextStyle: timeTextStyle ?? this.timeTextStyle,
           descriptionTextStyle: timeDescriptionTextStyle ?? this.timeDescriptionTextStyle,
           colonsTextStyle: timeTextStyle ?? this.timeTextStyle,

@@ -87,6 +87,7 @@ const double DESKTOP_PAGE_MAX_WIDTH = 1200;
 const double DESKTOP_PAGE_MAX_HEIGHT = 800;
 
 const String TELEGRAM_LINK = 'https://t.me/ppcb_community';
+const String YOUTUBE_LINK = 'https://www.youtube.com/@adminppcb';
 const String EMAIL_LINK = 'team.ppcb@gmail.com';
 
 const String aidrop_html = r'''

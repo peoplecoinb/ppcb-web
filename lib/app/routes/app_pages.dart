@@ -27,12 +27,12 @@ class AppPages {
             path: Routes.airdrop.route,
             builder: (BuildContext context, GoRouterState state) => const AirdropScreen(),
           ),
-          GoRoute(
-            path: Routes.unknown.route,
-            builder: (BuildContext context, GoRouterState state) => const UnknownScreen(),
-          ),
         ],
-      )
+      ),
+      GoRoute(
+        path: Routes.unknown.route,
+        builder: (BuildContext context, GoRouterState state) => const UnknownScreen(),
+      ),
     ],
   );
 }

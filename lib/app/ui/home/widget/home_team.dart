@@ -136,6 +136,7 @@ class HomeTeamDesktop extends StatelessWidget {
   Widget buildMembers(BuildContext context) {
     return SizedBox(
       height: 400,
+      width: MediaQuery.of(context).size.width,
       child: InfiniteCarousel.builder(
         itemCount: _team.length,
         scrollBehavior: ScrollConfiguration.of(context).copyWith(

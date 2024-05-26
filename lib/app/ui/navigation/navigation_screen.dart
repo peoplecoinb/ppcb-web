@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../constants/constants.dart';
 import '../../extensions/extensions.dart';
@@ -27,19 +29,23 @@ class _NavigationScreenState extends State<NavigationScreen> {
         scrollController: scrollController,
         child: Stack(
           children: <Widget>[
-            SingleChildScrollView(
-              controller: scrollController,
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: widget.child,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const HomeFooterBar(),
-                ],
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: SingleChildScrollView(
+                controller: scrollController,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: widget.child,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const HomeFooterBar(),
+                  ],
+                ),
               ),
             ),
             AnimatedHideHeader(

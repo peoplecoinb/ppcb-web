@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_images.dart';
-import 'top_background.dart';
+import '../../../constants/app_values.dart';
 
 class HomeFooterBar extends StatelessWidget {
   const HomeFooterBar({super.key});
@@ -25,9 +26,21 @@ class HomeFooterBar extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Image.asset(AppImages.png('telegram_logo')),
-            const SizedBox(width: 20,),
-            Image.asset(AppImages.png('youtube_logo')),
+            InkWell(
+              onTap: () {
+                launchUrl(Uri.parse(TELEGRAM_LINK));
+              },
+              child: Image.asset(AppImages.png('telegram_logo')),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            InkWell(
+              onTap: () {
+                launchUrl(Uri.parse(YOUTUBE_LINK));
+              },
+              child: Image.asset(AppImages.png('youtube_logo')),
+            ),
           ],
         ),
       ),
