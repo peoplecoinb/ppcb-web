@@ -73,10 +73,12 @@ class _AppMenuDrawerState extends State<AppMenuDrawer> {
             context.go(Routes.whitePaper.route);
           },
         ),
-        buildMenuItem(S.current.fund),
-        buildMenuItem(S.current.road_map),
-        buildMenuItem(S.current.team),
-        buildMenuItem(S.current.contact),
+          buildMenuItem(S.current.road_map, action: () {
+            context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}).toString());
+          }),
+          buildMenuItem(S.current.team, action: () {
+            context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'team'}).toString());
+          }),
       ],
     );
   }
@@ -85,7 +87,7 @@ class _AppMenuDrawerState extends State<AppMenuDrawer> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        GestureDetector(
+        InkWell(
           onTap: () {
             Scaffold.of(context).closeEndDrawer();
             if (action != null) {

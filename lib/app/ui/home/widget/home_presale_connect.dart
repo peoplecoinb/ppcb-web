@@ -35,12 +35,6 @@ class _PreSaleConnectState extends State<PreSaleConnect> with AppResponsiveScree
   }
 
   @override
-  void dispose() {
-    GetIt.I.unregister<PreSaleCubit>();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return buildResponsiveScreen(context);
   }

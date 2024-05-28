@@ -25,7 +25,7 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   Future<void> Function(BuildContext context, {String title, String? des, IconData? icon, bool isFailed})
       get notification => _helper.notification;
 
-    // Future<T?> Function<T>(BuildContext context, WidgetBuilder builder, {bool isDismissible}) get showBottomSheet => _helper.showBottomSheet;
+  // Future<T?> Function<T>(BuildContext context, WidgetBuilder builder, {bool isDismissible}) get showBottomSheet => _helper.showBottomSheet;
 
   void Function(BuildContext context, String message, {bool isError, bool isIcon}) get showSnackbar =>
       _helper.showSnackbar;
@@ -40,6 +40,22 @@ class ApplicationCubit extends Cubit<ApplicationState> {
     } else {
       emit(state.copyWith(loading: ApplicationLoading.completed));
     }
+  }
+
+  bool checkDuplicatePage(BuildContext context, String page, {Map<String, dynamic>? queryParameters}) {
+    /// TODO: fix this
+    final Map<String, dynamic>? modalRouteParams = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?;
+    print(Uri(path: page, queryParameters: queryParameters).toString());
+    print(modalRouteParams?.isEmpty);
+    print( Uri(
+          path: ModalRoute.of(context)!.settings.name,
+          queryParameters: ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?,
+        ).toString());
+    return Uri(path: page, queryParameters: queryParameters).toString() ==
+        Uri(
+          path: ModalRoute.of(context)!.settings.name,
+          queryParameters: null,
+        ).toString();
   }
 
   // Future<void> loadConfig() async {

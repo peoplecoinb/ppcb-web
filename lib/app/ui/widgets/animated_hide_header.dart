@@ -37,7 +37,7 @@ class _AnimatedHideHeaderState extends State<AnimatedHideHeader> {
     return AnimatedOpacity(
       opacity: isShow ? 1 : 0,
       duration: const Duration(milliseconds: 300),
-      child: widget.child,
+      child: isShow ? widget.child : const SizedBox(),
     );
   }
 }

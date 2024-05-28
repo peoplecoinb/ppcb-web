@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../generated/l10n.dart';
+import '../../../blocs/application/application_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../routes/app_routes.dart';
 import '../../ui.dart';
@@ -14,8 +16,8 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
     return buildResponsiveScreen(context);
   }
 
-  Widget buildMenuItems(String text, {double padding = 24, Function()? action}) {
-    return GestureDetector(
+  Widget buildMenuItem(String text, {double padding = 24, Function()? action}) {
+    return InkWell(
       onTap: () {
         if (action != null) {
           action();
@@ -53,22 +55,35 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          buildMenuItems(
+          buildMenuItem(
             S.current.home,
+            padding: 16,
             action: () {
-              context.go(Routes.home.route);
+              print(GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route));
+              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route)){
+
+              }
+                // context.go(Routes.home.route);
             },
           ),
-          buildMenuItems(
+          buildMenuItem(
             S.current.navigation_white_paper,
+            padding: 16,
             action: () {
-              context.go(Routes.whitePaper.route);
+              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.whitePaper.route))
+                context.go(Routes.whitePaper.route);
             },
           ),
-          buildMenuItems(S.current.fund),
-          buildMenuItems(S.current.road_map),
-          buildMenuItems(S.current.team),
-          buildMenuItems(S.current.contract),
+          buildMenuItem(S.current.road_map, action: () {
+            if (!GetIt.I<ApplicationCubit>()
+                .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}))
+              context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}).toString());
+          }),
+          buildMenuItem(S.current.team, action: () {
+            if (!GetIt.I<ApplicationCubit>()
+                .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'team'}))
+              context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'team'}).toString());
+          }),
         ],
       ),
     );
@@ -103,24 +118,32 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          buildMenuItems(
+          buildMenuItem(
             S.current.home,
             padding: 16,
             action: () {
-              context.go(Routes.home.route);
+              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route))
+                context.go(Routes.home.route);
             },
           ),
-          buildMenuItems(
+          buildMenuItem(
             S.current.navigation_white_paper,
             padding: 16,
             action: () {
-              context.go(Routes.whitePaper.route);
+              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.whitePaper.route))
+                context.go(Routes.whitePaper.route);
             },
           ),
-          buildMenuItems(S.current.fund, padding: 16),
-          buildMenuItems(S.current.road_map, padding: 16),
-          buildMenuItems(S.current.team, padding: 16),
-          buildMenuItems(S.current.contract, padding: 16),
+          buildMenuItem(S.current.road_map, action: () {
+            if (!GetIt.I<ApplicationCubit>()
+                .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}))
+              context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}).toString());
+          }),
+          buildMenuItem(S.current.team, action: () {
+            if (!GetIt.I<ApplicationCubit>()
+                .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'team'}))
+              context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'team'}).toString());
+          }),
         ],
       ),
     );

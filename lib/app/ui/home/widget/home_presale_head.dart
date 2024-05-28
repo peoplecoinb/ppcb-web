@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../../constants/constants.dart';
-import '../../widgets/app_responsive_screen.dart';
+import '../../../routes/app_routes.dart';
+import '../../ui.dart';
 import 'home_banner_icon_animation.dart';
 
 class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
@@ -90,6 +92,19 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                 const SizedBox(
                   height: 20,
                 ),
+                ProminentButton(
+                  action: () {
+                    context.go(Routes.airdrop.route);
+                  },
+                  title: S.current.airdrop_title.toUpperCase(),
+                  textStyle: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+                  radius: 999,
+                  padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 20),
+                  shadowColor: AppColors.black,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 buildClock(),
                 Lottie.asset(AppImages.lottie('scroll_down')),
               ],
@@ -169,6 +184,22 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                     ),
                   ],
                 ),
+                const SizedBox(
+                  height: 16,
+                ),
+                ProminentButton(
+                  action: () {
+                    context.go(Routes.airdrop.route);
+                  },
+                  title: S.current.airdrop_title.toUpperCase(),
+                  textStyle: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
+                  radius: 999,
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  shadowColor: AppColors.black,
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
                 buildClock(
                   width: 350,
                   height: 90,
@@ -202,18 +233,17 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: AppColors.white,
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: AppColors.black.withOpacity(0.5),
-            blurRadius: 20,
-            spreadRadius: 0.5,
-            offset: const Offset(0, 5),
-          ),
-        ],
-        border: Border.all(color: AppColors.primary, width: 2)
-      ),
+          borderRadius: BorderRadius.circular(10),
+          color: AppColors.white,
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: AppColors.black.withOpacity(0.5),
+              blurRadius: 20,
+              spreadRadius: 0.5,
+              offset: const Offset(0, 5),
+            ),
+          ],
+          border: Border.all(color: AppColors.primary, width: 2)),
       child: Center(
         child: TimerCountdown(
           endTime: DateTime(2024, 8, 1, 23, 23, 59).toUtc(),
