@@ -59,11 +59,9 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
             S.current.home,
             padding: 16,
             action: () {
-              print(GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route));
               if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route)){
-
+                context.go(Routes.home.route);
               }
-                // context.go(Routes.home.route);
             },
           ),
           buildMenuItem(
@@ -122,8 +120,9 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
             S.current.home,
             padding: 16,
             action: () {
-              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route))
+              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route)){
                 context.go(Routes.home.route);
+              }
             },
           ),
           buildMenuItem(

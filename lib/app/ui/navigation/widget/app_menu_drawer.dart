@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../generated/l10n.dart';
+import '../../../blocs/application/application_cubit.dart';
 import '../../../constants/constants.dart';
 import '../../../routes/app_routes.dart';
 import '../../widgets/hover_text.dart';
@@ -64,21 +66,28 @@ class _AppMenuDrawerState extends State<AppMenuDrawer> {
         buildMenuItem(
           S.current.home,
           action: () {
-            context.go(Routes.home.route);
+            if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route)) {
+              context.go(Routes.home.route);
+            }
           },
         ),
         buildMenuItem(
           S.current.navigation_white_paper,
           action: () {
-            context.go(Routes.whitePaper.route);
+            if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.whitePaper.route))
+              context.go(Routes.whitePaper.route);
           },
         ),
-          buildMenuItem(S.current.road_map, action: () {
+        buildMenuItem(S.current.road_map, action: () {
+          if (!GetIt.I<ApplicationCubit>()
+              .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}))
             context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}).toString());
-          }),
-          buildMenuItem(S.current.team, action: () {
+        }),
+        buildMenuItem(S.current.team, action: () {
+          if (!GetIt.I<ApplicationCubit>()
+              .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'team'}))
             context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'team'}).toString());
-          }),
+        }),
       ],
     );
   }

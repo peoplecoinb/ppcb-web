@@ -43,19 +43,9 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   }
 
   bool checkDuplicatePage(BuildContext context, String page, {Map<String, dynamic>? queryParameters}) {
-    /// TODO: fix this
-    final Map<String, dynamic>? modalRouteParams = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?;
-    print(Uri(path: page, queryParameters: queryParameters).toString());
-    print(modalRouteParams?.isEmpty);
-    print( Uri(
-          path: ModalRoute.of(context)!.settings.name,
-          queryParameters: ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?,
-        ).toString());
-    return Uri(path: page, queryParameters: queryParameters).toString() ==
-        Uri(
-          path: ModalRoute.of(context)!.settings.name,
-          queryParameters: null,
-        ).toString();
+    final Uri currentPageUri = Uri(path: ModalRoute.of(context)!.settings.name, queryParameters: ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?);
+    final Uri directPageUri = Uri(path: page, queryParameters: queryParameters ?? <String, dynamic>{});
+    return currentPageUri.toString() == directPageUri.toString();
   }
 
   // Future<void> loadConfig() async {
