@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../constants/constants.dart';
 import '../../extensions/hex_color.dart';
@@ -211,7 +210,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
     final Offset? offset = renderBox?.localToGlobal(Offset.zero);
     final double dx = offset?.dx ?? 0;
     final double dy = offset?.dy ?? 0;
-    if (dy + menuHeight > Get.height - 100) {
+    if (dy + menuHeight > MediaQuery.of(context).size.height - 100) {
       dyPosition = dy - menuHeight;
     } else {
       dyPosition = dy + height;

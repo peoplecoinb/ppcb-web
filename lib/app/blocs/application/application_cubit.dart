@@ -2,8 +2,6 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 // import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../ui/widgets/dialog/app_dialog.dart';
@@ -15,15 +13,22 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   ApplicationCubit() : super(const ApplicationState());
 
   final _ApplicationActionHelper _helper = _ApplicationActionHelper();
-  final YoutubePlayerController videoController = YoutubePlayerController();
 
-  Future<bool?> Function({String title, String? des, IconData? icon, String? keyCancel, String? keyConfirm, bool isFailed}) get confirm => _helper.confirm;
+  Future<bool?> Function(BuildContext context,
+      {String title,
+      String? des,
+      IconData? icon,
+      String? keyCancel,
+      String? keyConfirm,
+      bool isFailed}) get confirm => _helper.confirm;
 
-  Future<void> Function({String title, String? des, IconData? icon, bool isFailed}) get notification => _helper.notification;
+  Future<void> Function(BuildContext context, {String title, String? des, IconData? icon, bool isFailed})
+      get notification => _helper.notification;
 
   // Future<T?> Function<T>(BuildContext context, WidgetBuilder builder, {bool isDismissible}) get showBottomSheet => _helper.showBottomSheet;
 
-  void Function(String message, {bool isError, bool isIcon}) get showSnackbar => _helper.showSnackbar;
+  void Function(BuildContext context, String message, {bool isError, bool isIcon}) get showSnackbar =>
+      _helper.showSnackbar;
 
   void Function() get unFocus => _helper.unFocus;
 
@@ -35,6 +40,12 @@ class ApplicationCubit extends Cubit<ApplicationState> {
     } else {
       emit(state.copyWith(loading: ApplicationLoading.completed));
     }
+  }
+
+  bool checkDuplicatePage(BuildContext context, String page, {Map<String, dynamic>? queryParameters}) {
+    final Uri currentPageUri = Uri(path: ModalRoute.of(context)!.settings.name, queryParameters: ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?);
+    final Uri directPageUri = Uri(path: page, queryParameters: queryParameters ?? <String, dynamic>{});
+    return currentPageUri.toString() == directPageUri.toString();
   }
 
   // Future<void> loadConfig() async {
@@ -51,5 +62,4 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   //   setLoading(false);
   //   emit(state.copyWith(states: networkState.data));
   // }
-
 }

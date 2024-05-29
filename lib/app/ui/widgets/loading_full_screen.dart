@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../blocs/application/application_cubit.dart';
 
@@ -13,7 +13,7 @@ class LoadingFullScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ApplicationCubit, ApplicationState>(
-      bloc: Get.find<ApplicationCubit>(),
+      bloc: GetIt.I<ApplicationCubit>(),
       builder: (BuildContext context, ApplicationState state) {
         return Stack(
           alignment: Alignment.center,

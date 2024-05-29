@@ -3,77 +3,77 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:hexagon/hexagon.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../constants/constants.dart';
 import '../../widgets/app_responsive_screen.dart';
 
 final List<Map<String, String>> _team = <Map<String, String>>[
   <String, String>{
-    'name': 'economic_expert',
+    'name': S.current.economic_expert,
     'image': 'economic_expert',
   },
   <String, String>{
-    'name': 'pharmacist',
+    'name': S.current.pharmacist,
     'image': 'pharmacist',
   },
   <String, String>{
-    'name': 'design_director',
+    'name': S.current.design_director,
     'image': 'design_director',
   },
   <String, String>{
-    'name': 'artist',
+    'name': S.current.artist,
     'image': 'artist',
   },
   <String, String>{
-    'name': 'factory_director',
+    'name': S.current.factory_director,
     'image': 'factory_director',
   },
   <String, String>{
-    'name': 'doctor',
+    'name': S.current.doctor,
     'image': 'doctor',
   },
   <String, String>{
-    'name': 'it_specialist',
-    'image': 'it_specialist',
+    'name': S.current.it_specialist,
+    'image':'it_specialist',
   },
 ];
 
 final List<Map<String, dynamic>> _teamInMobile = <Map<String, dynamic>>[
   <String, dynamic>{
-    'name': 'economic_expert_mobile',
+    'name': S.current.economic_expert_mobile,
     'image': 'economic_expert',
     'pos': <int>[1, 1]
   },
   <String, dynamic>{
-    'name': 'pharmacist',
+    'name': S.current.pharmacist,
     'image': 'pharmacist',
     'pos': <int>[0, 0]
   },
   <String, dynamic>{
-    'name': 'design_director_mobile',
+    'name': S.current.design_director_mobile,
     'image': 'design_director',
     'pos': <int>[2, 0]
   },
   <String, dynamic>{
-    'name': 'artist',
+    'name': S.current.artist,
     'image': 'artist',
     'pos': <int>[2, 1]
   },
   <String, dynamic>{
-    'name': 'factory_director_mobile',
+    'name': S.current.factory_director_mobile,
     'image': 'factory_director',
     'pos': <int>[0, 1]
   },
   <String, dynamic>{
-    'name': 'doctor',
+    'name': S.current.doctor,
     'image': 'doctor',
     'pos': <int>[1, 0]
   },
   <String, dynamic>{
-    'name': 'it_specialist_mobile',
+    'name': S.current.it_specialist_mobile,
     'image': 'it_specialist',
     'pos': <int>[1, 2]
   },
@@ -120,7 +120,7 @@ class HomeTeamDesktop extends StatelessWidget {
             Rect.fromLTWH(0, 0, bounds.width, bounds.height),
           ),
           child: Text(
-            '7 ${'co_founders'.tr}',
+            '7 ${S.current.co_founders}',
             textAlign: TextAlign.center,
             style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
           ),
@@ -136,6 +136,7 @@ class HomeTeamDesktop extends StatelessWidget {
   Widget buildMembers(BuildContext context) {
     return SizedBox(
       height: 400,
+      width: MediaQuery.of(context).size.width,
       child: InfiniteCarousel.builder(
         itemCount: _team.length,
         scrollBehavior: ScrollConfiguration.of(context).copyWith(
@@ -174,7 +175,7 @@ class HomeTeamDesktop extends StatelessWidget {
             height: 20,
           ),
           Text(
-            member['name']!.tr,
+            member['name']!,
             style: AppTextStyles.getXlStyle(AppTextStyles.zendots),
             textAlign: TextAlign.center,
           ),
@@ -204,7 +205,7 @@ class HomeTeamMobile extends StatelessWidget {
             Rect.fromLTWH(0, 0, bounds.width, bounds.height),
           ),
           child: Text(
-            '7 ${'co_founders'.tr}',
+            '7 ${S.current.co_founders}',
             textAlign: TextAlign.center,
             style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
           ),
@@ -267,7 +268,7 @@ class HomeTeamMobile extends StatelessWidget {
                           height: 60,
                         ),
                         Text(
-                          member['name']!.toString().tr.toUpperCase(),
+                          member['name']!.toString().toUpperCase(),
                           style: AppTextStyles.getXsStyle(AppTextStyles.zendots).copyWith(
                             color: AppColors.white,
                             fontSize: 10,

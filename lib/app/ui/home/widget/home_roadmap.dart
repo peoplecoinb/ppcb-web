@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../constants/constants.dart';
 import '../../ui.dart';
 
@@ -122,7 +122,7 @@ class _HomeRoadmapDesktop extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(
-            'navigation_road_map'.tr,
+            S.current.navigation_road_map,
             textAlign: TextAlign.center,
             style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
           ),
@@ -130,7 +130,7 @@ class _HomeRoadmapDesktop extends StatelessWidget {
             height: 20,
           ),
           Text(
-            'Market-cap grows over time'.tr,
+            'Market-cap grows over time',
             textAlign: TextAlign.center,
             style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots),
           ),
@@ -324,7 +324,7 @@ class _HomeRoadmapMobile extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(
-            'navigation_road_map'.tr,
+            S.current.navigation_road_map,
             textAlign: TextAlign.center,
             style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
           ),
@@ -332,7 +332,7 @@ class _HomeRoadmapMobile extends StatelessWidget {
             height: 20,
           ),
           Text(
-            'Market-cap grows over time'.tr,
+            'Market-cap grows over time',
             textAlign: TextAlign.center,
             style: AppTextStyles.getLgStyle(AppTextStyles.zendots),
           ),

@@ -1,27 +1,43 @@
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../ui/airdrop/airdrop_screen.dart';
 import '../ui/ui.dart';
 import 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static List<GetPage<dynamic>> pages = <GetPage<dynamic>>[
-    GetPage<dynamic>(
-      name: Routes.home.route,
-      page: () => const NavigationScreen(
-        child: HomeScreen(),
+  static GoRouter routes = GoRouter(
+    onException: (BuildContext context, GoRouterState state, GoRouter router) {
+      router.go(Routes.unknown.route);
+    },
+    routes: <RouteBase>[
+      GoRoute(
+        path: Routes.home.route,
+        builder: (BuildContext context, GoRouterState state) => NavigationScreen(
+          child: HomeScreen(
+            key: ValueKey<dynamic>(state.uri.queryParameters['page']),
+            childPage: state.uri.queryParameters['page'],
+          ),
+        ),
       ),
-    ),
-    GetPage<dynamic>(
-      name: Routes.whitePaper.route,
-      page: () => const NavigationScreen(
-        child: WhitePaperScreen(),
+      GoRoute(
+        path: Routes.whitePaper.route,
+        builder: (BuildContext context, GoRouterState state) => const NavigationScreen(
+          child: WhitePaperScreen(),
+        ),
       ),
-    ),
-    GetPage<dynamic>(
-      name: Routes.unknown.route,
-      page: () => const UnknownScreen(),
-    ),
-  ];
+      GoRoute(
+        path: Routes.airdrop.route,
+        builder: (BuildContext context, GoRouterState state) => const NavigationScreen(
+          child: AirdropScreen(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.unknown.route,
+        builder: (BuildContext context, GoRouterState state) => const UnknownScreen(),
+      ),
+    ],
+  );
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../constants/constants.dart';
-import '../../widgets/app_responsive_screen.dart';
+import '../../../routes/app_routes.dart';
+import '../../ui.dart';
 import 'home_banner_icon_animation.dart';
 
 class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
@@ -55,7 +57,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                 Column(
                   children: <Widget>[
                     Text(
-                      'presale_title'.tr.toUpperCase(),
+                      S.current.presale_title.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
                     ),
@@ -72,7 +74,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
                       ),
                       child: Text(
-                        'home_slogan'.tr.toUpperCase(),
+                        S.current.home_slogan.toUpperCase(),
                         textAlign: TextAlign.center,
                         style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
                       ),
@@ -81,11 +83,24 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                       height: 20,
                     ),
                     Text(
-                      'home_content'.tr,
+                      S.current.home_content,
                       textAlign: TextAlign.center,
                       style: AppTextStyles.getXlStyle(AppTextStyles.zendots),
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ProminentButton(
+                  action: () {
+                    context.go(Routes.airdrop.route);
+                  },
+                  title: S.current.airdrop_title.toUpperCase(),
+                  textStyle: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+                  radius: 999,
+                  padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 20),
+                  shadowColor: AppColors.black,
                 ),
                 const SizedBox(
                   height: 20,
@@ -137,7 +152,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                 Column(
                   children: <Widget>[
                     Text(
-                      'presale_title'.tr.toUpperCase(),
+                      S.current.presale_title.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots),
                     ),
@@ -154,7 +169,7 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
                       ),
                       child: Text(
-                        'home_slogan'.tr.toUpperCase(),
+                        S.current.home_slogan.toUpperCase(),
                         textAlign: TextAlign.center,
                         style: AppTextStyles.get2xlPlusStyle(AppTextStyles.zendots).copyWith(color: AppColors.primary),
                       ),
@@ -163,11 +178,27 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                       height: 16,
                     ),
                     Text(
-                      'home_content'.tr,
+                      S.current.home_content,
                       textAlign: TextAlign.center,
                       style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                ProminentButton(
+                  action: () {
+                    context.go(Routes.airdrop.route);
+                  },
+                  title: S.current.airdrop_title.toUpperCase(),
+                  textStyle: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
+                  radius: 999,
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  shadowColor: AppColors.black,
+                ),
+                const SizedBox(
+                  height: 16,
                 ),
                 buildClock(
                   width: 350,
@@ -202,21 +233,20 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: AppColors.white,
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: AppColors.black.withOpacity(0.5),
-            blurRadius: 20,
-            spreadRadius: 0.5,
-            offset: const Offset(0, 5),
-          ),
-        ],
-        border: Border.all(color: AppColors.primary, width: 2)
-      ),
+          borderRadius: BorderRadius.circular(10),
+          color: AppColors.white,
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: AppColors.black.withOpacity(0.5),
+              blurRadius: 20,
+              spreadRadius: 0.5,
+              offset: const Offset(0, 5),
+            ),
+          ],
+          border: Border.all(color: AppColors.primary, width: 2)),
       child: Center(
         child: TimerCountdown(
-          endTime: DateTime(2024, 6, 8, 23, 23, 59).toUtc(),
+          endTime: DateTime(2024, 8, 1, 23, 23, 59).toUtc(),
           timeTextStyle: timeTextStyle ?? this.timeTextStyle,
           descriptionTextStyle: timeDescriptionTextStyle ?? this.timeDescriptionTextStyle,
           colonsTextStyle: timeTextStyle ?? this.timeTextStyle,

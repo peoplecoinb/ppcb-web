@@ -11,7 +11,6 @@ class AnimatedHideHeader extends StatefulWidget {
 
 class _AnimatedHideHeaderState extends State<AnimatedHideHeader> {
   bool isShow = false;
-  bool isFirstTime = true;
 
   @override
   void initState() {
@@ -35,17 +34,9 @@ class _AnimatedHideHeaderState extends State<AnimatedHideHeader> {
 
   @override
   Widget build(BuildContext context) {
-    if (isFirstTime) {
-      Future<dynamic>.delayed(const Duration(milliseconds: 300), () {
-        setState(() {
-          isFirstTime = false;
-        });
-      });
-      return const SizedBox();
-    }
     return AnimatedOpacity(
       opacity: isShow ? 1 : 0,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 300),
       child: isShow ? widget.child : const SizedBox(),
     );
   }

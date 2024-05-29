@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../blocs/application/application_cubit.dart';
 import '../../../constants/constants.dart';
-import '../../../routes/app_route_delegate.dart';
 import '../../../routes/app_routes.dart';
 import '../../ui.dart';
 
@@ -15,18 +16,17 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
     return buildResponsiveScreen(context);
   }
 
-  Widget buildMenuItems(String text, {double padding = 24, Function()? action}) {
-    return GestureDetector(
-      onTap: (){
-        Get.find<ApplicationCubit>().videoController.stopVideo();
-        if(action != null){
+  Widget buildMenuItem(String text, {double padding = 24, Function()? action}) {
+    return InkWell(
+      onTap: () {
+        if (action != null) {
           action();
         }
       },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: padding),
         child: HoverText(
-          text: text.tr.toUpperCase(),
+          text: text.toUpperCase(),
           style: AppTextStyles.getSmStyle(
             AppTextStyles.zendots.copyWith(
               color: AppColors.white,
@@ -55,19 +55,33 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          buildMenuItems(
-            'home',
+          buildMenuItem(
+            S.current.home,
+            padding: 16,
             action: () {
-              Get.rootDelegate.toNamed(Routes.home.route);
+              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route)){
+                context.go(Routes.home.route);
+              }
             },
           ),
-          buildMenuItems('navigation_white_paper', action: () {
-            Get.rootDelegate.toNamed(Routes.whitePaper.route);
+          buildMenuItem(
+            S.current.navigation_white_paper,
+            padding: 16,
+            action: () {
+              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.whitePaper.route))
+                context.go(Routes.whitePaper.route);
+            },
+          ),
+          buildMenuItem(S.current.road_map, action: () {
+            if (!GetIt.I<ApplicationCubit>()
+                .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}))
+              context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}).toString());
           }),
-          buildMenuItems('fund'),
-          buildMenuItems('road_map'),
-          buildMenuItems('team'),
-          buildMenuItems('contract'),
+          buildMenuItem(S.current.team, action: () {
+            if (!GetIt.I<ApplicationCubit>()
+                .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'team'}))
+              context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'team'}).toString());
+          }),
         ],
       ),
     );
@@ -102,24 +116,33 @@ class AppNavigationMenu extends StatelessWidget with AppResponsiveScreen {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          buildMenuItems(
-            'home',
+          buildMenuItem(
+            S.current.home,
             padding: 16,
             action: () {
-              AppRouteDelegate().toNamed(Routes.home.route);
+              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.home.route)){
+                context.go(Routes.home.route);
+              }
             },
           ),
-          buildMenuItems(
-            'navigation_white_paper',
+          buildMenuItem(
+            S.current.navigation_white_paper,
             padding: 16,
             action: () {
-              AppRouteDelegate().toNamed(Routes.whitePaper.route);
+              if (!GetIt.I<ApplicationCubit>().checkDuplicatePage(context, Routes.whitePaper.route))
+                context.go(Routes.whitePaper.route);
             },
           ),
-          buildMenuItems('fund', padding: 16),
-          buildMenuItems('road_map', padding: 16),
-          buildMenuItems('team', padding: 16),
-          buildMenuItems('contract', padding: 16),
+          buildMenuItem(S.current.road_map, action: () {
+            if (!GetIt.I<ApplicationCubit>()
+                .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}))
+              context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'roadmap'}).toString());
+          }),
+          buildMenuItem(S.current.team, action: () {
+            if (!GetIt.I<ApplicationCubit>()
+                .checkDuplicatePage(context, Routes.home.route, queryParameters: <String, String>{'page': 'team'}))
+              context.go(Uri(path: Routes.home.route, queryParameters: <String, String>{'page': 'team'}).toString());
+          }),
         ],
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../constants/constants.dart';
 import 'empty.dart';
@@ -45,8 +44,8 @@ class SliverLoadMoreVerticalState<T>
         if (_dataList == null)
           SliverToBoxAdapter(
             child: SizedBox(
-              width: Get.width,
-              height: Get.height,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
               child: Center(
                 child: loadingProgress(),
               ),

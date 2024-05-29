@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter/widgets.dart';
 
+import '../../../generated/l10n.dart';
 import '../../constants/constants.dart';
 import '../../extensions/hex_color.dart';
 import '../ui.dart';
-import '../widgets/app_responsive_screen.dart';
 import 'white_paper_video.dart';
 
 class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
@@ -36,6 +36,10 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
             height: 30,
           ),
           buildAllocation(),
+          const SizedBox(
+            height: 30,
+          ),
+          buildPartner(),
         ],
       ),
     );
@@ -47,21 +51,21 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Text(
-          'I. ${'white_paper_intro'.tr}',
+          'I. ${S.current.white_paper_intro}',
           style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_1'.tr,
+          S.current.white_paper_content_1,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_2'.tr,
+          S.current.white_paper_content_2,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -74,28 +78,28 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
           height: 16,
         ),
         Text(
-          'white_paper_content_3'.tr,
+          S.current.white_paper_content_3,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_4'.tr,
+          S.current.white_paper_content_4,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_5'.tr,
+          S.current.white_paper_content_5,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_6'.tr,
+          S.current.white_paper_content_6,
           style: AppTextStyles.getSmStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -111,7 +115,7 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'II. ${'white_paper_fund_from_community'.tr}',
+          'II. ${S.current.white_paper_fund_from_community}',
           style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -139,7 +143,7 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'II. ${'white_paper_fund_from_community'.tr}',
+          'II. ${S.current.white_paper_fund_from_community}',
           style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -167,32 +171,31 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'III. ${'white_paper_allocation'.tr}',
+          'III. ${S.current.white_paper_allocation}',
           style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: AssetImage(AppImages.png('banner_bg')),
-              fit: BoxFit.cover,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: AssetImage(AppImages.png('banner_bg')),
+                fit: BoxFit.cover,
+              ),
+              gradient: LinearGradient(
+                colors: <Color>[
+                  AppColors.primary,
+                  AppColors.primary,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
-            gradient: LinearGradient(
-              colors: <Color>[
-                AppColors.primary,
-                AppColors.primary,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: ImageViewer(
-            image: AssetImage(AppImages.png('white_paper_allocation')),
-          )
-        ),
+            child: ImageViewer(
+              image: AssetImage(AppImages.png('white_paper_allocation')),
+            )),
       ],
     );
   }
@@ -203,31 +206,98 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'III. ${'white_paper_allocation'.tr}',
+          'III. ${S.current.white_paper_allocation}',
           style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: AssetImage(AppImages.png('banner_bg')),
-              fit: BoxFit.cover,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: AssetImage(AppImages.png('banner_bg')),
+                fit: BoxFit.cover,
+              ),
+              gradient: LinearGradient(
+                colors: <Color>[
+                  AppColors.primary,
+                  AppColors.primary,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
-            gradient: LinearGradient(
-              colors: <Color>[
-                AppColors.primary,
-                AppColors.primary,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: ImageViewer(
-            image: AssetImage(AppImages.png('white_paper_allocation')),
-          )
+            child: ImageViewer(
+              image: AssetImage(AppImages.png('white_paper_allocation')),
+            )),
+      ],
+    );
+  }
+
+  Widget buildPartner() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'IV. ${S.current.white_paper_partner}',
+          style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                gradient: LinearGradient(
+                  colors: <Color>[
+                    AppColors.primary,
+                    AppColors.primary,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: ImageViewer(
+                image: AssetImage(AppImages.png('white_paper_partner')),
+              )),
+        ),
+      ],
+    );
+  }
+
+  Widget buildPartnerMobile() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'IV. ${S.current.white_paper_partner}',
+          style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                gradient: LinearGradient(
+                  colors: <Color>[
+                    AppColors.primary,
+                    AppColors.primary,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: ImageViewer(
+                image: AssetImage(AppImages.png('white_paper_partner')),
+              )),
         ),
       ],
     );
@@ -239,21 +309,21 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'I. ${'white_paper_intro'.tr}',
+          'I. ${S.current.white_paper_intro}',
           style: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_1'.tr,
+          S.current.white_paper_content_1,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_2'.tr,
+          S.current.white_paper_content_2,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -266,28 +336,28 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
           height: 16,
         ),
         Text(
-          'white_paper_content_3'.tr,
+          S.current.white_paper_content_3,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_4'.tr,
+          S.current.white_paper_content_4,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_5'.tr,
+          S.current.white_paper_content_5,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
           height: 16,
         ),
         Text(
-          'white_paper_content_6'.tr,
+          S.current.white_paper_content_6,
           style: AppTextStyles.getXsStyle(AppTextStyles.zendots),
         ),
         const SizedBox(
@@ -318,6 +388,10 @@ class WhitePaperContent extends StatelessWidget with AppResponsiveScreen {
             height: 30,
           ),
           buildAllocationMobile(),
+          const SizedBox(
+            height: 30,
+          ),
+          buildPartnerMobile(),
         ],
       ),
     );

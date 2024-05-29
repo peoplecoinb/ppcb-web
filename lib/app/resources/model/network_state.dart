@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_dynamic_calls, invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member, deprecated_member_use
 
 import 'package:dio/dio.dart' as dio;
-import 'package:get/get.dart';
+import '../../../generated/l10n.dart';
 import '../../constants/app_endpoint.dart';
 import 'error_body_model.dart';
 
@@ -11,7 +11,7 @@ class NetworkState<T> {
   NetworkState({this.message, this.data, this.status});
 
   NetworkState.withDisconnect() {
-    message = 'system_lost_internet'.tr;
+    message = S.current.system_lost_internet;
     status = AppEndpoint.ERROR_DISCONNECT;
     data = null;
     errorData = null;
@@ -30,7 +30,7 @@ class NetworkState<T> {
       message = _handleMessageByStatusCode(code, error);
     } else {
       code = AppEndpoint.ERROR_SERVER;
-      message = 'system_can_not_connect_server'.tr;
+      message = S.current.system_can_not_connect_server;
     }
     this.message = message;
     status = code;

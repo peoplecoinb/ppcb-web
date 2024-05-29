@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../constants/app_colors.dart';
 import '../../constants/app_text_styles.dart';
@@ -45,7 +44,7 @@ class CustomOutlinedButton extends StatelessWidget {
         child: Padding(
           padding: padding,
           child: Text(
-            title.tr,
+            title,
             style: (textStyle ?? AppTextStyles.getXlStyle(AppTextStyles.bold)).copyWith(color: textColor ?? AppColors.white),
           ),
         ),
