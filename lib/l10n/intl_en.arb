@@ -72,5 +72,7 @@
     "timeFrame": "Time frame",
     "rewardDistribution": "Reward distribution",
     "totalPPCBReceived": "Total PPCB received",
-    "white_paper_partner": "Partners"
+    "white_paper_partner": "Partners",
+    "ambassador_title": "Ambassador",
+    "become_ambassador": "Become Ambassador"
 }

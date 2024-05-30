@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../ui/airdrop/airdrop_screen.dart';
 import '../ui/ui.dart';
 import 'app_routes.dart';
 
@@ -32,6 +31,12 @@ class AppPages {
         path: Routes.airdrop.route,
         builder: (BuildContext context, GoRouterState state) => const NavigationScreen(
           child: AirdropScreen(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.become_ambassador.route,
+        builder: (BuildContext context, GoRouterState state) => const NavigationScreen(
+          child: BecomeAmbassadorScreen(),
         ),
       ),
       GoRoute(

@@ -10,20 +10,20 @@ import '../home/widget/home_banner_icon_animation.dart';
 import '../home/widget/top_background.dart';
 import '../navigation/widget/app_navigation_bar.dart';
 
-class AirdropScreen extends StatefulWidget {
-  const AirdropScreen({super.key});
+class BecomeAmbassadorScreen extends StatefulWidget {
+  const BecomeAmbassadorScreen({super.key});
 
   @override
-  State<AirdropScreen> createState() => _AirdropScreenState();
+  State<BecomeAmbassadorScreen> createState() => _BecomeAmbassadorScreenState();
 }
 
-class _AirdropScreenState extends State<AirdropScreen> {
+class _BecomeAmbassadorScreenState extends State<BecomeAmbassadorScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         TopBackground(
-          image: AppImages.png('airdrop_bg'),
+          image: AppImages.png('ambassador_bg'),
           showBlur: false,
           child: Column(
             children: <Widget>[
@@ -31,7 +31,7 @@ class _AirdropScreenState extends State<AirdropScreen> {
               Expanded(
                 child: Center(
                   child: Text(
-                    S.current.airdrop_title.toUpperCase(),
+                    S.current.ambassador_title.toUpperCase(),
                     textAlign: TextAlign.center,
                     style: AppTextStyles.getHeadingStyle(AppTextStyles.zendots).copyWith(shadows: <Shadow>[
                       Shadow(
@@ -112,7 +112,7 @@ class _AirdropScreenState extends State<AirdropScreen> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: HtmlWidget(
-                  aidrop_html,
+                  ambassador_html,
                   onTapUrl: (String p0) {
                     if (p0.contains('mailto:')) {
                       p0 = p0.replaceAll('mailto:', '');

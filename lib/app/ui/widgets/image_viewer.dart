@@ -10,7 +10,6 @@ class ImageViewer extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         showImageViewer(context, image, onViewerDismissed: () {
-          print("dismissed");
         });
       },
       child: Image(image: image),

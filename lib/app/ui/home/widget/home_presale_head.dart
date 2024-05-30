@@ -8,6 +8,7 @@ import '../../../../generated/l10n.dart';
 import '../../../constants/constants.dart';
 import '../../../routes/app_routes.dart';
 import '../../ui.dart';
+import '../../widgets/widgets.dart';
 import 'home_banner_icon_animation.dart';
 
 class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
@@ -100,7 +101,20 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                   textStyle: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
                   radius: 999,
                   padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 20),
-                  shadowColor: AppColors.black,
+                ),
+                const SizedBox(height: 20),
+                ProminentButton(
+                  action: () {
+                    context.go(Routes.become_ambassador.route);
+                  },
+                  title: S.current.become_ambassador.toUpperCase(),
+                  textStyle: AppTextStyles.get2xlStyle(AppTextStyles.zendots),
+                  radius: 999,
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  backgroundColor: AppColors.white,
+                  borderColor: AppColors.white,
+                  textColor: AppColors.primary,
+                  shadowColor: AppColors.white,
                 ),
                 const SizedBox(
                   height: 20,
@@ -195,7 +209,20 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                   textStyle: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
                   radius: 999,
                   padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                  shadowColor: AppColors.black,
+                ),
+                const SizedBox(height: 20),
+                ProminentButton(
+                  action: () {
+                    context.go(Routes.become_ambassador.route);
+                  },
+                  title: S.current.become_ambassador.toUpperCase(),
+                  textStyle: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
+                  radius: 999,
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  backgroundColor: AppColors.white,
+                  borderColor: AppColors.white,
+                  textColor: AppColors.primary,
+                  shadowColor: AppColors.white,
                 ),
                 const SizedBox(
                   height: 16,

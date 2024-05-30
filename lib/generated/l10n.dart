@@ -789,6 +789,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Ambassador`
+  String get ambassador_title {
+    return Intl.message(
+      'Ambassador',
+      name: 'ambassador_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Become Ambassador`
+  String get become_ambassador {
+    return Intl.message(
+      'Become Ambassador',
+      name: 'become_ambassador',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

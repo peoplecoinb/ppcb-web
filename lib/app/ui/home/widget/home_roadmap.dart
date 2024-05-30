@@ -112,7 +112,7 @@ class HomeRoadmap extends StatelessWidget with AppResponsiveScreen {
 }
 
 class _HomeRoadmapDesktop extends StatelessWidget {
-  const _HomeRoadmapDesktop({super.key});
+  const _HomeRoadmapDesktop();
 
   @override
   Widget build(BuildContext context) {
@@ -313,7 +313,7 @@ class _HomeRoadmapDesktop extends StatelessWidget {
 }
 
 class _HomeRoadmapMobile extends StatelessWidget {
-  const _HomeRoadmapMobile({super.key});
+  const _HomeRoadmapMobile();
 
   @override
   Widget build(BuildContext context) {

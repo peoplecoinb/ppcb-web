@@ -84,7 +84,7 @@ const List<String> NAVIGATION_SOCIAL = <String>[
 const double MOBILE_PAGE_MAX_WIDTH = 990;
 const double TABLET_PAGE_MAX_WIDTH = 1100;
 const double DESKTOP_PAGE_MAX_WIDTH = 1200;
-const double DESKTOP_PAGE_MAX_HEIGHT = 800;
+const double DESKTOP_PAGE_MAX_HEIGHT = 900;
 
 const String TELEGRAM_LINK = 'https://t.me/ppcb_community';
 const String YOUTUBE_LINK = 'https://www.youtube.com/@adminppcb';
@@ -157,65 +157,6 @@ const String aidrop_html = r'''
 <h2 style="text-align: center;"><span style="color: #339966;">PPCB WILL BE AN EXCELLENT CHOICE FOR YOU!</span></h2>
 ''';
 
-const Map<String, dynamic> airdropDes = <String, dynamic>{
-  'basicAirdrop': <String, dynamic>{
-    'reward': '101,000 PPCB',
-    'howToParticipate': <String>[
-      'Join the telegram group $TELEGRAM_LINK.',
-      'Send your BNB wallet address to $EMAIL_LINK with the subject line "Join basic airdrop".',
-    ],
-    'rewardDistribution': <Map<String, String>>[
-      <String, String>{
-        'date': '01/08/2024',
-        'amount': '1,000 PPCB'
-      },
-      <String, String>{
-        'condition': 'After PPCB is listed on a centralized exchange',
-        'amount': '100,000 PPCB'
-      }
-    ]
-  },
-  'megaAirdrop': <String, dynamic>{
-    'numberOfRegistrations': 'First 2000 participants',
-    'timeFrame': 'From now until 0:00 on 01/08/2024',
-    'reward': r'More than 6,000,000 PPCB, estimated value between $1000 - $5000',
-    'rewardDistribution': <Map<String, String>>[
-      <String, String>{
-        'date': '01/08/2024',
-        'amount': '100 PPCB'
-      },
-      <String, String>{
-        'date': '01/09/2024',
-        'amount': '1,000 PPCB'
-      },
-      <String, String>{
-        'date': '01/10/2024',
-        'amount': '10,000 PPCB'
-      },
-      <String, String>{
-        'date': '01/11/2024',
-        'amount': '100,000 PPCB'
-      },
-      <String, String>{
-        'date': '01/12/2024',
-        'amount': '1,000,000 PPCB'
-      },
-      <String, String>{
-        'date': '01/06/2025',
-        'amount': '2,000,000 PPCB'
-      },
-      <String, String>{
-        'date': '01/12/2025',
-        'amount': '3,000,000 PPCB'
-      }
-    ],
-    'totalPPCBReceived': '6,111,100 PPCB, a substantial reward as a token of appreciation for those who have supported and followed PPCB from the early stages.',
-    'howToParticipate': <String>[
-      'Join the telegram group $TELEGRAM_LINK.',
-      'Send your BNB wallet address to $EMAIL_LINK with the subject line "Join mega airdrop".',
-      'Include a transaction confirmation showing you have transferred 7 USDT from your wallet to our USDT wallet address.',
-      'Leave a congratulatory comment for the project on our specified YouTube video.',
-      'Receive confirmation of successful airdrop participation.'
-    ]
-  }
-};
+const String ambassador_html = r'''
+<h1><span style="color: #339966;"><strong>Become Ambassador</strong></span></h1><p><strong>Quantity:</strong> First 300 participants</p><p><strong>Duration:</strong> Ends 01/08/2024</p><p><strong>How to participate:</strong></p><ul><li><p>Join the Telegram group</p></li><li><p>Send an email with the subject "<a href="Join as an ambassador">Join as an ambassador</a>" to <a href="mailto:team.ppcb@gmail.com">team.ppcb@gmail.com</a></p></li><li><p>Attach a transaction proof of sending 500 USDT (BEP20) to our wallet address <a href="0x9f51e995FbEb6674b9016E829497358113ead044">0x9f51e995FbEb6674b9016E829497358113ead044</a></p></li></ul><p><strong>PPCB aims to become a sustainable project with continuous expansion. Being one of our ambassadors brings long-term, substantial benefits, including:</strong></p><ul><li><p>In the first 5 months, receive 100 USDT on the 1st of each month, starting from 01/08/2024.</p></li><li><p>Afterwards, receive PPCB monthly equivalent to 100 USDT based on market value, for 10 years. The next ambassador reset will be on 01/08/2034.</p></li><li><p>Have the right to actively contribute, support PPCB, and receive additional PPCB rewards monthly.</p></li><li><p>Be permanently connected with PPCB's future development roadmap.</p></li><li><p>Have the right to provide feedback and early updates on PPCB's major milestones.</p></li><li><p>Other important benefits will be updated soon.</p></li></ul><h2 style="text-align: center;"><span style="color: #339966;">PPCB WILL GROW STRONG AND SUSTAINABLE. LET'S JOURNEY TOGETHER !</span></h2>
+''';
