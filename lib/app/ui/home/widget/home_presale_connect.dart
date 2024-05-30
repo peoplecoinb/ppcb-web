@@ -138,12 +138,6 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
                 _usdtController,
                 decimalDigits: 0,
                 onChanged: (String value) {
-                  print(value);
-                  // if (value.isNotEmpty) {
-                  //   final String usdtText = value.replaceAll(',', '');
-                  //   final double usdt = double.parse(usdtText);
-                  //   _ppcbController.text = (usdt / 0.0002).toStringAsFixed(0);
-                  // }
                   final String usdtText = value.replaceAll(',', '');
                   final double usdt = double.tryParse(usdtText) ?? 0;
                   _ppcbController.text = (usdt / 0.0002).toStringAsFixed(0);
