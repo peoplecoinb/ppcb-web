@@ -138,11 +138,15 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
                 _usdtController,
                 decimalDigits: 0,
                 onChanged: (String value) {
-                  if (value.isNotEmpty) {
-                    final String usdtText = value.replaceAll(',', '');
-                    final double usdt = double.parse(usdtText);
-                    _ppcbController.text = (usdt / 0.0002).toStringAsFixed(0);
-                  }
+                  print(value);
+                  // if (value.isNotEmpty) {
+                  //   final String usdtText = value.replaceAll(',', '');
+                  //   final double usdt = double.parse(usdtText);
+                  //   _ppcbController.text = (usdt / 0.0002).toStringAsFixed(0);
+                  // }
+                  final String usdtText = value.replaceAll(',', '');
+                  final double usdt = double.tryParse(usdtText) ?? 0;
+                  _ppcbController.text = (usdt / 0.0002).toStringAsFixed(0);
                 },
               ),
             ),
@@ -156,11 +160,9 @@ class _PreSaleConnectDesktopState extends State<_PreSaleConnectDesktop> {
                 _ppcbController,
                 decimalDigits: 0,
                 onChanged: (String value) {
-                  if (value.isNotEmpty) {
-                    final String ppcbText = value.replaceAll(',', '');
-                    final double ppcb = double.parse(ppcbText);
-                    _usdtController.text = (ppcb * 0.0002).toStringAsFixed(2);
-                  }
+                  final String ppcbText = value.replaceAll(',', '');
+                  final double ppcb = double.tryParse(ppcbText) ?? 0;
+                  _usdtController.text = (ppcb * 0.0002).toStringAsFixed(2);
                 },
               ),
             ),
