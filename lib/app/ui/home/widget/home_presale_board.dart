@@ -189,23 +189,23 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
         const SizedBox(
           height: 16,
         ),
-        buildNoteItemMobile('Stage 1', '1USDT = 5000PPCB', ' for 100M PPCB'),
+        buildNoteItemMobile('Stage 1', '1 USDT = 5000 PPCB', ' for 100M PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItemMobile('Stage 2', '1USDT = 3000PPCB', ' for 300M PPCB'),
+        buildNoteItemMobile('Stage 2', '1 USDT = 4000 PPCB', ' for 300M PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItemMobile('Stage 3', '1USDT = 2500PPCB', ' for 1B PPCB'),
+        buildNoteItemMobile('Stage 3', '1 USDT = 3500 PPCB', ' for 1B PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItemMobile('Stage 4', '1USDT = 2000PPCB', ' for 2.6B PPCB'),
+        buildNoteItemMobile('Stage 4', '1 USDT = 3000 PPCB', ' for 2.6B PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItemMobile('Stage 5', '1USDT = 1500PPCB', ' for 6B PPCB'),
+        buildNoteItemMobile('Stage 5', '1 USDT = 2500 PPCB', ' for 6B PPCB'),
       ],
     );
   }
@@ -227,23 +227,23 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
         const SizedBox(
           height: 16,
         ),
-        buildNoteItem('Stage 1', '1USDT = 5000PPCB', ' for 100M PPCB'),
+        buildNoteItem('Stage 1', '1 USDT = 5000 PPCB', ' for 100M PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 2', '1USDT = 3000PPCB', ' for 300M PPCB'),
+        buildNoteItem('Stage 2', '1 USDT = 4000 PPCB', ' for 300M PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 3', '1USDT = 2500PPCB', ' for 1B PPCB'),
+        buildNoteItem('Stage 3', '1 USDT = 3500 PPCB', ' for 1B PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 4', '1USDT = 2000PPCB', ' for 2.6B PPCB'),
+        buildNoteItem('Stage 4', '1 USDT = 3000 PPCB', ' for 2.6B PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildNoteItem('Stage 5', '1USDT = 1500PPCB', ' for 6B PPCB'),
+        buildNoteItem('Stage 5', '1 USDT = 2500 PPCB', ' for 6B PPCB'),
       ],
     );
   }
@@ -270,19 +270,19 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
         const SizedBox(
           height: 8,
         ),
-        buildBonusItemMobile('Buy orders > 100 USDT', ' bonus 20%'),
+        buildBonusItemMobile('Buy orders > 100 USDT', ' bonus 10%'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItemMobile('Buy orders > 500 USDT', ' bonus 30%'),
+        buildBonusItemMobile('Buy orders > 500 USDT', ' bonus 15%'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItemMobile('Buy orders > 2000 USDT', ' bonus 50%'),
+        buildBonusItemMobile('Buy orders > 2000 USDT', ' bonus 20%'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItemMobile('Buy orders > 5000 USDT', ' bonus 70%'),
+        buildBonusItemMobile('Buy orders > 5000 USDT', ' bonus 30%'),
       ],
     );
   }
@@ -302,19 +302,19 @@ class _HomePresaleBoardState extends State<HomePresaleBoard> with AppResponsiveS
         const SizedBox(
           height: 8,
         ),
-        buildBonusItem('Buy orders > 100 USDT', ' are rewarded with 20% PPCB'),
+        buildBonusItem('Buy orders > 100 USDT', ' are rewarded with 10% PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItem('Buy orders > 500 USDT', ' are rewarded with 30% PPCB'),
+        buildBonusItem('Buy orders > 500 USDT', ' are rewarded with 15% PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItem('Buy orders > 2000 USDT', ' are rewarded with 50% PPCB'),
+        buildBonusItem('Buy orders > 2000 USDT', ' are rewarded with 20% PPCB'),
         const SizedBox(
           height: 8,
         ),
-        buildBonusItem('Buy orders > 5000 USDT', ' are rewarded with 70% PPCB'),
+        buildBonusItem('Buy orders > 5000 USDT', ' are rewarded with 30% PPCB'),
       ],
     );
   }

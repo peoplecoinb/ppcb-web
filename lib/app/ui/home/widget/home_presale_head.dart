@@ -206,9 +206,9 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                     context.go(Routes.airdrop.route);
                   },
                   title: S.current.airdrop_title.toUpperCase(),
-                  textStyle: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
+                  textStyle: AppTextStyles.getSmStyle(AppTextStyles.zendots),
                   radius: 999,
-                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                 ),
                 const SizedBox(height: 20),
                 ProminentButton(
@@ -216,9 +216,9 @@ class HomePresaleHead extends StatelessWidget with AppResponsiveScreen {
                     context.go(Routes.become_ambassador.route);
                   },
                   title: S.current.become_ambassador.toUpperCase(),
-                  textStyle: AppTextStyles.getBaseStyle(AppTextStyles.zendots),
+                  textStyle: AppTextStyles.getSmStyle(AppTextStyles.zendots),
                   radius: 999,
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                   backgroundColor: AppColors.white,
                   borderColor: AppColors.white,
                   textColor: AppColors.primary,

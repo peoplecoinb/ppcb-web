@@ -50,43 +50,45 @@ class _ProminentButtonState extends State<ProminentButton> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _animation,
-      builder: (BuildContext context, Widget? child) {
-        return AnimatedContainer(
-          duration: _controller.duration!,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(widget.radius),
-            color: Colors.transparent,
-            boxShadow: <BoxShadow>[
-              for (int i = 0; i < 30 * _animation.value; i++)
-                BoxShadow(
-                  color: (widget.shadowColor ?? AppColors.primary).withOpacity(_animation.value),
-                  blurRadius: 20 * _animation.value,
-                  spreadRadius: 0.5 * _animation.value,
-                ),
-            ],
-          ),
-          child: child,
-        );
-      },
-      child: CustomOutlinedButton(
-        title: widget.title,
-        action: widget.action,
-        textStyle: widget.textStyle,
-        radius: widget.radius,
-        padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        backgroundColor: widget.backgroundColor,
-        textColor: widget.textColor,
-        borderColor: widget.borderColor,
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: AppColors.black.withOpacity(0.7),
-            blurRadius: 20,
-            spreadRadius: 0.5,
-            offset: const Offset(0, 5),
-          ),
-        ],
+    return RepaintBoundary(
+      child: AnimatedBuilder(
+        animation: _animation,
+        builder: (BuildContext context, Widget? child) {
+          return AnimatedContainer(
+            duration: _controller.duration!,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(widget.radius),
+              color: Colors.transparent,
+              boxShadow: <BoxShadow>[
+                for (int i = 0; i < 30 * _animation.value; i++)
+                  BoxShadow(
+                    color: (widget.shadowColor ?? AppColors.primary).withOpacity(_animation.value),
+                    blurRadius: 20 * _animation.value,
+                    spreadRadius: 0.5 * _animation.value,
+                  ),
+              ],
+            ),
+            child: child,
+          );
+        },
+        child: CustomOutlinedButton(
+          title: widget.title,
+          action: widget.action,
+          textStyle: widget.textStyle,
+          radius: widget.radius,
+          padding: widget.padding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          backgroundColor: widget.backgroundColor,
+          textColor: widget.textColor,
+          borderColor: widget.borderColor,
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: AppColors.black.withOpacity(0.7),
+              blurRadius: 20,
+              spreadRadius: 0.5,
+              offset: const Offset(0, 5),
+            ),
+          ],
+        ),
       ),
     );
   }
